@@ -1,3 +1,6 @@
+import './lib/env/server';
+import './lib/env/client';
+
 import type { NextConfig } from 'next';
 import createNextIntlPlugin from 'next-intl/plugin';
 
