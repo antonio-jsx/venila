@@ -5,6 +5,7 @@
 * Environment variable - T3Env
 * DataBase - Drizzle-ORM
 * Authentication - Better-Auth
+* UI - ShadCN
 
 ## Environment Variables
 
