@@ -24,7 +24,9 @@ export function Login() {
       callbackURL: '/admin',
     });
 
-    alert(error?.message);
+    if (error) {
+      alert(error.message);
+    }
   }
 
   return (
@@ -40,7 +42,7 @@ export function Login() {
         control={form.control}
         name="password"
         label={t('form.password')}
-        render={(field) => <Input {...field} />}
+        render={(field) => <Input {...field} type="password" />}
       />
 
       <ButtonSend state={form.formState.isSubmitting} />

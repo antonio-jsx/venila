@@ -1,6 +1,6 @@
 'use client';
 
-import { Link } from '@/i18n/navigation';
+import { Link, useRouter } from '@/i18n/navigation';
 import { authClient } from '@/lib/auth-client';
 import { Avatar, AvatarFallback, AvatarImage } from '@/ui/avatar';
 import { Button } from '@/ui/button';
@@ -23,6 +23,7 @@ import { EllipsisVerticalIcon, LogOutIcon } from 'lucide-react';
 export function NavUser() {
   const { isMobile } = useSidebar();
   const { data, error, isPending } = authClient.useSession();
+  const router = useRouter();
 
   if (isPending) {
     return <Skeleton className="h-8 w-14" />;
@@ -34,6 +35,16 @@ export function NavUser() {
         <Link href="/signin">Sign In</Link>
       </Button>
     );
+  }
+
+  async function logout() {
+    await authClient.signOut({
+      fetchOptions: {
+        onSuccess: () => {
+          router.push('/admin/signin');
+        },
+      },
+    });
   }
 
   return (
@@ -81,7 +92,7 @@ export function NavUser() {
                 </div>
               </div>
             </DropdownMenuLabel>
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={logout}>
               <LogOutIcon />
               Log out
             </DropdownMenuItem>
