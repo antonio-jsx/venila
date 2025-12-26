@@ -31,3 +31,17 @@ npx drizzle-kit migrate
 ``` bash
 npx @better-auth/cli generate --output ./lib/db/schemas/users.ts
 ```
+
+To create the initial user, you must specify the environment variables shown below:
+
+| KEY      | VALUE             |
+|----------|-------------------|
+| USER_EMAIL    | antonio@mail.com  |
+| USER_PASSWORD | password          |
+| USER_NAME     | Antonio           |
+
+Then, run the initial data seed:
+
+```bash
+npm run db:seed
+```
