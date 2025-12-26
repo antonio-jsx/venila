@@ -14,6 +14,18 @@
 | DATABASE_URL | [PostgreSQL](https://www.postgresql.org/) |
 | BETTER_AUTH_SECRET | use -> openssl rand -base64 32 |
 
+### Drizzle ORM
+
+Generate migrations:
+``` bash
+npx drizzle-kit generate
+```
+
+Apply migrations:
+``` bash
+npx drizzle-kit migrate
+```
+
 ### Better-Auth
 
 ``` bash
