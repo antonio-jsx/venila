@@ -1,3 +1,13 @@
 {
-  "message": "Hola"
+  "message": "Hola",
+  "signin": {
+    "title": "Inicia sesión en tu cuenta",
+    "describe": "¡Bienvenido nuevamente, te hemos extrañado!",
+    "forgot": "¿Has olvidado tu contraseña?",
+    "button": "Iniciar",
+    "form": {
+      "email": "Email",
+      "password": "Contraseña"
+    }
+  }
 }

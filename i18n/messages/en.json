@@ -1,3 +1,13 @@
 {
-  "message": "Hello"
+  "message": "Hello",
+  "signin": {
+    "title": "Login to your account",
+    "describe": "Welcome back you've been missed!",
+    "forgot": "Forgot password?",
+    "button": "Login",
+    "form": {
+      "email": "Email",
+      "password": "Password"
+    }
+  }
 }
