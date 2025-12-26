@@ -14,9 +14,9 @@ export default function middleware(request: NextRequest) {
   const response = handleI18nRouting(request);
   const pathname = stripLocale(request.nextUrl.pathname);
 
-  if (pathname.startsWith('/admin')) {
+  if (pathname.startsWith('/admin') && pathname !== '/admin/signin') {
     if (!getSessionCookie(request)) {
-      return NextResponse.redirect(new URL('/signin', request.url));
+      return NextResponse.redirect(new URL('/admin/signin', request.url));
     }
   }
 

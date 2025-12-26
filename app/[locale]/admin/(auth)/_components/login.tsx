@@ -1,6 +1,6 @@
 'use client';
 
-import { formLogin, type LoginSchema } from '@/app/(auth)/schema';
+import { formLogin, type LoginSchema } from '@/app/admin/(auth)/schema';
 import { ButtonSend } from '@/components/button-send';
 import { FormField } from '@/components/form-field';
 import { Input } from '@/components/ui/input';
