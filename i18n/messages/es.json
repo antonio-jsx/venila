@@ -17,6 +17,41 @@
       "Tickets": "Tickets",
       "Orders": "Órdenes",
       "Attendees": "Asistentes"
+    },
+    "events": {
+      "title": "Eventos",
+      "columns": {
+        "event": "Evento",
+        "status": "Estado",
+        "date": "Fecha",
+        "visibility": "Visibilidad"
+      }
+    },
+    "tickets": {
+      "title": "Tickets",
+      "columns": {
+        "event": "Evento",
+        "price": "Precio",
+        "quantity": "Cantidad",
+        "status": "Estado"
+      }
+    },
+    "orders": {
+      "title": "Órdenes",
+      "columns": {
+        "order": "Orden",
+        "event": "Evento",
+        "payment": "Método de pago",
+        "date": "Fecha"
+      }
+    },
+    "attendees": {
+      "title": "Asistentes",
+      "columns": {
+        "attendee": "Asistente",
+        "event": "Evento",
+        "order": "ID de pedido"
+      }
     }
   }
 }

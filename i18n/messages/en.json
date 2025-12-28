@@ -17,6 +17,41 @@
       "Tickets": "Tickets",
       "Orders": "Orders",
       "Attendees": "Attendees"
+    },
+    "events": {
+      "title": "Events",
+      "columns": {
+        "event": "Event",
+        "status": "Status",
+        "date": "Date",
+        "visibility": "Visibility"
+      }
+    },
+    "tickets": {
+      "title": "Tickets",
+      "columns": {
+        "event": "Event",
+        "price": "Price",
+        "quantity": "Quantity",
+        "status": "Status"
+      }
+    },
+    "orders": {
+      "title": "Orders",
+      "columns": {
+        "order": "Order",
+        "event": "Event",
+        "payment": "Payment method",
+        "date": "Date"
+      }
+    },
+    "attendees": {
+      "title": "Attendees",
+      "columns": {
+        "attendee": "Attendee",
+        "event": "Event",
+        "order": "Order ID"
+      }
     }
   }
 }
