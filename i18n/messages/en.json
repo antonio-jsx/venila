@@ -9,5 +9,14 @@
       "email": "Email",
       "password": "Password"
     }
+  },
+  "admin": {
+    "menu": {
+      "Dashboard": "Dashboard",
+      "Events": "Events",
+      "Tickets": "Tickets",
+      "Orders": "Orders",
+      "Attendees": "Attendees"
+    }
   }
 }

@@ -9,5 +9,14 @@
       "email": "Email",
       "password": "Contraseña"
     }
+  },
+  "admin": {
+    "menu": {
+      "Dashboard": "Dashboard",
+      "Events": "Eventos",
+      "Tickets": "Tickets",
+      "Orders": "Órdenes",
+      "Attendees": "Asistentes"
+    }
   }
 }

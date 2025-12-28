@@ -1,3 +1,5 @@
+import { Menu } from '@/admin/_components/menu';
+import { NavUser } from '@/admin/_components/nav-user';
 import {
   Sidebar,
   SidebarContent,
@@ -5,13 +7,13 @@ import {
   SidebarGroup,
   SidebarHeader,
 } from '@/components/ui/sidebar';
-import { NavUser } from './nav-user';
 
 export function AppSidebar() {
   return (
     <Sidebar variant="inset" collapsible="icon">
       <SidebarHeader />
       <SidebarContent>
+        <Menu />
         <SidebarGroup />
       </SidebarContent>
       <SidebarFooter>

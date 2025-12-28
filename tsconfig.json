@@ -21,7 +21,8 @@
     "paths": {
       "@/*": ["./*"],
       "@/app/*": ["./app/[locale]/*"],
-      "@/ui/*": ["./components/ui/*"]
+      "@/ui/*": ["./components/ui/*"],
+      "@/admin/*": ["./app/[locale]/admin/(admin)/*"]
     }
   },
   "include": [
