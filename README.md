@@ -6,6 +6,7 @@
 * DataBase - Drizzle-ORM
 * Authentication - Better-Auth
 * UI - ShadCN
+* Map - leaflet ~ React-Leaftlet
 
 ## Environment Variables
 
