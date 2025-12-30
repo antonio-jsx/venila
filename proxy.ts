@@ -1,5 +1,6 @@
 import { routing } from '@/i18n/routing';
-import { getSessionCookie } from 'better-auth/cookies';
+import { auth } from '@/lib/auth';
+import { headers } from 'next/headers';
 import { type NextRequest, NextResponse } from 'next/server';
 import createMiddleware from 'next-intl/middleware';
 
@@ -10,12 +11,16 @@ function stripLocale(pathname: string) {
   return pathname.replace(localePattern, '/');
 }
 
-export default function middleware(request: NextRequest) {
+export default async function middleware(request: NextRequest) {
   const response = handleI18nRouting(request);
   const pathname = stripLocale(request.nextUrl.pathname);
 
   if (pathname.startsWith('/admin') && pathname !== '/admin/signin') {
-    if (!getSessionCookie(request)) {
+    const session = await auth.api.getSession({
+      headers: await headers(),
+    });
+
+    if (!session) {
       return NextResponse.redirect(new URL('/admin/signin', request.url));
     }
   }
