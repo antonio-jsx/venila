@@ -1,4 +1,5 @@
 import { NavHeader } from '@/admin/_components/nav-header';
+import { CreateTicket } from '@/admin/tickets/_components/create_ticket';
 import { Table, TableHead, TableHeader, TableRow } from '@/ui/table';
 import { type Locale, useTranslations } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
@@ -14,7 +15,9 @@ export default function TicketsPage({
 
   return (
     <>
-      <NavHeader title={t('title')} />
+      <NavHeader title={t('title')}>
+        <CreateTicket />
+      </NavHeader>
 
       <div className="px-4">
         <section className="relative flex flex-col gap-4 overflow-auto rounded-sm border">

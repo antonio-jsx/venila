@@ -25,6 +25,23 @@
         "status": "Estado",
         "date": "Fecha",
         "visibility": "Visibilidad"
+      },
+      "form": {
+        "btn_create": "Crear evento",
+        "title": "Crear evento",
+        "description": "Complete los detalles para publicar un nuevo evento.",
+        "name": "Título del evento",
+        "cover": "Imagen de portada",
+        "describe": "Descripción",
+        "dateTime": "Fecha y Hora",
+        "startDate": "Fecha de inicio",
+        "startTime": "Hora de inicio",
+        "endDate": "Fecha de finalización",
+        "endTime": "Hora de finalización",
+        "location": "Ubicación",
+        "venue": "Nombre del lugar",
+        "address": "Dirección",
+        "active": "Activar evento"
       }
     },
     "tickets": {
@@ -34,6 +51,20 @@
         "price": "Precio",
         "quantity": "Cantidad",
         "status": "Estado"
+      },
+      "form": {
+        "btn_create": "Crear Ticket",
+        "title": "Crear ticket",
+        "description": "Configure los detalles de las entradas y los precios para su evento.",
+        "name": "Nombre del ticket",
+        "describe": "Descripción",
+        "price": "Precio",
+        "quantity": "Cantidad Total",
+        "event": "Seleccionar un evento",
+        "status": "Estado del ticket",
+        "startDate": "Fecha de inicio",
+        "endDate": "Fecha de finalización",
+        "active": "Activar la venta del ticket"
       }
     },
     "orders": {

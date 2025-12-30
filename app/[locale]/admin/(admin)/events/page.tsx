@@ -1,4 +1,5 @@
 import { NavHeader } from '@/admin/_components/nav-header';
+import { CreateEvent } from '@/admin/events/_components/create-event';
 import { Table, TableHead, TableHeader, TableRow } from '@/ui/table';
 import { type Locale, useTranslations } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
@@ -14,7 +15,9 @@ export default function EventsPage({
 
   return (
     <>
-      <NavHeader title={t('title')} />
+      <NavHeader title={t('title')}>
+        <CreateEvent />
+      </NavHeader>
 
       <div className="px-4">
         <section className="relative flex flex-col gap-4 overflow-auto rounded-sm border">
