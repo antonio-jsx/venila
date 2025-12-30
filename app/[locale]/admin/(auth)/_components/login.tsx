@@ -45,7 +45,7 @@ export function Login() {
         render={(field) => <Input {...field} type="password" />}
       />
 
-      <ButtonSend state={form.formState.isSubmitting} />
+      <ButtonSend text={t('button')} state={form.formState.isSubmitting} />
     </form>
   );
 }

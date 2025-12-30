@@ -10,7 +10,9 @@ import { type Locale, useTranslations } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { use } from 'react';
 
-export default function SigninPage({ params }: PageProps<'/[locale]/signin'>) {
+export default function SigninPage({
+  params,
+}: PageProps<'/[locale]/admin/signin'>) {
   const { locale } = use(params);
   setRequestLocale(locale as Locale);
 

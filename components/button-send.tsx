@@ -2,15 +2,12 @@
 
 import { Button } from '@/ui/button';
 import { Spinner } from '@/ui/spinner';
-import { useTranslations } from 'next-intl';
 
-export function ButtonSend({ state }: { state: boolean }) {
-  const t = useTranslations('signin');
-
+export function ButtonSend({ text, state }: { text: string; state: boolean }) {
   return (
-    <Button type="submit">
+    <Button type="submit" disabled={state}>
       {state && <Spinner />}
-      {t('button')}
+      {text}
     </Button>
   );
 }
