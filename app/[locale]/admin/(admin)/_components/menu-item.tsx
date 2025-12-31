@@ -15,7 +15,7 @@ export function MenuItem(item: {
     <SidebarMenuItem>
       <SidebarMenuButton
         asChild
-        isActive={pathname === item.url}
+        isActive={pathname === `/admin${item.url}`}
         tooltip={item.title}
       >
         <Link href={`/admin${item.url}`}>
