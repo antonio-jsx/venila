@@ -1,5 +1,6 @@
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import z from 'zod/v4';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -19,3 +20,6 @@ export function getInitials(name: string): string {
   const second = words[1]?.[0] ?? '';
   return (first + second).toUpperCase();
 }
+
+export const requiredString = (message: string = 'Required') =>
+  z.string().trim().min(1, message);
