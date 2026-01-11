@@ -1,23 +1,25 @@
 'use client';
 
+import { ToggleDays } from '@/admin/tickets/_components/toggle-days';
 import { type TicketSchema, ticketSchema } from '@/admin/tickets/schema';
+import { ButtonSend } from '@/components/button-send';
 import { FormField } from '@/components/form-field';
 import { Button } from '@/ui/button';
-import { Checkbox } from '@/ui/checkbox';
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from '@/ui/dialog';
 import { Input } from '@/ui/input';
-import { Textarea } from '@/ui/textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { PlusIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { useForm } from 'react-hook-form';
+import { FormProvider, useForm } from 'react-hook-form';
 
 export function CreateTicket() {
   const t = useTranslations('admin.tickets.form');
@@ -26,15 +28,11 @@ export function CreateTicket() {
     resolver: zodResolver(ticketSchema),
     defaultValues: {
       name: '',
-      sku: '',
-      description: '',
-      price: '',
-      quantity: '',
-      event: '',
-      active: '',
-      startDate: '',
-      endDate: '',
-      isActive: false,
+      days: [],
+      schedules: {},
+      price: 0,
+      quantity: 0,
+      event: 0,
     },
   });
 
@@ -42,91 +40,78 @@ export function CreateTicket() {
     console.log(data);
   }
 
+  function dialogClose() {
+    form.reset();
+  }
+
   return (
-    <Dialog>
+    <Dialog onOpenChange={dialogClose}>
       <DialogTrigger asChild>
         <Button variant="outline">
           <PlusIcon /> {t('btn_create')}
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-h-3/4 min-w-3xl overflow-y-auto">
+      <DialogContent className="max-h-3/4 overflow-y-auto lg:min-w-3xl">
         <DialogHeader>
           <DialogTitle>{t('title')}</DialogTitle>
           <DialogDescription>{t('description')}</DialogDescription>
         </DialogHeader>
 
-        <form className="space-y-3" onSubmit={form.handleSubmit(onSubmit)}>
-          <FormField
-            control={form.control}
-            name="name"
-            label={t('name')}
-            render={(field) => <Input {...field} />}
-          />
-
-          <FormField
-            control={form.control}
-            name="sku"
-            label="SKU (optional)"
-            render={(field) => <Input {...field} />}
-          />
-
-          <FormField
-            control={form.control}
-            name="description"
-            label={t('describe')}
-            render={(field) => <Textarea {...field} />}
-          />
-
-          <div className="grid grid-cols-2 gap-3">
+        <FormProvider {...form}>
+          <form className="space-y-5" onSubmit={form.handleSubmit(onSubmit)}>
             <FormField
               control={form.control}
-              name="price"
-              label={t('price')}
+              name="name"
+              label={t('name')}
               render={(field) => <Input {...field} />}
             />
 
-            <FormField
-              control={form.control}
-              name="quantity"
-              label={t('quantity')}
-              render={(field) => <Input {...field} />}
-            />
-          </div>
+            <ToggleDays />
 
-          <div className="grid grid-cols-2 gap-3">
-            <FormField
-              control={form.control}
-              name="startDate"
-              label={t('startDate')}
-              render={(field) => <Input type="date" {...field} />}
-            />
+            <div className="grid grid-cols-2 gap-5">
+              <FormField
+                control={form.control}
+                name="price"
+                label={t('price')}
+                render={(field) => (
+                  <Input
+                    type="number"
+                    {...field}
+                    onChange={(e) => field.onChange(Number(e.target.value))}
+                  />
+                )}
+              />
 
-            <FormField
-              control={form.control}
-              name="endDate"
-              label={t('endDate')}
-              render={(field) => <Input type="date" {...field} />}
-            />
-          </div>
+              <FormField
+                control={form.control}
+                name="quantity"
+                label={t('quantity')}
+                render={(field) => (
+                  <Input
+                    type="number"
+                    {...field}
+                    onChange={(e) => field.onChange(Number(e.target.value))}
+                  />
+                )}
+              />
+            </div>
 
-          <FormField
-            control={form.control}
-            name="isActive"
-            render={(field) => (
-              <label className="flex items-center gap-2" htmlFor="active">
-                <Checkbox
-                  id="active"
-                  checked={field.value}
-                  onCheckedChange={(checked) => field.onChange(checked)}
-                  ref={field.ref}
-                  name={field.name}
-                  onBlur={field.onBlur}
-                />
-                {t('active')}
-              </label>
-            )}
-          />
-        </form>
+            <DialogFooter>
+              <DialogClose asChild>
+                <Button
+                  variant="outline"
+                  disabled={form.formState.isSubmitting}
+                >
+                  {t('btn_cancel')}
+                </Button>
+              </DialogClose>
+              <ButtonSend
+                text={t('btn_send')}
+                state={form.formState.isSubmitting}
+              />
+            </DialogFooter>
+          </form>
+        </FormProvider>
       </DialogContent>
     </Dialog>
   );
