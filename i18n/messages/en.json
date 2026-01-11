@@ -1,5 +1,15 @@
 {
   "message": "Hello",
+  "days": {
+    "available": "Available days",
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday"
+  },
   "signin": {
     "title": "Login to your account",
     "describe": "Welcome back you've been missed!",
@@ -28,20 +38,16 @@
       },
       "form": {
         "btn_create": "Create event",
+        "btn_cancel": "Cancel",
+        "btn_send": "Public",
         "title": "Create event",
         "description": "Fill in the details to publish a new event.",
         "name": "Event title",
         "cover": "Cover image",
         "describe": "Description",
-        "dateTime": "Date and time",
         "startDate": "Start date",
-        "startTime": "Start time",
         "endDate": "End date",
-        "endTime": "End time",
-        "location": "Location",
-        "venue": "Venue name",
-        "address": "Address",
-        "active": "Activate event"
+        "location": "Location"
       }
     },
     "tickets": {
@@ -54,17 +60,15 @@
       },
       "form": {
         "btn_create": "Create ticket",
+        "btn_cancel": "Cancel",
+        "btn_send": "Public",
         "title": "Create ticket",
         "description": "Configure the ticket details and pricing for your event.",
         "name": "Ticket name",
-        "describe": "Description",
         "price": "Price",
         "quantity": "Total quantity",
         "event": "Select an event",
-        "status": "Ticket status",
-        "startDate": "Start date",
-        "endDate": "End date",
-        "active": "Activate ticket sale"
+        "status": "Ticket status"
       }
     },
     "orders": {

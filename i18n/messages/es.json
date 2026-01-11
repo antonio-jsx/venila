@@ -1,5 +1,15 @@
 {
   "message": "Hola",
+  "days": {
+    "available": "Días disponibles",
+    "monday": "Lunes",
+    "tuesday": "Martes",
+    "wednesday": "Miercoles",
+    "thursday": "Jueves",
+    "friday": "Viernes",
+    "saturday": "Sabado",
+    "sunday": "Domingo"
+  },
   "signin": {
     "title": "Inicia sesión en tu cuenta",
     "describe": "¡Bienvenido nuevamente, te hemos extrañado!",
@@ -28,20 +38,16 @@
       },
       "form": {
         "btn_create": "Crear evento",
+        "btn_cancel": "Cancelar",
+        "btn_send": "Publicar",
         "title": "Crear evento",
         "description": "Complete los detalles para publicar un nuevo evento.",
         "name": "Título del evento",
         "cover": "Imagen de portada",
         "describe": "Descripción",
-        "dateTime": "Fecha y Hora",
         "startDate": "Fecha de inicio",
-        "startTime": "Hora de inicio",
-        "endDate": "Fecha de finalización",
-        "endTime": "Hora de finalización",
-        "location": "Ubicación",
-        "venue": "Nombre del lugar",
-        "address": "Dirección",
-        "active": "Activar evento"
+        "endDate": "Fecha de término",
+        "location": "Ubicación del evento"
       }
     },
     "tickets": {
@@ -54,17 +60,15 @@
       },
       "form": {
         "btn_create": "Crear Ticket",
+        "btn_cancel": "Cancelar",
+        "btn_send": "Publicar",
         "title": "Crear ticket",
         "description": "Configure los detalles de las entradas y los precios para su evento.",
         "name": "Nombre del ticket",
-        "describe": "Descripción",
         "price": "Precio",
         "quantity": "Cantidad Total",
         "event": "Seleccionar un evento",
-        "status": "Estado del ticket",
-        "startDate": "Fecha de inicio",
-        "endDate": "Fecha de finalización",
-        "active": "Activar la venta del ticket"
+        "status": "Estado del ticket"
       }
     },
     "orders": {
