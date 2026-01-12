@@ -16,10 +16,10 @@ export default function OdersPage({
     <>
       <NavHeader title={t('title')} />
 
-      <div className="px-4">
-        <section className="relative flex flex-col gap-4 overflow-auto rounded-sm border">
+      <section>
+        <div className="relative flex flex-col gap-4 overflow-auto border-t">
           <Table>
-            <TableHeader className="sticky top-0 z-10 bg-muted">
+            <TableHeader className="sticky top-0 z-10">
               <TableRow>
                 <TableHead>{t('columns.order')}</TableHead>
                 <TableHead>{t('columns.event')}</TableHead>
@@ -30,8 +30,8 @@ export default function OdersPage({
               </TableRow>
             </TableHeader>
           </Table>
-        </section>
-      </div>
+        </div>
+      </section>
     </>
   );
 }

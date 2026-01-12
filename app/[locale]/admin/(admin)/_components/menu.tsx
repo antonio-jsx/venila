@@ -1,12 +1,7 @@
 'use client';
 
 import { MenuItem } from '@/admin/_components/menu-item';
-import {
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
-  SidebarMenu,
-} from '@/ui/sidebar';
+import { SidebarGroup, SidebarGroupContent, SidebarMenu } from '@/ui/sidebar';
 import {
   CalendarIcon,
   HouseIcon,
@@ -29,7 +24,6 @@ export function Menu() {
 
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Menu</SidebarGroupLabel>
       <SidebarGroupContent>
         <SidebarMenu>
           {menu.map((item) => (
