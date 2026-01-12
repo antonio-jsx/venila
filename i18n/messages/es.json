@@ -47,7 +47,9 @@
         "describe": "Descripción",
         "startDate": "Fecha de inicio",
         "endDate": "Fecha de término",
-        "location": "Ubicación del evento"
+        "location": "Ubicación del evento",
+        "success": "El evento se ha creado correctamente.",
+        "fail": "Ocurrió un error al crear el evento. Por favor, intenta nuevamente."
       }
     },
     "tickets": {

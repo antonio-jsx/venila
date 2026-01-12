@@ -3,6 +3,7 @@
 import { type EventSchema, eventSchema } from '@/admin/events/schema';
 import { ButtonSend } from '@/components/button-send';
 import { FormField } from '@/components/form-field';
+import { addEvent } from '@/server/mutation/add-event';
 import { Button } from '@/ui/button';
 import {
   Dialog,
@@ -21,8 +22,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { PlusIcon } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
+import { useAction } from 'next-safe-action/hooks';
 import { useMemo } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 
 export function CreateEvent() {
   const MapLeaflet = useMemo(
@@ -46,8 +49,17 @@ export function CreateEvent() {
     },
   });
 
-  function onSubmit(data: EventSchema) {
-    console.log(data);
+  const { executeAsync } = useAction(addEvent, {
+    onSuccess: () => {
+      toast(t('success'));
+    },
+    onError: () => {
+      toast(t('fail'));
+    },
+  });
+
+  async function onSubmit(data: EventSchema) {
+    await executeAsync(data);
   }
 
   function dialogClose() {
