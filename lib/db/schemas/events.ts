@@ -16,3 +16,5 @@ export const events = pgTable('events', {
   address: text().notNull(),
   isActive: boolean().notNull().default(true),
 });
+
+export type SelectEvents = typeof events.$inferSelect;

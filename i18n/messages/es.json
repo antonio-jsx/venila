@@ -30,11 +30,13 @@
     },
     "events": {
       "title": "Eventos",
+      "empty_title": "No se encontraron eventos",
+      "empty": "Aún no has creado ningún evento.",
+      "page": "Mostrando {from} hasta {to} de {total} eventos",
       "columns": {
         "event": "Evento",
         "status": "Estado",
-        "date": "Fecha",
-        "visibility": "Visibilidad"
+        "date": "Fecha"
       },
       "form": {
         "btn_create": "Crear evento",
