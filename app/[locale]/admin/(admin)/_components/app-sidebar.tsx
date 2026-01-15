@@ -10,7 +10,7 @@ import {
 
 export function AppSidebar() {
   return (
-    <Sidebar variant="inset" collapsible="icon">
+    <Sidebar collapsible="icon">
       <SidebarHeader />
       <SidebarContent>
         <Menu />
