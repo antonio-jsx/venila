@@ -33,6 +33,7 @@
       "empty_title": "No events found",
       "empty": "You haven't created any events yet.",
       "page": "Showing {from} to {to} of {total} events",
+      "search": "Search events...",
       "columns": {
         "event": "Event",
         "status": "Status",

@@ -2,18 +2,20 @@ import { NavHeader } from '@/admin/_components/nav-header';
 import { CreateEvent } from '@/admin/events/_components/create-event';
 import { ListEvents } from '@/admin/events/_components/list-events';
 import { LoadingEvent } from '@/admin/events/_components/loading-event';
+import { loadSearchParams } from '@/lib/searchParams';
 import { Table, TableBody, TableHead, TableHeader, TableRow } from '@/ui/table';
-import { type Locale, useTranslations } from 'next-intl';
-import { setRequestLocale } from 'next-intl/server';
-import { Suspense, use } from 'react';
+import { Search } from './_components/search';
+import type { Locale } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
+import { Suspense } from 'react';
 
-export default function EventsPage({
+export default async function EventsPage({
   params,
+  searchParams,
 }: PageProps<'/[locale]/admin/events'>) {
-  const { locale } = use(params);
-  setRequestLocale(locale as Locale);
-
-  const t = useTranslations('admin.events');
+  const { locale } = (await params) as { locale: Locale };
+  const t = await getTranslations({ locale, namespace: 'admin.events' });
+  const { q } = await loadSearchParams(searchParams);
 
   return (
     <>
@@ -21,8 +23,12 @@ export default function EventsPage({
         <CreateEvent />
       </NavHeader>
 
+      <section className="px-6 py-4">
+        <Search />
+      </section>
+
       <section className="space-y-4">
-        <div className="relative flex flex-col gap-4 overflow-auto border-b">
+        <div className="relative flex flex-col gap-4 overflow-auto border-y">
           <Table>
             <TableHeader className="sticky top-0 z-10 bg-muted/50">
               <TableRow>
@@ -33,7 +39,7 @@ export default function EventsPage({
             </TableHeader>
             <TableBody>
               <Suspense fallback={<LoadingEvent />}>
-                <ListEvents />
+                <ListEvents search={q} />
               </Suspense>
             </TableBody>
           </Table>

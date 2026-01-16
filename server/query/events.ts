@@ -3,32 +3,40 @@ import 'server-only';
 import { db } from '@/lib/db';
 import { events, type SelectEvents } from '@/lib/db/schemas/events';
 import type { Paginated } from '@/types';
-import { asc, sql } from 'drizzle-orm';
+import { asc, ilike, sql } from 'drizzle-orm';
 
-export async function getEvents(
-  page: number = 1
-): Promise<Paginated<SelectEvents>> {
+export async function getEvents({
+  page = 1,
+  search,
+}: {
+  search?: string;
+  page?: number;
+}): Promise<Paginated<SelectEvents>> {
   const pageSize = 8;
   const offset = (page - 1) * pageSize;
+
+  const where = search ? ilike(events.title, `%${search}%`) : undefined;
 
   return db.transaction(async (tx) => {
     const data = await tx
       .select()
       .from(events)
+      .where(where)
       .orderBy(asc(events.id))
       .limit(pageSize)
       .offset(offset);
 
     const [{ count }] = await tx
       .select({ count: sql<number>`count(*)` })
-      .from(events);
+      .from(events)
+      .where(where);
 
     return {
       data,
       pagination: {
         total: count,
         totalPages: Math.ceil(count / pageSize),
-        from: (page - 1) * pageSize + 1,
+        from: count === 0 ? 0 : offset + 1,
         to: Math.min(page * pageSize, count),
       },
     };
