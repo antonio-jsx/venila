@@ -14,8 +14,9 @@ export default async function EventsPage({
   searchParams,
 }: PageProps<'/[locale]/admin/events'>) {
   const { locale } = (await params) as { locale: Locale };
-  const t = await getTranslations({ locale, namespace: 'admin.events' });
-  const { q } = await loadSearchParams(searchParams);
+  const tPromise = getTranslations({ locale, namespace: 'admin.events' });
+  const searchPromise = loadSearchParams(searchParams);
+  const [t, { q }] = await Promise.all([tPromise, searchPromise]);
 
   return (
     <>

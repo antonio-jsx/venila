@@ -6,8 +6,10 @@ import { TableCell, TableRow } from '@/ui/table';
 import { getTranslations } from 'next-intl/server';
 
 export async function ListEvents({ search }: { search: string }) {
-  const t = await getTranslations('admin.events');
-  const { data, pagination } = await getEvents({ search });
+  const [t, { data, pagination }] = await Promise.all([
+    getTranslations('admin.events'),
+    getEvents({ search }),
+  ]);
 
   if (data.length <= 0) {
     return <EmptyEvents title={t('empty_title')} empty={t('empty')} />;
