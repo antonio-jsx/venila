@@ -1,6 +1,10 @@
 'use client';
 
-import { type EventSchema, eventSchema } from '@/admin/events/schema';
+import {
+  type EventSchema,
+  eventDefaults,
+  eventSchema,
+} from '@/admin/events/schema';
 import { ButtonSend } from '@/components/button-send';
 import { FormField } from '@/components/form-field';
 import { addEvent } from '@/server/mutation/add-event';
@@ -17,36 +21,31 @@ import {
 } from '@/ui/dialog';
 import { Input } from '@/ui/input';
 import { Separator } from '@/ui/separator';
-import { Textarea } from '@/ui/textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { PlusIcon } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 import { useAction } from 'next-safe-action/hooks';
-import { useMemo } from 'react';
+import { useId } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
+const MapLeaflet = dynamic(() => import('@/components/map-leaflet'), {
+  ssr: false,
+});
+
+const Editor = dynamic(() => import('@/components/editor'), {
+  ssr: false,
+});
+
 export function CreateEvent() {
-  const MapLeaflet = useMemo(
-    () =>
-      dynamic(() => import('@/components/map-leaflet'), {
-        ssr: false,
-      }),
-    []
-  );
+  const formId = useId();
 
   const t = useTranslations('admin.events.form');
 
   const form = useForm({
     resolver: zodResolver(eventSchema),
-    defaultValues: {
-      title: '',
-      description: '',
-      startDate: '',
-      endDate: '',
-      address: '',
-    },
+    defaultValues: eventDefaults,
   });
 
   const { executeAsync } = useAction(addEvent, {
@@ -80,7 +79,11 @@ export function CreateEvent() {
         </DialogHeader>
 
         <FormProvider {...form}>
-          <form className="space-y-5" onSubmit={form.handleSubmit(onSubmit)}>
+          <form
+            className="space-y-5"
+            id={formId}
+            onSubmit={form.handleSubmit(onSubmit)}
+          >
             <FormField
               control={form.control}
               name="title"
@@ -104,12 +107,8 @@ export function CreateEvent() {
               />
             </div>
 
-            <FormField
-              control={form.control}
-              name="description"
-              label={t('describe')}
-              render={(field) => <Textarea {...field} />}
-            />
+            <strong>{t('describe')}</strong>
+            <Editor />
 
             <Separator className="my-3" />
             <strong className="mb-3 inline-block">{t('location')}</strong>
@@ -121,23 +120,20 @@ export function CreateEvent() {
             />
 
             <MapLeaflet />
-
-            <DialogFooter>
-              <DialogClose asChild>
-                <Button
-                  variant="outline"
-                  disabled={form.formState.isSubmitting}
-                >
-                  {t('btn_cancel')}
-                </Button>
-              </DialogClose>
-              <ButtonSend
-                text={t('btn_send')}
-                state={form.formState.isSubmitting}
-              />
-            </DialogFooter>
           </form>
         </FormProvider>
+        <DialogFooter>
+          <DialogClose asChild>
+            <Button variant="outline" disabled={form.formState.isSubmitting}>
+              {t('btn_cancel')}
+            </Button>
+          </DialogClose>
+          <ButtonSend
+            form={formId}
+            text={t('btn_send')}
+            state={form.formState.isSubmitting}
+          />
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   );

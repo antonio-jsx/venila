@@ -29,3 +29,11 @@ export const eventSchema = z
   });
 
 export type EventSchema = z.infer<typeof eventSchema>;
+
+export const eventDefaults = {
+  title: '',
+  description: '',
+  startDate: '',
+  endDate: '',
+  address: '',
+} satisfies EventSchema;
