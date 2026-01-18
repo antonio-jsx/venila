@@ -9,7 +9,7 @@ export function NavHeader({
   children?: React.ReactNode;
 }) {
   return (
-    <header className="flex h-15 shrink-0 items-center gap-2 border-b bg-background px-6">
+    <header className="flex h-14 shrink-0 items-center gap-2 rounded-t-md border-b bg-background px-6">
       <div className="flex items-center gap-1">
         <SidebarTrigger className="-ml-1" />
         <Separator

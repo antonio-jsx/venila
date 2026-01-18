@@ -1,3 +1,4 @@
+import { Brand } from '@/admin/_components/brand';
 import { Menu } from '@/admin/_components/menu';
 import { NavUser } from '@/admin/_components/nav-user';
 import {
@@ -10,8 +11,10 @@ import {
 
 export function AppSidebar() {
   return (
-    <Sidebar collapsible="icon">
-      <SidebarHeader />
+    <Sidebar variant="inset" collapsible="icon">
+      <SidebarHeader>
+        <Brand />
+      </SidebarHeader>
       <SidebarContent>
         <Menu />
         <SidebarGroup />
