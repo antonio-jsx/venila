@@ -2,7 +2,9 @@ import { NavHeader } from '@/admin/_components/nav-header';
 import { CreateEvent } from '@/admin/events/_components/create-event';
 import { ListEvents } from '@/admin/events/_components/list-events';
 import { LoadingEvent } from '@/admin/events/_components/loading-event';
+import { Remove } from '@/components/remove';
 import { loadSearchParams } from '@/lib/searchParams';
+import { removeEvent } from '@/server/mutation/remove-event';
 import { Table, TableBody, TableHead, TableHeader, TableRow } from '@/ui/table';
 import { Search } from './_components/search';
 import type { Locale } from 'next-intl';
@@ -36,6 +38,7 @@ export default async function EventsPage({
                 <TableHead>{t('columns.event')}</TableHead>
                 <TableHead>{t('columns.date')}</TableHead>
                 <TableHead>{t('columns.status')}</TableHead>
+                <TableHead className="text-right"></TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -46,6 +49,8 @@ export default async function EventsPage({
           </Table>
         </div>
       </section>
+
+      <Remove action={removeEvent} />
     </>
   );
 }

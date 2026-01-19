@@ -17,7 +17,7 @@ export function EmptyEvents({
 }) {
   return (
     <TableRow>
-      <TableCell colSpan={3}>
+      <TableCell colSpan={4}>
         <Empty>
           <EmptyHeader>
             <EmptyMedia variant="icon">

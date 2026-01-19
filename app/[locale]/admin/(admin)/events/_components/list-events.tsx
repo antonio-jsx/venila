@@ -1,5 +1,6 @@
 import { EmptyEvents } from '@/admin/events/_components//empty';
 import { PaginationEvents } from '@/admin/events/_components/pagination';
+import { ButtonTrash } from '@/components/button-trash';
 import { getEvents } from '@/server/query/events';
 import { Badge } from '@/ui/badge';
 import { TableCell, TableRow } from '@/ui/table';
@@ -33,6 +34,9 @@ export async function ListEvents({ search }: { search: string }) {
             <Badge variant="secondary">
               {event.isActive ? 'Active' : 'Hidden'}
             </Badge>
+          </TableCell>
+          <TableCell className="text-right">
+            <ButtonTrash title={event.title} id={event.id} />
           </TableCell>
         </TableRow>
       ))}
