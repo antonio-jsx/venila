@@ -28,6 +28,12 @@
       "Orders": "Órdenes",
       "Attendees": "Asistentes"
     },
+    "delete": {
+      "title": "¿Borrar “{name}”?",
+      "subtitle": "¿Seguro que quieres eliminar “{name}“? Esta acción no se puede deshacer.",
+      "btn_cancel": "Cancelar",
+      "btn_confirm": "Confirmar"
+    },
     "events": {
       "title": "Eventos",
       "empty_title": "No se encontraron eventos",

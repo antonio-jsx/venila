@@ -28,6 +28,12 @@
       "Orders": "Orders",
       "Attendees": "Attendees"
     },
+    "delete": {
+      "title": "Delete “{name}”?",
+      "subtitle": "Are you sure you want to delete “{name}“? This action cannot be undone.",
+      "btn_cancel": "Cancel",
+      "btn_confirm": "Confirm"
+    },
     "events": {
       "title": "Events",
       "empty_title": "No events found",
