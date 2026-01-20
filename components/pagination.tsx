@@ -1,9 +1,15 @@
 import { TableCell, TableRow } from '@/ui/table';
 
-export async function PaginationEvents({ show }: { show: string }) {
+export async function Pagination({
+  show,
+  cols,
+}: {
+  show: string;
+  cols: number;
+}) {
   return (
     <TableRow>
-      <TableCell colSpan={4}>
+      <TableCell colSpan={cols}>
         <p className="text-xs">{show}</p>
       </TableCell>
     </TableRow>

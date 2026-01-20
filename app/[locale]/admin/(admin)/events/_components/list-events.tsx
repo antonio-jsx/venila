@@ -1,6 +1,6 @@
-import { EmptyEvents } from '@/admin/events/_components//empty';
-import { PaginationEvents } from '@/admin/events/_components/pagination';
+import { EmptyTable } from '@/components//empty-table';
 import { ButtonTrash } from '@/components/button-trash';
+import { Pagination } from '@/components/pagination';
 import { getEvents } from '@/server/query/events';
 import { Badge } from '@/ui/badge';
 import { TableCell, TableRow } from '@/ui/table';
@@ -13,7 +13,7 @@ export async function ListEvents({ search }: { search: string }) {
   ]);
 
   if (data.length <= 0) {
-    return <EmptyEvents title={t('empty_title')} empty={t('empty')} />;
+    return <EmptyTable title={t('empty_title')} empty={t('empty')} cols={4} />;
   }
 
   return (
@@ -41,12 +41,13 @@ export async function ListEvents({ search }: { search: string }) {
         </TableRow>
       ))}
 
-      <PaginationEvents
+      <Pagination
         show={t('page', {
           from: pagination.from,
           to: pagination.to,
           total: pagination.total,
         })}
+        cols={4}
       />
     </>
   );

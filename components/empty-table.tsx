@@ -8,16 +8,18 @@ import {
 import { TableCell, TableRow } from '@/ui/table';
 import { CalendarIcon } from 'lucide-react';
 
-export function EmptyEvents({
+export function EmptyTable({
   title,
   empty,
+  cols,
 }: {
   title: string;
   empty: string;
+  cols: number;
 }) {
   return (
     <TableRow>
-      <TableCell colSpan={4}>
+      <TableCell colSpan={cols}>
         <Empty>
           <EmptyHeader>
             <EmptyMedia variant="icon">

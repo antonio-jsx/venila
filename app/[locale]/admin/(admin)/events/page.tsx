@@ -1,12 +1,12 @@
 import { NavHeader } from '@/admin/_components/nav-header';
 import { CreateEvent } from '@/admin/events/_components/create-event';
 import { ListEvents } from '@/admin/events/_components/list-events';
-import { LoadingEvent } from '@/admin/events/_components/loading-event';
+import { Search } from '@/admin/events/_components/search';
+import { LoadingTable } from '@/components/loading-table';
 import { Remove } from '@/components/remove';
 import { loadSearchParams } from '@/lib/searchParams';
 import { removeEvent } from '@/server/mutation/remove-event';
 import { Table, TableBody, TableHead, TableHeader, TableRow } from '@/ui/table';
-import { Search } from './_components/search';
 import type { Locale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { Suspense } from 'react';
@@ -42,7 +42,7 @@ export default async function EventsPage({
               </TableRow>
             </TableHeader>
             <TableBody>
-              <Suspense fallback={<LoadingEvent />}>
+              <Suspense fallback={<LoadingTable rows={4} cols={3} />}>
                 <ListEvents search={q} />
               </Suspense>
             </TableBody>
