@@ -12,8 +12,9 @@ export async function getEvents({
   search?: string;
   page?: number;
 }): Promise<Paginated<SelectEvents>> {
-  const pageSize = 8;
-  const offset = (page - 1) * pageSize;
+  const pageSize = 2;
+  const safePage = Math.max(1, Number(page) || 1);
+  const offset = (safePage - 1) * pageSize;
 
   const where = search ? ilike(events.title, `%${search}%`) : undefined;
 

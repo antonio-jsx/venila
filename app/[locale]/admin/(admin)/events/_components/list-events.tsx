@@ -6,10 +6,16 @@ import { Badge } from '@/ui/badge';
 import { TableCell, TableRow } from '@/ui/table';
 import { getTranslations } from 'next-intl/server';
 
-export async function ListEvents({ search }: { search: string }) {
+export async function ListEvents({
+  search,
+  page,
+}: {
+  search: string;
+  page: number;
+}) {
   const [t, { data, pagination }] = await Promise.all([
     getTranslations('admin.events'),
-    getEvents({ search }),
+    getEvents({ search, page }),
   ]);
 
   if (data.length <= 0) {
@@ -42,12 +48,14 @@ export async function ListEvents({ search }: { search: string }) {
       ))}
 
       <Pagination
+        cols={4}
+        path="/admin/events"
         show={t('page', {
           from: pagination.from,
           to: pagination.to,
           total: pagination.total,
         })}
-        cols={4}
+        pages={pagination.totalPages}
       />
     </>
   );

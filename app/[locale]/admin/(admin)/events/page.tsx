@@ -18,7 +18,7 @@ export default async function EventsPage({
   const { locale } = (await params) as { locale: Locale };
   const tPromise = getTranslations({ locale, namespace: 'admin.events' });
   const searchPromise = loadSearchParams(searchParams);
-  const [t, { q }] = await Promise.all([tPromise, searchPromise]);
+  const [t, { q, page }] = await Promise.all([tPromise, searchPromise]);
 
   return (
     <>
@@ -43,7 +43,7 @@ export default async function EventsPage({
             </TableHeader>
             <TableBody>
               <Suspense fallback={<LoadingTable rows={4} cols={3} />}>
-                <ListEvents search={q} />
+                <ListEvents search={q} page={page} />
               </Suspense>
             </TableBody>
           </Table>
