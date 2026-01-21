@@ -5,6 +5,7 @@ import { isAdminMiddleware } from '@/lib/auth-middleware';
 import { db } from '@/lib/db';
 import { events } from '@/lib/db/schemas/events';
 import { actionClient } from '@/lib/safe-action';
+import { refresh } from 'next/cache';
 
 export const addEvent = actionClient
   .use(isAdminMiddleware)
@@ -12,4 +13,5 @@ export const addEvent = actionClient
   .inputSchema(eventSchema)
   .action(async ({ parsedInput }) => {
     await db.insert(events).values(parsedInput);
+    refresh();
   });
