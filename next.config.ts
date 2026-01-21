@@ -7,13 +7,10 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const nextConfig: NextConfig = {
   reactCompiler: true,
   cacheComponents: true,
+  typedRoutes: true,
   typescript: {
     ignoreBuildErrors: true,
   },
-  experimental: {
-    turbopackFileSystemCacheForDev: true,
-  },
-  typedRoutes: true,
 };
 
 const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
