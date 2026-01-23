@@ -1,5 +1,5 @@
-import { routing } from '@/i18n/routing';
 import { auth } from '@/lib/auth';
+import { routing } from '@/lib/i18n/routing';
 import { headers } from 'next/headers';
 import { type NextRequest, NextResponse } from 'next/server';
 import createMiddleware from 'next-intl/middleware';

@@ -1,7 +1,7 @@
 import 'server-only';
 
-import { redirect } from '@/i18n/navigation';
 import { auth } from '@/lib/auth';
+import { redirect } from '@/lib/i18n/navigation';
 import { ActionError } from '@/lib/safe-action';
 import { headers } from 'next/headers';
 import { getLocale } from 'next-intl/server';
