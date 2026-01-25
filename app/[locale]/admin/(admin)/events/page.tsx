@@ -1,5 +1,5 @@
-import { NavHeader } from '@/admin/_components/nav-header';
-import { CreateEvent } from '@/admin/events/_components/create-event';
+import { NavTitle } from '@/admin/_components/nav-title';
+import { CreateLink } from '@/admin/events/_components/create-link';
 import { ListEvents } from '@/admin/events/_components/list-events';
 import { Search } from '@/admin/events/_components/search';
 import { LoadingTable } from '@/components/loading-table';
@@ -22,18 +22,15 @@ export default async function EventsPage({
 
   return (
     <>
-      <NavHeader title={t('title')}>
-        <CreateEvent />
-      </NavHeader>
-
-      <section className="px-6 py-4">
+      <NavTitle text={t('title')}>
         <Search />
-      </section>
+        <CreateLink />
+      </NavTitle>
 
       <section className="space-y-4">
-        <div className="relative flex flex-col gap-4 overflow-auto border-y">
+        <div className="relative flex flex-col gap-4 overflow-auto">
           <Table>
-            <TableHeader className="sticky top-0 z-10 bg-muted/50">
+            <TableHeader>
               <TableRow>
                 <TableHead>{t('columns.event')}</TableHead>
                 <TableHead>{t('columns.date')}</TableHead>

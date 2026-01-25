@@ -1,5 +1,5 @@
-import { NavHeader } from '@/admin/_components/nav-header';
+import { NavTitle } from '@/admin/_components/nav-title';
 
 export default function AdminPage() {
-  return <NavHeader title="Dashboard" />;
+  return <NavTitle text="Dashboard" />;
 }

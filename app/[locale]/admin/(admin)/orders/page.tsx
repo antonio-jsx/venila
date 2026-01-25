@@ -1,4 +1,4 @@
-import { NavHeader } from '@/admin/_components/nav-header';
+import { NavTitle } from '@/admin/_components/nav-title';
 import { Table, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { type Locale, useTranslations } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
@@ -14,12 +14,12 @@ export default function OdersPage({
 
   return (
     <>
-      <NavHeader title={t('title')} />
+      <NavTitle text={t('title')} />
 
       <section>
-        <div className="relative flex flex-col gap-4 overflow-auto border-t">
+        <div className="relative flex flex-col gap-4 overflow-auto">
           <Table>
-            <TableHeader className="sticky top-0 z-10">
+            <TableHeader>
               <TableRow>
                 <TableHead>{t('columns.order')}</TableHead>
                 <TableHead>{t('columns.event')}</TableHead>
