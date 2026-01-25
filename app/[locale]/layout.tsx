@@ -1,5 +1,5 @@
 import { Toaster } from '@/components/ui/sonner';
-import { routing } from '@/i18n/routing';
+import { routing } from '@/lib/i18n/routing';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { notFound } from 'next/navigation';
@@ -46,7 +46,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-neutral-50 text-neutral-600 antialiased dark:bg-background dark:text-slate-100`}
       >
         <NextIntlClientProvider>
           <ThemeProvider

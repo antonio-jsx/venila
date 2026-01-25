@@ -1,7 +1,7 @@
 'use client';
 
-import { Link, usePathname } from '@/i18n/navigation';
-import { SidebarMenuButton, SidebarMenuItem } from '@/ui/sidebar';
+import { Link, usePathname } from '@/lib/i18n/navigation';
+import { cn } from '@/lib/utils';
 import type { LucideIcon } from 'lucide-react';
 
 export function MenuItem(item: {
@@ -12,16 +12,23 @@ export function MenuItem(item: {
   const pathname = usePathname();
 
   return (
-    <SidebarMenuItem>
-      <SidebarMenuButton
-        asChild
-        isActive={pathname === `/admin${item.url}`}
-        tooltip={item.title}
+    <li
+      className={cn(
+        'mb-[-2px]',
+        pathname === `/admin${item.url}`
+          ? 'border-indigo-500 border-b-2 text-indigo-500'
+          : ''
+      )}
+    >
+      <Link
+        className={cn(
+          'flex h-14 items-center gap-1 px-2 font-medium text-sm hover:text-indigo-500',
+          pathname === `/admin${item.url}` ? 'text-indigo-500' : ''
+        )}
+        href={`/admin${item.url}`}
       >
-        <Link href={`/admin${item.url}`}>
-          <item.icon /> {item.title}
-        </Link>
-      </SidebarMenuButton>
-    </SidebarMenuItem>
+        <item.icon className="size-4" /> {item.title}
+      </Link>
+    </li>
   );
 }

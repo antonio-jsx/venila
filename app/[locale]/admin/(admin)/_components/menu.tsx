@@ -1,41 +1,30 @@
 'use client';
 
 import { MenuItem } from '@/admin/_components/menu-item';
-import { SidebarGroup, SidebarGroupContent, SidebarMenu } from '@/ui/sidebar';
-import {
-  CalendarIcon,
-  HouseIcon,
-  ShoppingCartIcon,
-  TicketIcon,
-  UsersIcon,
-} from 'lucide-react';
+import { CalendarIcon, ShoppingCartIcon, Users2Icon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 export function Menu() {
   const t = useTranslations('admin.menu');
 
   const menu = [
-    { title: t('Dashboard'), url: '', icon: HouseIcon },
     { title: t('Events'), url: '/events', icon: CalendarIcon },
-    { title: t('Tickets'), url: '/tickets', icon: TicketIcon },
     { title: t('Orders'), url: '/orders', icon: ShoppingCartIcon },
-    { title: t('Attendees'), url: '/attendees', icon: UsersIcon },
+    { title: t('Attendees'), url: '/attendees', icon: Users2Icon },
   ];
 
   return (
-    <SidebarGroup>
-      <SidebarGroupContent>
-        <SidebarMenu>
-          {menu.map((item) => (
-            <MenuItem
-              key={item.title}
-              title={item.title}
-              url={item.url}
-              icon={item.icon}
-            />
-          ))}
-        </SidebarMenu>
-      </SidebarGroupContent>
-    </SidebarGroup>
+    <nav className="mx-auto">
+      <ul className="flex items-center gap-3">
+        {menu.map((item) => (
+          <MenuItem
+            key={item.title}
+            title={item.title}
+            url={item.url}
+            icon={item.icon}
+          />
+        ))}
+      </ul>
+    </nav>
   );
 }
