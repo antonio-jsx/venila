@@ -1,3 +1,6 @@
+/** biome-ignore-all lint/a11y/useSemanticElements: <no semantic> */
+/** biome-ignore-all lint/suspicious/noDoubleEquals: <no dobleequals> */
+/** biome-ignore-all lint/suspicious/noArrayIndexKey: <no key> */
 'use client';
 
 import { Label } from '@/components/ui/label';
@@ -54,7 +57,7 @@ function FieldGroup({ className, ...props }: React.ComponentProps<'div'>) {
 }
 
 const fieldVariants = cva(
-  'group/field flex w-full gap-1.5 data-[invalid=true]:text-destructive',
+  'group/field flex w-full gap-1 data-[invalid=true]:text-destructive',
   {
     variants: {
       orientation: {
