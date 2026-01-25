@@ -22,9 +22,7 @@
   },
   "admin": {
     "menu": {
-      "Dashboard": "Dashboard",
       "Events": "Events",
-      "Tickets": "Tickets",
       "Orders": "Orders",
       "Attendees": "Attendees"
     },
@@ -46,40 +44,24 @@
         "date": "Date"
       },
       "form": {
-        "btn_create": "Create event",
-        "btn_cancel": "Cancel",
         "btn_send": "Public",
         "title": "Create event",
-        "description": "Fill in the details to publish a new event.",
         "name": "Event title",
+        "ph_name": "e.g. End of Year Party",
         "cover": "Cover image",
         "describe": "Description",
+        "ph_describe": "Describe what the event is about...",
         "startDate": "Start date",
         "endDate": "End date",
         "location": "Location",
+        "ticket": {
+          "button": "Add ticket",
+          "title": "Ticket Setup",
+          "name": "Ticket name",
+          "price": "Price"
+        },
         "success": "The event has been created successfully.",
         "fail": "An error occurred while creating the event. Please try again."
-      }
-    },
-    "tickets": {
-      "title": "Tickets",
-      "columns": {
-        "event": "Event",
-        "price": "Price",
-        "quantity": "Quantity",
-        "status": "Status"
-      },
-      "form": {
-        "btn_create": "Create ticket",
-        "btn_cancel": "Cancel",
-        "btn_send": "Public",
-        "title": "Create ticket",
-        "description": "Configure the ticket details and pricing for your event.",
-        "name": "Ticket name",
-        "price": "Price",
-        "quantity": "Total quantity",
-        "event": "Select an event",
-        "status": "Ticket status"
       }
     },
     "orders": {

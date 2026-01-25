@@ -22,9 +22,7 @@
   },
   "admin": {
     "menu": {
-      "Dashboard": "Dashboard",
       "Events": "Eventos",
-      "Tickets": "Tickets",
       "Orders": "Órdenes",
       "Attendees": "Asistentes"
     },
@@ -46,40 +44,24 @@
         "date": "Fecha"
       },
       "form": {
-        "btn_create": "Crear evento",
-        "btn_cancel": "Cancelar",
         "btn_send": "Publicar",
         "title": "Crear evento",
-        "description": "Complete los detalles para publicar un nuevo evento.",
         "name": "Título del evento",
+        "ph_name": "Ej. Fiesta de fin de año",
         "cover": "Imagen de portada",
         "describe": "Descripción",
+        "ph_describe": "Describe de que trata el evento...",
         "startDate": "Fecha de inicio",
         "endDate": "Fecha de término",
         "location": "Ubicación del evento",
+        "ticket": {
+          "button": "Agregar ticket",
+          "title": "Configuración de tickets",
+          "name": "Nombre del ticket",
+          "price": "Precio"
+        },
         "success": "El evento se ha creado correctamente.",
         "fail": "Ocurrió un error al crear el evento. Por favor, intenta nuevamente."
-      }
-    },
-    "tickets": {
-      "title": "Tickets",
-      "columns": {
-        "event": "Evento",
-        "price": "Precio",
-        "quantity": "Cantidad",
-        "status": "Estado"
-      },
-      "form": {
-        "btn_create": "Crear Ticket",
-        "btn_cancel": "Cancelar",
-        "btn_send": "Publicar",
-        "title": "Crear ticket",
-        "description": "Configure los detalles de las entradas y los precios para su evento.",
-        "name": "Nombre del ticket",
-        "price": "Precio",
-        "quantity": "Cantidad Total",
-        "event": "Seleccionar un evento",
-        "status": "Estado del ticket"
       }
     },
     "orders": {
