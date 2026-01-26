@@ -1,6 +1,3 @@
-/** biome-ignore-all lint/a11y/useSemanticElements: <no semantic> */
-/** biome-ignore-all lint/suspicious/noDoubleEquals: <no dobleequals> */
-/** biome-ignore-all lint/suspicious/noArrayIndexKey: <no key> */
 'use client';
 
 import { Label } from '@/components/ui/label';

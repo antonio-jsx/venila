@@ -1,5 +1,3 @@
-/** biome-ignore-all lint/a11y/useSemanticElements: <no semantic> */
-/** biome-ignore-all lint/a11y/useKeyWithClickEvents: <no clickevents> */
 'use client';
 
 import { Button } from '@/components/ui/button';

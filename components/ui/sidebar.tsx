@@ -1,4 +1,3 @@
-/** biome-ignore-all lint/correctness/useExhaustiveDependencies: <no exhaustive> */
 'use client';
 
 import { Button } from '@/components/ui/button';

@@ -1,5 +1,3 @@
-/** biome-ignore-all lint/a11y/useSemanticElements: <no semantic> */
-/** biome-ignore-all lint/a11y/noRedundantRoles: <no roles> */
 import { type Button, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import {
