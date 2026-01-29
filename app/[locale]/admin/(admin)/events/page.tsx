@@ -22,7 +22,7 @@ export default async function EventsPage({
 
   return (
     <>
-      <NavTitle text={t('title')}>
+      <NavTitle text={t('title')} subtitle={t('subtitle')}>
         <Search />
         <CreateLink />
       </NavTitle>
@@ -34,12 +34,14 @@ export default async function EventsPage({
               <TableRow>
                 <TableHead>{t('columns.event')}</TableHead>
                 <TableHead>{t('columns.date')}</TableHead>
+                <TableHead>{t('columns.capacity')}</TableHead>
+                <TableHead>{t('columns.price')}</TableHead>
                 <TableHead>{t('columns.status')}</TableHead>
                 <TableHead className="text-right"></TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              <Suspense fallback={<LoadingTable rows={4} cols={3} />}>
+              <Suspense fallback={<LoadingTable rows={4} cols={6} />}>
                 <ListEvents search={q} page={page} />
               </Suspense>
             </TableBody>

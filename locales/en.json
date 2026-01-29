@@ -34,6 +34,7 @@
     },
     "events": {
       "title": "Events",
+      "subtitle": "Create, edit, and control your events.",
       "empty_title": "No events found",
       "empty": "You haven't created any events yet.",
       "page": "Showing {from} to {to} of {total} events",
