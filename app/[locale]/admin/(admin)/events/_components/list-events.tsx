@@ -1,6 +1,7 @@
 import { EmptyTable } from '@/components//empty-table';
 import { ButtonTrash } from '@/components/button-trash';
 import { Pagination } from '@/components/pagination';
+import { priceRange } from '@/lib/utils';
 import { getEvents } from '@/server/query/events';
 import { Badge } from '@/ui/badge';
 import { TableCell, TableRow } from '@/ui/table';
@@ -19,7 +20,7 @@ export async function ListEvents({
   ]);
 
   if (data.length <= 0) {
-    return <EmptyTable title={t('empty_title')} empty={t('empty')} cols={4} />;
+    return <EmptyTable title={t('empty_title')} empty={t('empty')} cols={6} />;
   }
 
   return (
@@ -31,10 +32,14 @@ export async function ListEvents({
             <Badge variant="outline">{event.startDate}</Badge>
             <Badge
               variant="secondary"
-              className="bg-indigo-100 dark:bg-indigo-400"
+              className="ml-1 bg-indigo-100 text-indigo-900 dark:bg-indigo-400"
             >
               {event.endDate}
             </Badge>
+          </TableCell>
+          <TableCell className="font-medium">{event.capacity}</TableCell>
+          <TableCell className="font-bold">
+            {priceRange(event.minPrice, event.maxPrice)}
           </TableCell>
           <TableCell>
             <Badge variant="secondary">
@@ -48,7 +53,7 @@ export async function ListEvents({
       ))}
 
       <Pagination
-        cols={4}
+        cols={6}
         path="/admin/events"
         show={t('page', {
           from: pagination.from,

@@ -3,7 +3,13 @@ import 'server-only';
 import { db } from '@/lib/db';
 import { events, type SelectEvents } from '@/lib/db/schemas/events';
 import type { Paginated } from '@/types';
-import { asc, ilike, sql } from 'drizzle-orm';
+import { and, asc, eq, getTableColumns, ilike, sql } from 'drizzle-orm';
+
+type EventWithPriceRange = Omit<SelectEvents, 'tickets'> & {
+  minPrice: number | null;
+  maxPrice: number | null;
+  capacity: number | null;
+};
 
 export async function getEvents({
   page = 1,
@@ -11,18 +17,30 @@ export async function getEvents({
 }: {
   search?: string;
   page?: number;
-}): Promise<Paginated<SelectEvents>> {
+}): Promise<Paginated<EventWithPriceRange>> {
   const pageSize = 2;
   const safePage = Math.max(1, Number(page) || 1);
   const offset = (safePage - 1) * pageSize;
 
-  const where = search ? ilike(events.title, `%${search}%`) : undefined;
+  const where = and(
+    eq(events.isActive, true),
+    search ? ilike(events.title, `%${search}%`) : undefined
+  );
 
   return db.transaction(async (tx) => {
+    const { tickets, ...eventColumns } = getTableColumns(events);
+
     const data = await tx
-      .select()
+      .select({
+        ...eventColumns,
+        minPrice: sql<number | null>`min((ticket->>'price')::int)`,
+        maxPrice: sql<number | null>`max((ticket->>'price')::int)`,
+        capacity: sql<number | null>`sum((ticket->>'quantity')::int)`,
+      })
       .from(events)
+      .leftJoin(sql`jsonb_array_elements(${tickets}) as ticket`, sql`true`)
       .where(where)
+      .groupBy(events.id)
       .orderBy(asc(events.id))
       .limit(pageSize)
       .offset(offset);
