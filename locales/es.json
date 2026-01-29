@@ -41,24 +41,31 @@
       "columns": {
         "event": "Evento",
         "status": "Estado",
-        "date": "Fecha"
+        "date": "Fecha",
+        "capacity": "Capacidad",
+        "price": "Precio"
       },
       "form": {
         "btn_send": "Publicar",
         "title": "Crear evento",
+        "subtitle": "Ingresa la información para identificar y programar tu evento",
         "name": "Título del evento",
+        "date": "Fecha",
+        "pickDate": "Selecciona una fecha",
+        "startTime": "Hora de inicio",
+        "endTime": "Hora de fin",
         "ph_name": "Ej. Fiesta de fin de año",
-        "cover": "Imagen de portada",
         "describe": "Descripción",
         "ph_describe": "Describe de que trata el evento...",
-        "startDate": "Fecha de inicio",
-        "endDate": "Fecha de término",
-        "location": "Ubicación del evento",
+        "location": "Ubicación",
+        "more": "Ver más configuraciones",
         "ticket": {
           "button": "Agregar ticket",
           "title": "Configuración de tickets",
+          "subtitle": "Agrega y gestiona los tickets de tu evento",
           "name": "Nombre del ticket",
-          "price": "Precio"
+          "price": "Precio",
+          "quantity": "Cantidad disponible"
         },
         "success": "El evento se ha creado correctamente.",
         "fail": "Ocurrió un error al crear el evento. Por favor, intenta nuevamente."

@@ -98,7 +98,10 @@ export const EditorToolbar = ({ editor }: EditorToolbarProps) => {
   }) as Record<string, boolean>;
 
   return (
-    <InputGroupAddon align="block-start" className="gap-1">
+    <InputGroupAddon
+      align="block-start"
+      className="gap-1 border-b [--spacing:0.25rem]"
+    >
       {toolbarButtons.map((button) => (
         <InputGroupButton
           key={button.label}

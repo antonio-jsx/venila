@@ -41,24 +41,31 @@
       "columns": {
         "event": "Event",
         "status": "Status",
-        "date": "Date"
+        "date": "Date",
+        "capacity": "Capacity",
+        "price": "Price"
       },
       "form": {
         "btn_send": "Public",
         "title": "Create event",
+        "subtitle": "Enter the information to identify and schedule your event",
         "name": "Event title",
+        "date": "Date",
+        "pickDate": "Pick a date",
+        "startTime": "Start time",
+        "endTime": "End time",
         "ph_name": "e.g. End of Year Party",
-        "cover": "Cover image",
         "describe": "Description",
         "ph_describe": "Describe what the event is about...",
-        "startDate": "Start date",
-        "endDate": "End date",
         "location": "Location",
+        "more": "More configurations",
         "ticket": {
           "button": "Add ticket",
           "title": "Ticket Setup",
+          "subtitle": "Add and manage tickets for your event",
           "name": "Ticket name",
-          "price": "Price"
+          "price": "Price",
+          "quantity": "Available quantity"
         },
         "success": "The event has been created successfully.",
         "fail": "An error occurred while creating the event. Please try again."

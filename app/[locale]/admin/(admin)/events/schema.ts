@@ -1,11 +1,17 @@
 import { requiredString } from '@/lib/utils';
 import z from 'zod/v4';
 
+const ticketSchama = z.object({
+  title: requiredString('title is required'),
+  price: z.number().min(1, 'Price is required'),
+  quantity: z.number().min(1, 'Quantity is required'),
+});
+
 export const eventSchema = z
   .object({
     title: requiredString('Title is required'),
     description: z.string().optional(),
-    address: requiredString('Address is required'),
+    address: z.string().optional(),
     startDate: z.iso
       .date('Invalid date format')
       .trim()
@@ -14,6 +20,15 @@ export const eventSchema = z
       .date('Invalid date format')
       .trim()
       .min(1, 'End date is required'),
+    startTime: z.iso
+      .time('Invalid time format')
+      .trim()
+      .min(1, 'Start time is required'),
+    endTime: z.iso
+      .time('Invalid time format')
+      .trim()
+      .min(1, 'End time is required'),
+    tickets: z.array(ticketSchama).min(1, 'At least one ticket is required'),
   })
   .superRefine((data, ctx) => {
     const start = new Date(data.startDate);
@@ -29,11 +44,21 @@ export const eventSchema = z
   });
 
 export type EventSchema = z.infer<typeof eventSchema>;
+export type TicketSchema = z.infer<typeof ticketSchama>;
 
 export const eventDefaults = {
   title: '',
   description: '',
   startDate: '',
   endDate: '',
+  startTime: '',
+  endTime: '',
   address: '',
+  tickets: [
+    {
+      title: '',
+      price: 0,
+      quantity: 0,
+    },
+  ],
 } satisfies EventSchema;
