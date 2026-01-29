@@ -51,6 +51,7 @@ export default function MapLeaflet({
 
   return (
     <MapContainer
+      className="rounded-md"
       center={center}
       zoom={zoom}
       style={{ height }}

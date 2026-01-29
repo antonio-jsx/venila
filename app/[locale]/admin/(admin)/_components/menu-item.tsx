@@ -14,16 +14,16 @@ export function MenuItem(item: {
   return (
     <li
       className={cn(
-        'mb-[-2px]',
+        '-mb-px',
         pathname === `/admin${item.url}`
-          ? 'border-indigo-500 border-b-2 text-indigo-500'
+          ? 'border-primary border-b-2 text-primary'
           : ''
       )}
     >
       <Link
         className={cn(
-          'flex h-14 items-center gap-1 px-2 font-medium text-sm hover:text-indigo-500',
-          pathname === `/admin${item.url}` ? 'text-indigo-500' : ''
+          'flex h-12 items-center gap-1 px-2 font-medium text-muted-foreground text-sm hover:text-indigo-500',
+          pathname === `/admin${item.url}` ? 'text-primary' : ''
         )}
         href={`/admin${item.url}`}
       >

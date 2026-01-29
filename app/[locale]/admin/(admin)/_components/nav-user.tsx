@@ -47,7 +47,7 @@ export function NavUser() {
         <Button
           size="lg"
           variant="ghost"
-          className="px-2 data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+          className="px-2 data-[state=open]:bg-muted data-[state=open]:text-muted-foreground"
         >
           <Avatar className="size-8 rounded-lg">
             <AvatarImage src={data.user.image ?? ''} alt={data.user.name} />

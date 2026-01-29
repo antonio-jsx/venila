@@ -1,5 +1,5 @@
+import { PageNavigation } from '@/components/page-navigation';
 import { TableCell, TableRow } from '@/ui/table';
-import { PageNavigation } from './page-navigation';
 
 export async function Pagination({
   show,
@@ -14,9 +14,9 @@ export async function Pagination({
 }) {
   return (
     <TableRow>
-      <TableCell className="px-6 py-1" colSpan={cols}>
+      <TableCell className="px-2 py-1" colSpan={cols}>
         <div className="flex items-center">
-          <p className="text-xs">{show}</p>
+          <p className="text-muted-foreground text-xs">{show}</p>
           <PageNavigation total={pages} path={path} />
         </div>
       </TableCell>
