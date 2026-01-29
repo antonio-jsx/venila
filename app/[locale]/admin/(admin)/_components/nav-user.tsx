@@ -1,5 +1,6 @@
 'use client';
 
+import ToggleTheme from '@/components/toggle-theme';
 import { authClient } from '@/lib/auth-client';
 import { Link, useRouter } from '@/lib/i18n/navigation';
 import { getInitials } from '@/lib/utils';
@@ -8,8 +9,10 @@ import { Button } from '@/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/ui/dropdown-menu';
 import { Skeleton } from '@/ui/skeleton';
@@ -67,9 +70,7 @@ export function NavUser() {
           <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
             <Avatar className="h-8 w-8 rounded-lg">
               <AvatarImage src={data.user.image ?? ''} alt={data.user.name} />
-              <AvatarFallback className="rounded-lg">
-                {getInitials(data.user.name)}
-              </AvatarFallback>
+              <AvatarFallback>{getInitials(data.user.name)}</AvatarFallback>
             </Avatar>
             <div className="grid flex-1 text-left text-sm leading-tight">
               <span className="truncate font-medium">{data.user.name}</span>
@@ -79,10 +80,16 @@ export function NavUser() {
             </div>
           </div>
         </DropdownMenuLabel>
-        <DropdownMenuItem onClick={logout}>
-          <LogOutIcon />
-          Log out
-        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup className="flex justify-between">
+          <DropdownMenuItem onClick={logout}>
+            <LogOutIcon />
+            Log out
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <ToggleTheme />
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>
   );
