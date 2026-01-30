@@ -3,6 +3,7 @@ import 'server-only';
 import { auth } from '@/lib/auth';
 import { redirect } from '@/lib/i18n/navigation';
 import { ActionError } from '@/lib/safe-action';
+import type { PermissionConfig } from '@/types/admin';
 import { headers } from 'next/headers';
 import { getLocale } from 'next-intl/server';
 import { createMiddleware } from 'next-safe-action';
@@ -27,3 +28,20 @@ export const isAdminMiddleware = createMiddleware().define(async ({ next }) => {
   }
   return next();
 });
+
+export const requirePermission = (config: PermissionConfig) =>
+  createMiddleware().define(async ({ next }) => {
+    const result = await auth.api.userHasPermission({
+      headers: await headers(),
+      body: {
+        role: config.role,
+        permissions: config.permissions,
+      },
+    });
+
+    if (!result?.success) {
+      throw new ActionError('FORBIDDEN');
+    }
+
+    return next();
+  });

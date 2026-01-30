@@ -10,3 +10,8 @@ export interface RemoveStore {
   remove: (options: TitleId) => void;
   closeModal: () => void;
 }
+
+export type PermissionConfig = {
+  role: 'admin' | 'moderador';
+  permissions: Record<string, string[]>;
+};

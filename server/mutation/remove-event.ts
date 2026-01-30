@@ -1,6 +1,6 @@
 'use server';
 
-import { isAdminMiddleware } from '@/lib/auth-middleware';
+import { requirePermission } from '@/lib/auth-middleware';
 import { db } from '@/lib/db';
 import { events } from '@/lib/db/schemas/events';
 import { actionClient } from '@/lib/safe-action';
@@ -11,7 +11,14 @@ import z from 'zod';
 const remove = z.object({ id: z.number().min(1, '') });
 
 export const removeEvent = actionClient
-  .use(isAdminMiddleware)
+  .use(
+    requirePermission({
+      role: 'admin',
+      permissions: {
+        events: ['delete'],
+      },
+    })
+  )
   .metadata({ name: 'remove-event' })
   .inputSchema(remove)
   .action(async ({ parsedInput: { id } }) => {
