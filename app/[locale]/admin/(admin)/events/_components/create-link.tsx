@@ -9,7 +9,7 @@ export function CreateLink() {
   const t = useTranslations('admin.events.form');
 
   return (
-    <Button variant="outline" asChild>
+    <Button variant="secondary" asChild>
       <Link href="/admin/events/create">
         <PlusIcon /> {t('title')}
       </Link>

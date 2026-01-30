@@ -50,7 +50,7 @@ export function NavUser() {
         <Button
           size="lg"
           variant="ghost"
-          className="px-2 data-[state=open]:bg-muted data-[state=open]:text-muted-foreground"
+          className="h-fit p-0 data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
         >
           <Avatar className="size-8 rounded-lg">
             <AvatarImage src={data.user.image ?? ''} alt={data.user.name} />
@@ -61,14 +61,14 @@ export function NavUser() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
+        className="min-w-56 rounded-lg"
         side="bottom"
         align="end"
         sideOffset={4}
       >
         <DropdownMenuLabel className="p-0 font-normal">
           <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
-            <Avatar className="h-8 w-8 rounded-lg">
+            <Avatar>
               <AvatarImage src={data.user.image ?? ''} alt={data.user.name} />
               <AvatarFallback>{getInitials(data.user.name)}</AvatarFallback>
             </Avatar>

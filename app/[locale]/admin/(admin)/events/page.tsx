@@ -2,14 +2,12 @@ import { NavTitle } from '@/admin/_components/nav-title';
 import { CreateLink } from '@/admin/events/_components/create-link';
 import { ListEvents } from '@/admin/events/_components/list-events';
 import { Search } from '@/admin/events/_components/search';
-import { LoadingTable } from '@/components/loading-table';
 import { Remove } from '@/components/remove';
 import { loadSearchParams } from '@/lib/searchParams';
 import { removeEvent } from '@/server/mutation/remove-event';
 import { Table, TableBody, TableHead, TableHeader, TableRow } from '@/ui/table';
 import type { Locale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
-import { Suspense } from 'react';
 
 export default async function EventsPage({
   params,
@@ -41,9 +39,7 @@ export default async function EventsPage({
               </TableRow>
             </TableHeader>
             <TableBody>
-              <Suspense fallback={<LoadingTable rows={4} cols={6} />}>
-                <ListEvents search={q} page={page} />
-              </Suspense>
+              <ListEvents search={q} page={page} />
             </TableBody>
           </Table>
         </div>
