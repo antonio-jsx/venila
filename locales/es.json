@@ -24,6 +24,7 @@
     "menu": {
       "Events": "Eventos",
       "Orders": "Órdenes",
+      "Settings": "Configuración",
       "Attendees": "Asistentes"
     },
     "delete": {
@@ -88,6 +89,10 @@
         "event": "Evento",
         "order": "ID de pedido"
       }
+    },
+    "settings": {
+      "title": "Configuración",
+      "subtitle": "Administra tus configuraciones de cuenta"
     }
   }
 }

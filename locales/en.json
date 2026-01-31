@@ -24,6 +24,7 @@
     "menu": {
       "Events": "Events",
       "Orders": "Orders",
+      "Settings": "Settings",
       "Attendees": "Attendees"
     },
     "delete": {
@@ -88,6 +89,10 @@
         "event": "Event",
         "order": "Order ID"
       }
+    },
+    "settings": {
+      "title": "Settings",
+      "subtitle": "Manage your account settings"
     }
   }
 }
