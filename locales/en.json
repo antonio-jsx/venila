@@ -23,7 +23,7 @@
   "admin": {
     "menu": {
       "Events": "Events",
-      "Orders": "Orders",
+      "Orders": "Tickets",
       "Settings": "Settings"
     },
     "delete": {
@@ -73,7 +73,7 @@
       }
     },
     "orders": {
-      "title": "Orders",
+      "title": "Tickets",
       "columns": {
         "order": "Order",
         "event": "Event",

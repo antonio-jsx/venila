@@ -23,8 +23,8 @@
   "admin": {
     "menu": {
       "Events": "Eventos",
-      "Orders": "Órdenes",
-      "Settings": "Configuración"
+      "Orders": "Entradas",
+      "Settings": "Ajustes"
     },
     "delete": {
       "title": "¿Borrar “{name}”?",
@@ -73,7 +73,7 @@
       }
     },
     "orders": {
-      "title": "Órdenes",
+      "title": "Entradas",
       "columns": {
         "order": "Orden",
         "event": "Evento",
@@ -82,8 +82,8 @@
       }
     },
     "settings": {
-      "title": "Configuración",
-      "subtitle": "Administra tus configuraciones de cuenta"
+      "title": "Ajustes",
+      "subtitle": "Administra los ajustes de tu cuenta"
     }
   }
 }
