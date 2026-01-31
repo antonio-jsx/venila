@@ -24,8 +24,7 @@
     "menu": {
       "Events": "Eventos",
       "Orders": "Órdenes",
-      "Settings": "Configuración",
-      "Attendees": "Asistentes"
+      "Settings": "Configuración"
     },
     "delete": {
       "title": "¿Borrar “{name}”?",
@@ -80,14 +79,6 @@
         "event": "Evento",
         "payment": "Método de pago",
         "date": "Fecha"
-      }
-    },
-    "attendees": {
-      "title": "Asistentes",
-      "columns": {
-        "attendee": "Asistente",
-        "event": "Evento",
-        "order": "ID de pedido"
       }
     },
     "settings": {

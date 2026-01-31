@@ -24,8 +24,7 @@
     "menu": {
       "Events": "Events",
       "Orders": "Orders",
-      "Settings": "Settings",
-      "Attendees": "Attendees"
+      "Settings": "Settings"
     },
     "delete": {
       "title": "Delete “{name}”?",
@@ -80,14 +79,6 @@
         "event": "Event",
         "payment": "Payment method",
         "date": "Date"
-      }
-    },
-    "attendees": {
-      "title": "Attendees",
-      "columns": {
-        "attendee": "Attendee",
-        "event": "Event",
-        "order": "Order ID"
       }
     },
     "settings": {
