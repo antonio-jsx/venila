@@ -88,6 +88,7 @@ export function Tickets() {
             size="icon-sm"
             variant="ghost"
             onClick={() => remove(index)}
+            disabled={fields.length === 1}
           >
             <TrashIcon />
           </Button>
