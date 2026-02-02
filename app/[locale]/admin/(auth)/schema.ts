@@ -1,4 +1,4 @@
-import z from 'zod/v4';
+import * as z from 'zod/v4';
 
 export const formLogin = z.object({
   email: z.email('Invalid email address').nonempty('Email is required'),

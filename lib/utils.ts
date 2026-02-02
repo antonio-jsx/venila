@@ -1,6 +1,6 @@
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import z from 'zod/v4';
+import * as z from 'zod/v4';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));

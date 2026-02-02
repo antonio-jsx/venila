@@ -1,5 +1,5 @@
 import { requiredString } from '@/lib/utils';
-import z from 'zod/v4';
+import * as z from 'zod/v4';
 
 const ticketSchama = z.object({
   title: requiredString('title is required'),
