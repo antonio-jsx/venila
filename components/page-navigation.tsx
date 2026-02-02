@@ -1,8 +1,12 @@
 /** biome-ignore-all lint/suspicious/noArrayIndexKey: <no index> */
 'use client';
 
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+} from '@/components/ui/pagination';
 import { Link } from '@/lib/i18n/navigation';
-import { Pagination, PaginationContent, PaginationItem } from '@/ui/pagination';
 
 export function PageNavigation({
   total,

@@ -1,7 +1,7 @@
 'use client';
 
-import { Button } from '@/ui/button';
-import { Spinner } from '@/ui/spinner';
+import { Button } from '@/components/ui/button';
+import { Spinner } from '@/components/ui/spinner';
 import type { ComponentProps } from 'react';
 
 type ButtonSendProps = ComponentProps<typeof Button> & {

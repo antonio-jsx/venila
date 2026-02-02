@@ -1,7 +1,7 @@
 'use client';
 
 import type { EventSchema } from '@/admin/events/schema';
-import { InputGroup } from '@/ui/input-group';
+import { InputGroup } from '@/components/ui/input-group';
 import { EditorToolbar } from './editor-toolbar';
 import TextAlign from '@tiptap/extension-text-align';
 import { TextStyleKit } from '@tiptap/extension-text-style';

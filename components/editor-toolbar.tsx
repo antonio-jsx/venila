@@ -1,6 +1,6 @@
 'use client';
 
-import { InputGroupAddon, InputGroupButton } from '@/ui/input-group';
+import { InputGroupAddon, InputGroupButton } from '@/components/ui/input-group';
 import type { Editor } from '@tiptap/react';
 import { useEditorState } from '@tiptap/react';
 import {

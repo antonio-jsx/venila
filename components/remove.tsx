@@ -1,7 +1,5 @@
 'use client';
 
-import type { InferRemoveEvent } from '@/server/mutation/remove-event';
-import { useRemove } from '@/state/remove';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -11,8 +9,10 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from '@/ui/alert-dialog';
-import { Button } from '@/ui/button';
+} from '@/components/ui/alert-dialog';
+import { Button } from '@/components/ui/button';
+import type { InferRemoveEvent } from '@/server/mutation/remove-event';
+import { useRemove } from '@/state/remove';
 import { useTranslations } from 'next-intl';
 import { useAction } from 'next-safe-action/hooks';
 

@@ -3,9 +3,13 @@
 import type { EventSchema } from '@/admin/events/schema';
 import { FormField } from '@/components/form-field';
 import { SectionTitle } from '@/components/section-title';
-import { Button } from '@/ui/button';
-import { Input } from '@/ui/input';
-import { InputGroup, InputGroupAddon, InputGroupInput } from '@/ui/input-group';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from '@/components/ui/input-group';
 import { DollarSignIcon, PlusIcon, TrashIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useFieldArray, useFormContext } from 'react-hook-form';

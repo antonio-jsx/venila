@@ -1,11 +1,8 @@
 'use client';
 
 import ToggleTheme from '@/components/toggle-theme';
-import { authClient } from '@/lib/auth-client';
-import { Link, useRouter } from '@/lib/i18n/navigation';
-import { getInitials } from '@/lib/utils';
-import { Avatar, AvatarFallback, AvatarImage } from '@/ui/avatar';
-import { Button } from '@/ui/button';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,8 +11,11 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/ui/dropdown-menu';
-import { Skeleton } from '@/ui/skeleton';
+} from '@/components/ui/dropdown-menu';
+import { Skeleton } from '@/components/ui/skeleton';
+import { authClient } from '@/lib/auth-client';
+import { Link, useRouter } from '@/lib/i18n/navigation';
+import { getInitials } from '@/lib/utils';
 import { LogOutIcon } from 'lucide-react';
 
 export function NavUser() {

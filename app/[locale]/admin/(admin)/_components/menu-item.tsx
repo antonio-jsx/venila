@@ -22,7 +22,7 @@ export function MenuItem(item: {
     >
       <Link
         className={cn(
-          'flex h-12 items-center gap-1 px-2 font-medium text-muted-foreground text-sm hover:text-indigo-500',
+          'flex h-12 items-center gap-1 px-2 font-medium text-muted-foreground text-sm hover:text-primary',
           pathname === `/admin${item.url}` ? 'text-primary' : ''
         )}
         href={`/admin${item.url}`}

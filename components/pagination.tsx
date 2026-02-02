@@ -1,5 +1,5 @@
 import { PageNavigation } from '@/components/page-navigation';
-import { TableCell, TableRow } from '@/ui/table';
+import { TableCell, TableRow } from '@/components/ui/table';
 
 export async function Pagination({
   show,

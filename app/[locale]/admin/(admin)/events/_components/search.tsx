@@ -1,7 +1,11 @@
 'use client';
 
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from '@/components/ui/input-group';
 import { searchParsers } from '@/lib/searchParams';
-import { InputGroup, InputGroupAddon, InputGroupInput } from '@/ui/input-group';
 import { SearchIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { debounce, useQueryStates } from 'nuqs';

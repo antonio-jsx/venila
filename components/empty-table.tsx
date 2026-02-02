@@ -4,8 +4,8 @@ import {
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from '@/ui/empty';
-import { TableCell, TableRow } from '@/ui/table';
+} from '@/components/ui/empty';
+import { TableCell, TableRow } from '@/components/ui/table';
 import { CalendarIcon } from 'lucide-react';
 
 export function EmptyTable({
