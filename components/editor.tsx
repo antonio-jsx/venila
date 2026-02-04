@@ -5,6 +5,7 @@ import { InputGroup } from '@/components/ui/input-group';
 import { EditorToolbar } from './editor-toolbar';
 import TextAlign from '@tiptap/extension-text-align';
 import { TextStyleKit } from '@tiptap/extension-text-style';
+import Youtube from '@tiptap/extension-youtube';
 import { EditorContent, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import { useFormContext } from 'react-hook-form';
@@ -19,6 +20,7 @@ const Editor = () => {
       TextAlign.configure({
         types: ['heading', 'paragraph'],
       }),
+      Youtube.configure({ nocookie: true }),
     ],
     content: '',
     editorProps: {

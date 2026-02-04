@@ -13,6 +13,7 @@ import {
   ListOrderedIcon,
   QuoteIcon,
   UnderlineIcon,
+  YoutubeIcon,
 } from 'lucide-react';
 
 type ToolbarButton = {
@@ -90,6 +91,18 @@ const toolbarButtons: ToolbarButton[] = [
     stateKey: 'alignRight',
     isActive: (e) => e.isActive({ textAlign: 'right' }),
     onClick: (e) => e.chain().focus().setTextAlign('right').run(),
+  },
+  {
+    icon: <YoutubeIcon />,
+    label: 'Youtube',
+    stateKey: 'youtube',
+    isActive: (e) => e.isActive('youtube'),
+    onClick: (e) => {
+      const url = prompt('https://www.youtube.com/watch?v=');
+      if (url) {
+        e.commands.setYoutubeVideo({ src: url });
+      }
+    },
   },
 ];
 
