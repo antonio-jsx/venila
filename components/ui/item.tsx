@@ -35,11 +35,11 @@ const itemVariants = cva(
     variants: {
       variant: {
         default: 'bg-transparent',
-        outline: 'border-border',
-        muted: 'bg-muted/50',
+        outline: 'border-border p-2',
+        muted: 'bg-muted p-2',
       },
       size: {
-        default: 'gap-4 p-4',
+        default: 'gap-2',
         sm: 'gap-2.5 px-4 py-3',
       },
     },
@@ -71,12 +71,12 @@ function Item({
 }
 
 const itemMediaVariants = cva(
-  'flex shrink-0 items-center justify-center gap-2 group-has-[[data-slot=item-description]]/item:translate-y-0.5 group-has-[[data-slot=item-description]]/item:self-start [&_svg]:pointer-events-none',
+  'flex shrink-0 items-center justify-center gap-2 [&_svg]:pointer-events-none',
   {
     variants: {
       variant: {
         default: 'bg-transparent',
-        icon: "size-8 rounded-sm border bg-muted [&_svg:not([class*='size-'])]:size-4",
+        icon: "size-8 rounded-sm border border-primary/40 bg-primary/10 text-primary [&_svg:not([class*='size-'])]:size-4",
         image:
           'size-10 overflow-hidden rounded-sm [&_img]:size-full [&_img]:object-cover',
       },
@@ -107,7 +107,7 @@ function ItemContent({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot="item-content"
       className={cn(
-        'flex flex-1 flex-col gap-1 [&+[data-slot=item-content]]:flex-none',
+        'flex flex-1 flex-col [&+[data-slot=item-content]]:flex-none',
         className
       )}
       {...props}

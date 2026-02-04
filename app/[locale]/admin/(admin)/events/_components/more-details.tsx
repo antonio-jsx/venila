@@ -29,7 +29,7 @@ export function MoreDetails() {
       </Button>
 
       <div className={cn(!visible && 'hidden')}>
-        <p>{t('describe')}</p>
+        <p className="mb-1 text-sm">{t('describe')}</p>
         <Editor />
       </div>
     </>

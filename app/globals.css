@@ -94,7 +94,7 @@
   --font-serif: Open Sans, sans-serif;
   --font-mono: Geist Mono, monospace;
   --radius: 0.75rem;
-  --shadow-x: 0px;
+  --shadow-x: 1px;
   --shadow-y: 2px;
   --shadow-blur: 3px;
   --shadow-spread: 0px;
@@ -123,23 +123,23 @@
 }
 
 .dark {
-  --background: oklch(0.2095 0.0197 284.5733);
+  --background: oklch(0.2155 0.0254 284.0647);
   --foreground: oklch(0.909 0.0108 286.1829);
   --card: oklch(0.2401 0.0209 284.7154);
   --card-foreground: oklch(0.909 0.0108 286.1829);
   --popover: oklch(0.2502 0.0303 281.1985);
   --popover-foreground: oklch(0.909 0.0108 286.1829);
-  --primary: oklch(0.4674 0.1073 267.828);
+  --primary: oklch(0.511 0.262 276.966);
   --primary-foreground: oklch(0.909 0.0108 286.1829);
   --secondary: oklch(0.4792 0.0307 278.1136);
   --secondary-foreground: oklch(0.8406 0.0792 285.3659);
-  --muted: oklch(0.2611 0.0205 284.8935);
+  --muted: oklch(0.2734 0.0202 284.9835);
   --muted-foreground: oklch(0.7094 0.0303 285.6007);
-  --accent: oklch(0.3241 0.0214 277.6954);
+  --accent: oklch(0.4293 0.0237 272.7821);
   --accent-foreground: oklch(0.909 0.0108 286.1829);
   --destructive: oklch(0.7599 0.1307 2.9431);
   --destructive-foreground: oklch(0.2387 0.0305 283.8506);
-  --border: oklch(0.3023 0.0215 285.0399);
+  --border: oklch(0.3221 0.0212 285.1497);
   --input: oklch(0.3023 0.0215 285.0399);
   --ring: oklch(0.3995 0.0304 279.9538);
   --chart-1: oklch(0.7907 0.1198 304.5005);
@@ -147,14 +147,14 @@
   --chart-3: oklch(0.86 0.1108 142.7357);
   --chart-4: oklch(0.8197 0.0999 52.4305);
   --chart-5: oklch(0.9203 0.0203 28.9092);
-  --sidebar: oklch(0.1918 0.0201 284.3423);
+  --sidebar: oklch(0.2433 0.017 285.0635);
   --sidebar-foreground: oklch(0.909 0.0108 286.1829);
-  --sidebar-primary: oklch(0.4504 0.2702 274.4252);
-  --sidebar-primary-foreground: oklch(0.1691 0.0208 283.9581);
-  --sidebar-accent: oklch(0.23 0.0194 280.2885);
+  --sidebar-primary: oklch(0.457 0.24 277.023);
+  --sidebar-primary-foreground: oklch(0.8882 0.0136 286.1198);
+  --sidebar-accent: oklch(0.3241 0.0214 277.6954);
   --sidebar-accent-foreground: oklch(0.909 0.0108 286.1829);
-  --sidebar-border: oklch(0.3995 0.0304 279.9538);
-  --sidebar-ring: oklch(0.3995 0.0304 279.9538);
+  --sidebar-border: oklch(0.3221 0.0212 285.1497);
+  --sidebar-ring: oklch(0.3221 0.0212 285.1497);
   --font-sans: Geist, sans-serif;
   --font-serif: Open Sans, sans-serif;
   --font-mono: Geist Mono, monospace;
