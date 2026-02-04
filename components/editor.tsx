@@ -37,7 +37,7 @@ const Editor = () => {
   if (!editor) return null;
 
   return (
-    <InputGroup>
+    <InputGroup className="max-w-2xl">
       <EditorToolbar editor={editor} />
 
       <EditorContent className="w-full" editor={editor} />

@@ -9,6 +9,7 @@ import {
   AlignRightIcon,
   BoldIcon,
   ItalicIcon,
+  ListIcon,
   ListOrderedIcon,
   QuoteIcon,
   UnderlineIcon,
@@ -47,6 +48,13 @@ const toolbarButtons: ToolbarButton[] = [
     stateKey: 'underline',
     isActive: (e) => e.isActive('underline'),
     onClick: (e) => e.chain().focus().toggleUnderline().run(),
+  },
+  {
+    icon: <ListIcon />,
+    label: 'Bullet list',
+    stateKey: 'bulletList',
+    isActive: (e) => e.isActive('bulletList'),
+    onClick: (e) => e.chain().focus().toggleBulletList().run(),
   },
   {
     icon: <ListOrderedIcon />,
@@ -100,7 +108,7 @@ export const EditorToolbar = ({ editor }: EditorToolbarProps) => {
   return (
     <InputGroupAddon
       align="block-start"
-      className="gap-1 border-b [--spacing:0.25rem]"
+      className="gap-1.5 border-b [--spacing:0.25rem]"
     >
       {toolbarButtons.map((button) => (
         <InputGroupButton
