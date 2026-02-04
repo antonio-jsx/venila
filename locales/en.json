@@ -83,7 +83,12 @@
     },
     "settings": {
       "title": "Settings",
-      "subtitle": "Manage your account settings"
+      "subtitle": "Manage your account settings",
+      "tabs": {
+        "account": "Account",
+        "payment": "Métodos de Pago",
+        "integration": "Integrations"
+      }
     }
   }
 }
