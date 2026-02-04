@@ -1,15 +1,4 @@
 {
-  "message": "Hola",
-  "days": {
-    "available": "Días disponibles",
-    "monday": "Lunes",
-    "tuesday": "Martes",
-    "wednesday": "Miercoles",
-    "thursday": "Jueves",
-    "friday": "Viernes",
-    "saturday": "Sabado",
-    "sunday": "Domingo"
-  },
   "signin": {
     "title": "Inicia sesión en tu cuenta",
     "describe": "¡Bienvenido nuevamente, te hemos extrañado!",
