@@ -36,3 +36,23 @@ export function combineDateAndTime(date: string, time: string) {
 
   return new Date(year, month - 1, day, hour, minute, second);
 }
+
+export function generateSlug(input: string): string {
+  return input
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+export function extractIdFromSlug(slug: string): number | null {
+  const raw = slug.split('.').pop();
+  if (!raw) return null;
+
+  const id = Number(raw);
+  return Number.isInteger(id) ? id : null;
+}

@@ -11,6 +11,7 @@ import { FormField } from '@/components/form-field';
 import { SectionTitle } from '@/components/section-title';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
+import { Textarea } from '@/components/ui/textarea';
 import { usePathname } from '@/lib/i18n/navigation';
 import { addEvent } from '@/server/mutation/add-event';
 import { MoreDetails } from './more-details';
@@ -65,6 +66,14 @@ export function CreateEvent() {
             name="title"
             label={t('name')}
             render={(field) => <Input {...field} placeholder={t('ph_name')} />}
+          />
+
+          <FormField
+            className="max-w-lg"
+            control={control}
+            name="short"
+            label={t('short')}
+            render={(field) => <Textarea rows={2} {...field} />}
           />
 
           <div className="flex max-w-lg items-start gap-4">

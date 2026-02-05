@@ -10,6 +10,10 @@ const ticketSchama = z.object({
 export const eventSchema = z
   .object({
     title: requiredString('Title is required'),
+    short: requiredString('Short description is required').max(
+      120,
+      'Short description must be less than 100 characters'
+    ),
     description: z.string().optional(),
     address: z.string().optional(),
     startDate: z.iso
@@ -48,6 +52,7 @@ export type TicketSchema = z.infer<typeof ticketSchama>;
 
 export const eventDefaults = {
   title: '',
+  short: '',
   description: '',
   startDate: '',
   endDate: '',

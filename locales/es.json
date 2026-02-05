@@ -44,6 +44,7 @@
       "form": {
         "btn_send": "Publicar",
         "title": "Crear evento",
+        "short": "Descripción corta",
         "subtitle": "Ingresa la información para identificar y programar tu evento",
         "name": "Título del evento",
         "date": "Fecha",
@@ -51,7 +52,7 @@
         "startTime": "Hora de inicio",
         "endTime": "Hora de fin",
         "ph_name": "Ej. Fiesta de fin de año",
-        "describe": "Descripción",
+        "describe": "Event Description",
         "ph_describe": "Describe de que trata el evento...",
         "location": "Ubicación",
         "more": "Ver más configuraciones",

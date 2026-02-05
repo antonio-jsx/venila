@@ -11,12 +11,16 @@ import {
   ItemSeparator,
   ItemTitle,
 } from '@/components/ui/item';
+import { extractIdFromSlug } from '@/lib/utils';
 import { ArrowRightIcon } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 
 export async function Preview({ id }: { id: string }) {
-  const event = await getEventById(id);
+  const rawId = extractIdFromSlug(id);
+  if (!rawId) return notFound();
+
+  const event = await getEventById(rawId);
   if (!event) return notFound();
 
   const t = await getTranslations('event');

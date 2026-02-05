@@ -44,6 +44,7 @@
       "form": {
         "btn_send": "Public",
         "title": "Create event",
+        "short": "Short description",
         "subtitle": "Enter the information to identify and schedule your event",
         "name": "Event title",
         "date": "Date",
