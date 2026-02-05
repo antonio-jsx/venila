@@ -1,10 +1,10 @@
+import { getEvents } from '@/admin/events/query';
 import { ButtonTrash } from '@/components/button-trash';
 import { EmptyTable } from '@/components/empty-table';
 import { Pagination } from '@/components/pagination';
 import { Badge } from '@/components/ui/badge';
 import { TableCell, TableRow } from '@/components/ui/table';
 import { priceRange } from '@/lib/utils';
-import { getEvents } from '@/server/query/events';
 import { getTranslations } from 'next-intl/server';
 
 export async function ListEvents({

@@ -1,15 +1,10 @@
 import 'server-only';
 
 import { db } from '@/lib/db';
-import { events, type SelectEvents } from '@/lib/db/schemas/events';
+import { events } from '@/lib/db/schemas/events';
 import type { Paginated } from '@/types';
+import type { EventWithPriceRange } from '@/types/admin';
 import { and, asc, eq, getTableColumns, ilike, sql } from 'drizzle-orm';
-
-type EventWithPriceRange = Omit<SelectEvents, 'tickets'> & {
-  minPrice: number | null;
-  maxPrice: number | null;
-  capacity: number | null;
-};
 
 export async function getEvents({
   page = 1,

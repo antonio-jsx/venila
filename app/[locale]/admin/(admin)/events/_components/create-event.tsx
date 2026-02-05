@@ -1,6 +1,9 @@
 'use client';
 
+import { MoreDetails } from '@/admin/events/_components/more-details';
+import { SelectDate } from '@/admin/events/_components/select-date';
 import { Tickets } from '@/admin/events/_components/tickets';
+import { addEvent } from '@/admin/events/action';
 import {
   type EventSchema,
   eventDefaults,
@@ -13,9 +16,6 @@ import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import { Textarea } from '@/components/ui/textarea';
 import { usePathname } from '@/lib/i18n/navigation';
-import { addEvent } from '@/server/mutation/add-event';
-import { MoreDetails } from './more-details';
-import { SelectDate } from './select-date';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SendHorizonalIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';

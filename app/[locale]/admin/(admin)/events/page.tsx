@@ -2,6 +2,7 @@ import { NavTitle } from '@/admin/_components/nav-title';
 import { CreateLink } from '@/admin/events/_components/create-link';
 import { ListEvents } from '@/admin/events/_components/list-events';
 import { Search } from '@/admin/events/_components/search';
+import { removeEvent } from '@/admin/events/action';
 import { Remove } from '@/components/remove';
 import {
   Table,
@@ -11,7 +12,6 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { loadSearchParams } from '@/lib/searchParams';
-import { removeEvent } from '@/server/mutation/remove-event';
 import type { Locale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { useRemove } from '@/state/remove';
+import { useRemove } from '@/hooks/remove';
 import { TrashIcon } from 'lucide-react';
 
 export function ButtonTrash({ title, id }: { title: string; id: number }) {
