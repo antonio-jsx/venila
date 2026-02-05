@@ -29,3 +29,10 @@ export function priceRange(min: number | null, max: number | null) {
   if (min === max) return min;
   return `${minAmount} - ${max}`;
 }
+
+export function combineDateAndTime(date: string, time: string) {
+  const [year, month, day] = date.split('-').map(Number);
+  const [hour, minute, second = 0] = time.split(':').map(Number);
+
+  return new Date(year, month - 1, day, hour, minute, second);
+}

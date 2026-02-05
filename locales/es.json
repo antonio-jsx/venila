@@ -9,6 +9,12 @@
       "password": "Contraseña"
     }
   },
+  "event": {
+    "title": "Entradas",
+    "button": "Comprar tickets",
+    "start": "Fecha de inicio",
+    "end": "Fecha de cierre"
+  },
   "admin": {
     "menu": {
       "Events": "Eventos",

@@ -9,6 +9,12 @@
       "password": "Password"
     }
   },
+  "event": {
+    "title": "Tickets",
+    "button": "Buy tickets",
+    "start": "Start date",
+    "end": "End date"
+  },
   "admin": {
     "menu": {
       "Events": "Events",
