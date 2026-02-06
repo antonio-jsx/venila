@@ -37,7 +37,6 @@ export default async function EventsPage({
             <TableHeader>
               <TableRow>
                 <TableHead>{t('columns.event')}</TableHead>
-                <TableHead>{t('columns.date')}</TableHead>
                 <TableHead>{t('columns.capacity')}</TableHead>
                 <TableHead>{t('columns.price')}</TableHead>
                 <TableHead>{t('columns.status')}</TableHead>

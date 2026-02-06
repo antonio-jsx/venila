@@ -20,22 +20,19 @@ export async function ListEvents({
   ]);
 
   if (data.length <= 0) {
-    return <EmptyTable title={t('empty_title')} empty={t('empty')} cols={6} />;
+    return <EmptyTable title={t('empty_title')} empty={t('empty')} cols={5} />;
   }
 
   return (
     <>
       {data.map((event) => (
         <TableRow key={event.id}>
-          <TableCell className="font-medium">{event.title}</TableCell>
-          <TableCell>
-            <Badge variant="outline">{event.startDate}</Badge>
-            <Badge
-              variant="secondary"
-              className="ml-1 bg-indigo-100 text-indigo-900 dark:bg-indigo-400"
-            >
-              {event.endDate}
-            </Badge>
+          <TableCell className="font-medium">
+            <p>{event.title}</p>
+            <p className="mt-0.5 font-normal text-muted-foreground text-xs">
+              {event.startDate}, {event.startTime} - {event.endDate},{' '}
+              {event.endTime}
+            </p>
           </TableCell>
           <TableCell className="font-medium">{event.capacity}</TableCell>
           <TableCell className="font-bold">
@@ -53,7 +50,7 @@ export async function ListEvents({
       ))}
 
       <Pagination
-        cols={6}
+        cols={5}
         path="/admin/events"
         show={t('page', {
           from: pagination.from,

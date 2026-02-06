@@ -37,7 +37,6 @@
       "columns": {
         "event": "Event",
         "status": "Status",
-        "date": "Date",
         "capacity": "Capacity",
         "price": "Price"
       },

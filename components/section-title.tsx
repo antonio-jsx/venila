@@ -12,7 +12,9 @@ export function SectionTitle({
         {children}
       </p>
       {subtitle && (
-        <span className="block text-muted-foreground text-sm">{subtitle}</span>
+        <span className="mt-0.5 block text-muted-foreground text-sm">
+          {subtitle}
+        </span>
       )}
     </div>
   );
