@@ -1,5 +1,4 @@
 import { NavTitle } from '@/admin/_components/nav-title';
-import { CreateLink } from '@/admin/events/_components/create-link';
 import { ListEvents } from '@/admin/events/_components/list-events';
 import { Search } from '@/admin/events/_components/search';
 import { removeEvent } from '@/admin/events/action';
@@ -28,7 +27,6 @@ export default async function EventsPage({
     <>
       <NavTitle text={t('title')} subtitle={t('subtitle')}>
         <Search />
-        <CreateLink />
       </NavTitle>
 
       <section className="space-y-4">
