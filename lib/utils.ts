@@ -1,4 +1,5 @@
 import { type ClassValue, clsx } from 'clsx';
+import { parse } from 'date-fns';
 import { twMerge } from 'tailwind-merge';
 import * as z from 'zod/v4';
 
@@ -26,15 +27,24 @@ export const requiredString = (message: string = 'Required') =>
 
 export function priceRange(min: number | null, max: number | null) {
   const minAmount = min === 0 ? 'Free' : min;
-  if (min === max) return min;
-  return `${minAmount} - ${max}`;
+  if (min === max) return `$${min}`;
+  return `$${minAmount} - $${max}`;
 }
 
 export function combineDateAndTime(date: string, time: string) {
-  const [year, month, day] = date.split('-').map(Number);
-  const [hour, minute, second = 0] = time.split(':').map(Number);
+  return parse(`${date} ${time}`, 'yyyy-MM-dd HH:mm', new Date());
+}
 
-  return new Date(year, month - 1, day, hour, minute, second);
+export function parseLocalDate(date: string) {
+  return parse(date, 'yyyy-MM-dd', new Date());
+}
+
+export function parseTime(time: string) {
+  const [h, m] = time.split(':').map(Number);
+  const isPM = h >= 12;
+  const hour12 = h % 12 || 12;
+
+  return `${hour12}:${m.toString().padStart(2, '0')} ${isPM ? 'PM' : 'AM'}`;
 }
 
 export function generateSlug(input: string): string {

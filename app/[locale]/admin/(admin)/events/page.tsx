@@ -3,13 +3,6 @@ import { ListEvents } from '@/admin/events/_components/list-events';
 import { Search } from '@/admin/events/_components/search';
 import { removeEvent } from '@/admin/events/action';
 import { Remove } from '@/components/remove';
-import {
-  Table,
-  TableBody,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
 import { loadSearchParams } from '@/lib/searchParams';
 import type { Locale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
@@ -30,21 +23,8 @@ export default async function EventsPage({
       </NavTitle>
 
       <section className="space-y-4">
-        <div className="relative flex flex-col gap-4 overflow-auto">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>{t('columns.event')}</TableHead>
-                <TableHead>{t('columns.capacity')}</TableHead>
-                <TableHead>{t('columns.price')}</TableHead>
-                <TableHead>{t('columns.status')}</TableHead>
-                <TableHead className="text-right"></TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              <ListEvents search={q} page={page} />
-            </TableBody>
-          </Table>
+        <div className="relative flex flex-col gap-4">
+          <ListEvents search={q} page={page} />
         </div>
       </section>
 
