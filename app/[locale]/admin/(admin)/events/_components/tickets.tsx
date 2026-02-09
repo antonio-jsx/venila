@@ -25,7 +25,7 @@ export function Tickets() {
 
   return (
     <div className="space-y-2">
-      <div className="flex items-center justify-between">
+      <div className="mb-4 flex items-center justify-between">
         <SectionTitle subtitle={t('subtitle')}>{t('title')}</SectionTitle>
 
         <Button

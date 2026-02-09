@@ -32,7 +32,7 @@ export function priceRange(min: number | null, max: number | null) {
 }
 
 export function combineDateAndTime(date: string, time: string) {
-  return parse(`${date} ${time}`, 'yyyy-MM-dd HH:mm', new Date());
+  return parse(`${date} ${time}`, 'yyyy-MM-dd HH:mm:ss', new Date());
 }
 
 export function parseLocalDate(date: string) {

@@ -14,16 +14,18 @@ export function MenuItem(item: {
   return (
     <li
       className={cn(
-        '-mb-px',
+        '-mb-[2px]',
         pathname === `/admin${item.url}`
-          ? 'border-primary border-b-2 text-primary'
+          ? 'border-primary border-b-2 font-semibold text-primary'
           : ''
       )}
     >
       <Link
         className={cn(
-          'flex h-12 items-center gap-1 px-2 font-medium text-muted-foreground text-sm hover:text-primary',
-          pathname === `/admin${item.url}` ? 'text-primary' : ''
+          'flex h-12 items-center gap-1 px-2 text-muted-foreground text-sm hover:text-foreground',
+          pathname === `/admin${item.url}`
+            ? 'text-primary hover:text-primary'
+            : ''
         )}
         href={`/admin${item.url}`}
       >

@@ -14,7 +14,7 @@ export function Menu() {
   ];
 
   return (
-    <nav className="mx-auto">
+    <nav className="justify-self-center">
       <ul className="flex items-center gap-2">
         {menu.map((item) => (
           <MenuItem

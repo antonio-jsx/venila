@@ -9,12 +9,12 @@ export function ButtonTrash({ title, id }: { title: string; id: number }) {
 
   return (
     <Button
-      className="size-7"
+      className="size-6"
       size="icon-sm"
       variant="ghost"
       onClick={() => remove({ title, id })}
     >
-      <TrashIcon className="size-4" />
+      <TrashIcon className="size-3" />
     </Button>
   );
 }

@@ -26,7 +26,7 @@ const Editor = () => {
     editorProps: {
       attributes: {
         class:
-          'min-h-22 prose prose-sm prose-p:my-1 prose-ul:my-1 prose-ol:my-1 prose-blockquote:my-2 focus:outline-none w-full p-4 py-1',
+          'min-h-22 prose prose-sm prose-headings:my-1 prose-p:my-1 prose-ul:my-1 prose-ol:my-1 prose-blockquote:my-2 focus:outline-none w-full p-4 py-1 dark:prose-invert',
       },
     },
     onUpdate({ editor }) {

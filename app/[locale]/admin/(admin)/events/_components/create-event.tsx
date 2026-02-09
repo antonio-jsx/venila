@@ -68,33 +68,40 @@ export function CreateEvent() {
             render={(field) => <Input {...field} placeholder={t('ph_name')} />}
           />
 
-          <FormField
-            className="max-w-lg"
-            control={control}
-            name="short"
-            label={t('short')}
-            render={(field) => <Textarea rows={2} {...field} />}
-          />
+          <div className="grid grid-cols-[1fr_1fr] gap-4">
+            <FormField
+              control={control}
+              name="short"
+              label={t('short')}
+              render={(field) => <Textarea rows={2} {...field} />}
+            />
 
-          <div className="flex max-w-lg items-start gap-4">
-            <SelectDate />
-            <FormField
-              control={control}
-              name="startTime"
-              label={t('startTime')}
-              render={(field) => <Input type="time" step={1800} {...field} />}
-            />
-            <FormField
-              control={control}
-              name="endTime"
-              label={t('endTime')}
-              render={(field) => <Input type="time" step={1800} {...field} />}
-            />
+            <div className="flex flex-col gap-2">
+              <SelectDate />
+              <div className="flex items-start gap-4">
+                <FormField
+                  control={control}
+                  name="startTime"
+                  label={t('startTime')}
+                  render={(field) => (
+                    <Input type="time" step={1800} {...field} />
+                  )}
+                />
+                <FormField
+                  control={control}
+                  name="endTime"
+                  label={t('endTime')}
+                  render={(field) => (
+                    <Input type="time" step={1800} {...field} />
+                  )}
+                />
+              </div>
+            </div>
           </div>
 
-          <MoreDetails />
-
           <Separator />
+
+          <MoreDetails />
 
           <Tickets />
 

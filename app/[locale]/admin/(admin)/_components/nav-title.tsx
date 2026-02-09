@@ -10,7 +10,7 @@ export function NavTitle({
   children?: React.ReactNode;
 }) {
   return (
-    <section className="mb-6 flex shrink-0 items-center gap-2">
+    <section className="mb-4 flex shrink-0 items-center gap-2">
       {text && <SectionTitle subtitle={subtitle}>{text}</SectionTitle>}
 
       <div className="ml-auto flex items-center gap-2">{children}</div>

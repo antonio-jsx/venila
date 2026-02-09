@@ -21,7 +21,7 @@ export function PageNavigation({
         {Array.from({ length: total }).map((_, index) => (
           <PaginationItem key={index}>
             <Link
-              className="flex size-7 items-center justify-center rounded-md font-medium text-md hover:bg-accent"
+              className="flex size-7 items-center justify-center rounded-md border hover:bg-accent"
               href={{ pathname: path, query: { page: index + 1 } }}
             >
               {index + 1}

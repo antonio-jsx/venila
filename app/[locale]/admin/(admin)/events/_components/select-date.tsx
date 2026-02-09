@@ -48,7 +48,7 @@ export function SelectDate() {
       <FieldLabel htmlFor="date-picker-range">{t('date')}</FieldLabel>
       <Popover>
         <PopoverTrigger asChild>
-          <Button variant="outline">
+          <Button className="bg-card" variant="outline">
             <CalendarIcon />
             {dateRange?.from ? (
               dateRange.to ? (

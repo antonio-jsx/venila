@@ -81,7 +81,7 @@
       "subtitle": "Manage your account settings",
       "tabs": {
         "account": "Account",
-        "payment": "Métodos de Pago",
+        "payment": "Payment methods",
         "integration": "Integrations"
       }
     }

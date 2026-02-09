@@ -7,12 +7,14 @@ export default function Layout({ children }: LayoutProps<'/[locale]/admin'>) {
   return (
     <>
       <header className="flex items-center border-b bg-background shadow-xs dark:bg-card">
-        <div className="container flex items-center justify-between gap-1 border-x px-6">
+        <div className="container grid grid-cols-3 items-center gap-1 border-x px-6">
           <Brand />
           <Menu />
 
-          <CreateLink />
-          <NavUser />
+          <div className="flex gap-2 justify-self-end">
+            <CreateLink />
+            <NavUser />
+          </div>
         </div>
       </header>
       <main className="container relative p-8">

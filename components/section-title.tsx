@@ -7,7 +7,7 @@ export function SectionTitle({
 }) {
   return (
     <div>
-      <p className="inline-flex items-center gap-2 rounded-lg bg-primary/5 px-3 py-1 font-medium text-primary text-xs uppercase">
+      <p className="inline-flex items-center gap-2 rounded-lg bg-primary/10 px-3 py-1 font-medium text-primary text-xs uppercase">
         <span className="size-2 rounded-full bg-primary"></span>
         {children}
       </p>
