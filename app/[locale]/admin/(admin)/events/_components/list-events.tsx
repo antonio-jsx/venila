@@ -41,7 +41,7 @@ export async function ListEvents({
             className="flex flex-row gap-0 overflow-hidden p-0"
             key={event.id}
           >
-            <div className="flex w-20 shrink-0 flex-col items-center justify-center border-r bg-accent">
+            <div className="flex w-20 shrink-0 flex-col items-center justify-center bg-accent">
               {format.dateTime(parseLocalDate(event.startDate), {
                 day: '2-digit',
                 month: 'short',
@@ -49,7 +49,7 @@ export async function ListEvents({
             </div>
             <div className="flex flex-1 flex-col gap-2 py-3">
               <CardHeader>
-                <CardTitle className="text-lg">{event.title}</CardTitle>
+                <CardTitle>{event.title}</CardTitle>
                 <CardDescription>
                   {priceRange(event.minPrice, event.maxPrice)}
                 </CardDescription>
@@ -61,7 +61,7 @@ export async function ListEvents({
               </CardHeader>
               <CardContent>
                 <Item>
-                  <ItemContent>
+                  <ItemContent className="flex-row items-center gap-3">
                     <p className="flex items-center gap-1 text-muted-foreground text-sm">
                       <ClockIcon size={16} strokeWidth={1.2} />
                       {parseTime(event.startTime)} <span>-</span>

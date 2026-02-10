@@ -8,11 +8,11 @@ export default function Loading() {
       <div className="grid grid-cols-2 gap-4">
         {Array.from({ length: 4 }).map((_, rowIndex) => (
           <Skeleton
-            className="flex flex-row gap-0 overflow-hidden rounded-lg border bg-card p-0"
+            className="flex flex-row gap-0 overflow-hidden rounded-lg border border-input/60 bg-card p-0"
             // biome-ignore lint/suspicious/noArrayIndexKey: <no index>
             key={rowIndex}
           >
-            <div className="flex w-20 shrink-0 flex-col items-center justify-center border-r bg-accent">
+            <div className="flex w-20 shrink-0 flex-col items-center justify-center bg-accent">
               <Skeleton className="h-5 w-9 bg-black/10" />
             </div>
             <div className="flex flex-1 flex-col gap-3 py-3">
@@ -24,7 +24,7 @@ export default function Loading() {
                 <Skeleton className="h-4 w-12" />
               </div>
 
-              <div className="flex flex-col gap-1 px-4">
+              <div className="flex gap-2 px-4">
                 <Skeleton className="h-4 w-2/5" />
                 <Skeleton className="h-4 w-2/5" />
               </div>
