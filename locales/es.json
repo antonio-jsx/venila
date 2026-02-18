@@ -42,6 +42,8 @@
       },
       "form": {
         "btn_send": "Publicar",
+        "back": "Atrás",
+        "continue": "Continuar",
         "title": "Crear evento",
         "short": "Descripción corta",
         "subtitle": "Ingresa la información para identificar y programar tu evento",
@@ -57,8 +59,6 @@
         "more": "Ver más configuraciones",
         "ticket": {
           "button": "Agregar ticket",
-          "title": "Configuración de tickets",
-          "subtitle": "Agrega y gestiona los tickets de tu evento",
           "name": "Nombre del ticket",
           "price": "Precio",
           "quantity": "Cantidad disponible"

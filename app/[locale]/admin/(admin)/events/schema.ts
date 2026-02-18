@@ -38,7 +38,7 @@ export const eventSchema = z
     const start = new Date(data.startDate);
     const end = new Date(data.endDate);
 
-    if (end <= start) {
+    if (end < start) {
       ctx.addIssue({
         path: ['endDate'],
         message: 'End date must be greater than start date',

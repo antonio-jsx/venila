@@ -2,7 +2,6 @@
 
 import type { EventSchema } from '@/admin/events/schema';
 import { FormField } from '@/components/form-field';
-import { SectionTitle } from '@/components/section-title';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -25,21 +24,17 @@ export function Tickets() {
 
   return (
     <div className="space-y-2">
-      <div className="mb-4 flex items-center justify-between">
-        <SectionTitle subtitle={t('subtitle')}>{t('title')}</SectionTitle>
-
-        <Button
-          className="p-0"
-          type="button"
-          size="sm"
-          variant="link"
-          onClick={() => {
-            append({ title: '', price: 0, quantity: 0 });
-          }}
-        >
-          <PlusIcon /> {t('button')}
-        </Button>
-      </div>
+      <Button
+        className="h-fit px-[0!important]"
+        type="button"
+        size="sm"
+        variant="link"
+        onClick={() => {
+          append({ title: '', price: 0, quantity: 0 });
+        }}
+      >
+        <PlusIcon /> {t('button')}
+      </Button>
 
       {fields.map((field, index) => (
         <div
