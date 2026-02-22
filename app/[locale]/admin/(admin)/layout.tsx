@@ -11,17 +11,14 @@ export default function Layout({ children }: LayoutProps<'/[locale]/admin'>) {
           <Brand />
           <Menu />
 
-          <div className="flex gap-2 justify-self-end">
+          <div className="szz flex items-center gap-1 justify-self-end">
             <CreateLink />
             <NavUser />
           </div>
         </div>
       </header>
-      <main className="container relative p-8">
+      <main className="container relative space-y-5 border-x px-8 py-6">
         {children}
-
-        <div className="pointer-events-none absolute top-0 left-0 h-full w-px bg-gradient-to-b from-border to-transparent" />
-        <div className="pointer-events-none absolute top-0 right-0 h-full w-px bg-gradient-to-b from-border to-transparent" />
       </main>
     </>
   );

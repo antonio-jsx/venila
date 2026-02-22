@@ -16,7 +16,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { authClient } from '@/lib/auth-client';
 import { Link, useRouter } from '@/lib/i18n/navigation';
 import { getInitials } from '@/lib/utils';
-import { LogOutIcon } from 'lucide-react';
+import { ChevronDown, LogOutIcon } from 'lucide-react';
 
 export function NavUser() {
   const { data, error, isPending } = authClient.useSession();
@@ -48,16 +48,16 @@ export function NavUser() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
-          size="lg"
           variant="ghost"
-          className="h-fit p-0 data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
+          className="h-fit gap-0 p-0 px-[6px!important] data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
         >
           <Avatar className="size-8 rounded-lg">
             <AvatarImage src={data.user.image ?? ''} alt={data.user.name} />
-            <AvatarFallback className="rounded-lg">
+            <AvatarFallback className="rounded-lg bg-transparent">
               {getInitials(data.user.name)}
             </AvatarFallback>
           </Avatar>
+          <ChevronDown className="size-3" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent

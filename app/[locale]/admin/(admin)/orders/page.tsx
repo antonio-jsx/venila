@@ -16,22 +16,18 @@ export default function OdersPage({
     <>
       <NavTitle text={t('title')} />
 
-      <section>
-        <div className="relative flex flex-col gap-4 overflow-auto">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>{t('columns.order')}</TableHead>
-                <TableHead>{t('columns.event')}</TableHead>
-                <TableHead>Ticket</TableHead>
-                <TableHead>Total</TableHead>
-                <TableHead>{t('columns.payment')}</TableHead>
-                <TableHead>{t('columns.date')}</TableHead>
-              </TableRow>
-            </TableHeader>
-          </Table>
-        </div>
-      </section>
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead>{t('columns.order')}</TableHead>
+            <TableHead>{t('columns.event')}</TableHead>
+            <TableHead>Ticket</TableHead>
+            <TableHead>Total</TableHead>
+            <TableHead>{t('columns.payment')}</TableHead>
+            <TableHead>{t('columns.date')}</TableHead>
+          </TableRow>
+        </TableHeader>
+      </Table>
     </>
   );
 }

@@ -38,7 +38,7 @@ export async function ListEvents({
       <div className="grid grid-cols-2 gap-4">
         {data.map((event) => (
           <Card
-            className="flex flex-row gap-0 overflow-hidden p-0"
+            className="flex flex-row gap-0 overflow-hidden p-0 transition-all duration-200 hover:border-primary/30"
             key={event.id}
           >
             <div className="flex w-20 shrink-0 flex-col items-center justify-center bg-accent">

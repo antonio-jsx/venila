@@ -22,11 +22,7 @@ export default async function EventsPage({
         <Search />
       </NavTitle>
 
-      <section className="space-y-4">
-        <div className="relative flex flex-col gap-4">
-          <ListEvents search={q} page={page} />
-        </div>
-      </section>
+      <ListEvents search={q} page={page} />
 
       <Remove action={removeEvent} />
     </>

@@ -13,7 +13,7 @@ export default function SettingsPage({
   const t = useTranslations('admin.settings');
 
   return (
-    <Tabs defaultValue="account">
+    <Tabs className="space-y-5" defaultValue="account">
       <NavTitle text={t('title')} subtitle={t('subtitle')}>
         <TabsList>
           <TabsTrigger value="account">{t('tabs.account')}</TabsTrigger>

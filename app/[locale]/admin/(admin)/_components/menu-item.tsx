@@ -16,7 +16,7 @@ export function MenuItem(item: {
       className={cn(
         '-mb-[2px]',
         pathname === `/admin${item.url}`
-          ? 'border-primary border-b-2 font-semibold text-primary'
+          ? 'border-primary border-b-2 text-primary'
           : ''
       )}
     >
