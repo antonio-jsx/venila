@@ -23,3 +23,9 @@ export type EventWithPriceRange = Omit<SelectEvents, 'tickets'> & {
   maxPrice: number | null;
   capacity: number | null;
 };
+
+export interface MPStore {
+  modal: boolean;
+  openModal: () => void;
+  closeModal: () => void;
+}

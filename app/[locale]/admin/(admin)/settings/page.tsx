@@ -1,5 +1,7 @@
 import { NavTitle } from '@/admin/_components/nav-title';
+import { CardMercadopago } from '@/admin/settings/_components/card-mp';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Mercadopago } from './_components/mp';
 import { type Locale, useTranslations } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { use } from 'react';
@@ -13,26 +15,25 @@ export default function SettingsPage({
   const t = useTranslations('admin.settings');
 
   return (
-    <Tabs className="space-y-5" defaultValue="account">
+    <Tabs className="space-y-5" defaultValue="payment">
       <NavTitle text={t('title')} subtitle={t('subtitle')}>
         <TabsList>
-          <TabsTrigger value="account">{t('tabs.account')}</TabsTrigger>
           <TabsTrigger value="payment">{t('tabs.payment')}</TabsTrigger>
           <TabsTrigger value="integration">{t('tabs.integration')}</TabsTrigger>
         </TabsList>
       </NavTitle>
 
-      <TabsContent value="account">
-        <strong>{t('tabs.account')}</strong>
-      </TabsContent>
-
       <TabsContent value="payment">
-        <strong>{t('tabs.payment')}</strong>
+        <div className="grid grid-cols-3 gap-5">
+          <CardMercadopago />
+        </div>
       </TabsContent>
 
       <TabsContent value="integration">
         <strong>{t('tabs.integration')}</strong>
       </TabsContent>
+
+      <Mercadopago />
     </Tabs>
   );
 }
