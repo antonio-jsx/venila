@@ -1,6 +1,6 @@
 'use client';
 
-import type { EventSchema } from '@/admin/events/schema';
+import type { EventSchema } from '@/admin/(events)/schema';
 import { FormField } from '@/components/form-field';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';

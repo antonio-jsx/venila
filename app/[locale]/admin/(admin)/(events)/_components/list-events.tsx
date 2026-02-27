@@ -1,4 +1,4 @@
-import { getEvents } from '@/admin/events/query';
+import { getEvents } from '@/admin/(events)/query';
 import { ButtonTrash } from '@/components/button-trash';
 import { EmptyCard } from '@/components/empty-card';
 import { Pagination } from '@/components/pagination';

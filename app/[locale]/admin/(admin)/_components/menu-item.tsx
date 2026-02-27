@@ -11,21 +11,19 @@ export function MenuItem(item: {
 }) {
   const pathname = usePathname();
 
+  const isActive = pathname === `/admin${item.url === '/' ? '' : item.url}`;
+
   return (
     <li
       className={cn(
         '-mb-[2px]',
-        pathname === `/admin${item.url}`
-          ? 'border-primary border-b-2 text-primary'
-          : ''
+        isActive ? 'border-primary border-b-2 text-primary' : ''
       )}
     >
       <Link
         className={cn(
           'flex h-12 items-center gap-1 px-2 text-muted-foreground text-sm hover:text-foreground',
-          pathname === `/admin${item.url}`
-            ? 'text-primary hover:text-primary'
-            : ''
+          isActive ? 'text-primary hover:text-primary' : ''
         )}
         href={`/admin${item.url}`}
       >

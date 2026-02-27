@@ -1,6 +1,6 @@
 'use server';
 
-import { eventSchema } from '@/admin/events/schema';
+import { eventSchema } from '@/admin/(events)/schema';
 import { requirePermission } from '@/lib/auth-middleware';
 import { db } from '@/lib/db';
 import { events } from '@/lib/db/schemas/events';

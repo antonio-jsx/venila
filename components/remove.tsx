@@ -1,6 +1,6 @@
 'use client';
 
-import type { InferRemoveEvent } from '@/admin/events/action';
+import type { InferRemoveEvent } from '@/admin/(events)/action';
 import {
   AlertDialog,
   AlertDialogAction,

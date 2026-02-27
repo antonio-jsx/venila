@@ -8,7 +8,7 @@ export function Menu() {
   const t = useTranslations('admin.menu');
 
   const menu = [
-    { title: t('Events'), url: '/events', icon: CalendarIcon },
+    { title: t('Events'), url: '/', icon: CalendarIcon },
     { title: t('Orders'), url: '/orders', icon: TicketCheckIcon },
     { title: t('Settings'), url: '/settings', icon: SettingsIcon },
   ];

@@ -1,4 +1,4 @@
-import type { TicketSchema } from '@/admin/events/schema';
+import type { TicketSchema } from '@/admin/(events)/schema';
 import {
   boolean,
   date,

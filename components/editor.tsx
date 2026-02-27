@@ -1,6 +1,6 @@
 'use client';
 
-import type { EventSchema } from '@/admin/events/schema';
+import type { EventSchema } from '@/admin/(events)/schema';
 import { InputGroup } from '@/components/ui/input-group';
 import { EditorToolbar } from './editor-toolbar';
 import TextAlign from '@tiptap/extension-text-align';

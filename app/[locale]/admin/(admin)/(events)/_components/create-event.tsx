@@ -1,13 +1,13 @@
 'use client';
 
-import { SelectDate } from '@/admin/events/_components/select-date';
-import { Tickets } from '@/admin/events/_components/tickets';
-import { addEvent } from '@/admin/events/action';
+import { SelectDate } from '@/admin/(events)/_components/select-date';
+import { Tickets } from '@/admin/(events)/_components/tickets';
+import { addEvent } from '@/admin/(events)/action';
 import {
   type EventSchema,
   eventDefaults,
   eventSchema,
-} from '@/admin/events/schema';
+} from '@/admin/(events)/schema';
 import { ButtonSend } from '@/components/button-send';
 import { FormField } from '@/components/form-field';
 import { SectionTitle } from '@/components/section-title';
