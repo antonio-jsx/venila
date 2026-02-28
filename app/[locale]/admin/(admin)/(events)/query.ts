@@ -4,23 +4,18 @@ import { db } from '@/lib/db';
 import { events } from '@/lib/db/schemas/events';
 import type { Paginated } from '@/types';
 import type { EventWithPriceRange } from '@/types/admin';
-import { and, asc, eq, getTableColumns, ilike, sql } from 'drizzle-orm';
+import { asc, eq, getTableColumns, sql } from 'drizzle-orm';
 
 export async function getEvents({
   page = 1,
-  search,
 }: {
-  search?: string;
   page?: number;
 }): Promise<Paginated<EventWithPriceRange>> {
   const pageSize = 2;
   const safePage = Math.max(1, Number(page) || 1);
   const offset = (safePage - 1) * pageSize;
 
-  const where = and(
-    eq(events.isActive, true),
-    search ? ilike(events.title, `%${search}%`) : undefined
-  );
+  const where = eq(events.isActive, true);
 
   return db.transaction(async (tx) => {
     const { tickets, ...eventColumns } = getTableColumns(events);

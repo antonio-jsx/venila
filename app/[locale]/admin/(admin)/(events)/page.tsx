@@ -1,9 +1,8 @@
 import { NavTitle } from '@/admin/_components/nav-title';
 import { ListEvents } from '@/admin/(events)/_components/list-events';
-import { Search } from '@/admin/(events)/_components/search';
 import { removeEvent } from '@/admin/(events)/action';
 import { Remove } from '@/components/remove';
-import { loadSearchParams } from '@/lib/searchParams';
+import { loadfilterParams } from '@/lib/searchParams';
 import type { Locale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 
@@ -13,16 +12,14 @@ export default async function EventsPage({
 }: PageProps<'/[locale]/admin'>) {
   const { locale } = (await params) as { locale: Locale };
   const tPromise = getTranslations({ locale, namespace: 'admin.events' });
-  const searchPromise = loadSearchParams(searchParams);
-  const [t, { q, page }] = await Promise.all([tPromise, searchPromise]);
+  const filterPromise = loadfilterParams(searchParams);
+  const [t, { page }] = await Promise.all([tPromise, filterPromise]);
 
   return (
     <>
-      <NavTitle text={t('title')} subtitle={t('subtitle')}>
-        <Search />
-      </NavTitle>
+      <NavTitle text={t('title')} subtitle={t('subtitle')} />
 
-      <ListEvents search={q} page={page} />
+      <ListEvents page={page} />
 
       <Remove action={removeEvent} />
     </>

@@ -1,8 +1,7 @@
-import { createLoader, parseAsInteger, parseAsString } from 'nuqs/server';
+import { createLoader, parseAsInteger } from 'nuqs/server';
 
-export const searchParsers = {
-  q: parseAsString.withDefault(''),
+export const filterParsers = {
   page: parseAsInteger.withDefault(1),
 };
 
-export const loadSearchParams = createLoader(searchParsers);
+export const loadfilterParams = createLoader(filterParsers);

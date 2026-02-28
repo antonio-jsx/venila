@@ -16,16 +16,10 @@ import { parseLocalDate, parseTime, priceRange } from '@/lib/utils';
 import { CalendarDaysIcon, ClockIcon } from 'lucide-react';
 import { getFormatter, getTranslations } from 'next-intl/server';
 
-export async function ListEvents({
-  search,
-  page,
-}: {
-  search: string;
-  page: number;
-}) {
+export async function ListEvents({ page }: { page: number }) {
   const [t, { data, pagination }, format] = await Promise.all([
     getTranslations('admin.events'),
-    getEvents({ search, page }),
+    getEvents({ page }),
     getFormatter(),
   ]);
 
