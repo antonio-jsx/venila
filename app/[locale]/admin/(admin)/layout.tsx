@@ -1,6 +1,7 @@
 import { Brand } from '@/admin/_components/brand';
 import { Menu } from '@/admin/_components/menu';
 import { NavUser } from '@/admin/_components/nav-user';
+import { CreateEvent } from '@/admin/(events)/_components/create-event';
 
 export default function Layout({ children }: LayoutProps<'/[locale]/admin'>) {
   return (
@@ -11,6 +12,7 @@ export default function Layout({ children }: LayoutProps<'/[locale]/admin'>) {
           <Menu />
 
           <div className="szz flex items-center gap-1 justify-self-end">
+            <CreateEvent />
             <NavUser />
           </div>
         </div>

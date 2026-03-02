@@ -23,7 +23,7 @@ export function Tickets() {
   });
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-4">
       <Button
         className="h-fit px-[0!important]"
         type="button"
@@ -36,22 +36,26 @@ export function Tickets() {
         <PlusIcon /> {t('button')}
       </Button>
 
+      <div className="grid grid-cols-[310px_1fr_1fr_50px] gap-4">
+        <p>{t('name')}</p>
+        <p>{t('price')}</p>
+        <p>{t('quantity')}</p>
+      </div>
+
       {fields.map((field, index) => (
         <div
-          className="grid grid-cols-[410px_1fr_1fr_50px] gap-4"
+          className="grid grid-cols-[310px_1fr_1fr_50px] gap-4"
           key={field.id}
         >
           <FormField
             control={control}
             name={`tickets.${index}.title`}
-            label={t('name')}
             render={(field) => <Input {...field} />}
           />
 
           <FormField
             control={control}
             name={`tickets.${index}.price`}
-            label={t('price')}
             render={(field) => (
               <InputGroup>
                 <InputGroupInput
@@ -70,7 +74,6 @@ export function Tickets() {
           <FormField
             control={control}
             name={`tickets.${index}.quantity`}
-            label={t('quantity')}
             render={(field) => (
               <Input
                 {...field}
@@ -82,7 +85,6 @@ export function Tickets() {
           />
 
           <Button
-            className="mt-5"
             type="button"
             size="icon-sm"
             variant="ghost"

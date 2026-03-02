@@ -10,19 +10,25 @@ import {
 } from '@/admin/(events)/schema';
 import { ButtonSend } from '@/components/button-send';
 import { FormField } from '@/components/form-field';
-import { SectionTitle } from '@/components/section-title';
 import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { usePathname } from '@/lib/i18n/navigation';
-import { useStepper } from '../provider';
-import { Stepper } from './stepper';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { ArrowLeft, ArrowRight, SendHorizonalIcon } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Plus, SendHorizonalIcon } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 import { useAction } from 'next-safe-action/hooks';
-import { useEffect, useId } from 'react';
+import { useEffect, useId, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
@@ -31,7 +37,8 @@ const Editor = dynamic(() => import('@/components/editor'), {
 });
 
 export function CreateEvent() {
-  const { steps, currentStep, setCurrentStep } = useStepper();
+  const steps = 4;
+  const [currentStep, setCurrentStep] = useState(1);
 
   const pathname = usePathname();
 
@@ -80,101 +87,111 @@ export function CreateEvent() {
     await executeAsync(data);
   });
 
+  const closeModal = () => {
+    reset();
+    setCurrentStep(1);
+  };
+
   return (
-    <div className="px-14">
-      <div className="flex items-center justify-between">
-        <SectionTitle subtitle={t('subtitle')}>{t('title')}</SectionTitle>
-      </div>
-
-      <FormProvider {...form}>
-        <form className="mt-4 space-y-4" id={formId} onSubmit={onSubmit}>
-          {currentStep === 1 && (
-            <>
-              <FormField
-                control={control}
-                name="title"
-                label={t('name')}
-                render={(field) => (
-                  <Input {...field} placeholder={t('ph_name')} />
-                )}
-              />
-              <FormField
-                control={control}
-                name="short"
-                label={t('short')}
-                render={(field) => <Textarea rows={2} {...field} />}
-              />
-            </>
-          )}
-
-          {currentStep === 2 && (
-            <>
-              <SelectDate />
-              <div className="flex items-start gap-4">
-                <FormField
-                  control={control}
-                  name="startTime"
-                  label={t('startTime')}
-                  render={(field) => (
-                    <Input type="time" step={1800} {...field} />
-                  )}
-                />
-                <FormField
-                  control={control}
-                  name="endTime"
-                  label={t('endTime')}
-                  render={(field) => (
-                    <Input type="time" step={1800} {...field} />
-                  )}
-                />
-              </div>
-            </>
-          )}
-
-          {currentStep === 3 && (
-            <>
-              <p className="mb-1 text-sm">{t('describe')}</p>
-              <Editor />
-            </>
-          )}
-
-          {currentStep === 4 && <Tickets />}
-        </form>
-      </FormProvider>
-
-      <div className="mt-4 flex max-w-sm items-center justify-between gap-4">
-        <Button
-          type="button"
-          variant="outline"
-          size="sm"
-          disabled={currentStep === 1}
-          onClick={() => currentStep > 1 && setCurrentStep(currentStep - 1)}
-        >
-          <ArrowLeft /> {t('back')}
+    <Dialog onOpenChange={closeModal}>
+      <DialogTrigger asChild>
+        <Button className="gap-0.5" size="sm" variant="ghost">
+          <Plus /> {t('title')}
         </Button>
+      </DialogTrigger>
+      <DialogContent className="min-w-3xl">
+        <DialogHeader>
+          <DialogTitle>{t('title')}</DialogTitle>
+          <DialogDescription>{t('subtitle')}</DialogDescription>
+        </DialogHeader>
 
-        <Stepper />
+        <FormProvider {...form}>
+          <form className="space-y-4" id={formId} onSubmit={onSubmit}>
+            {currentStep === 1 && (
+              <>
+                <FormField
+                  control={control}
+                  name="title"
+                  label={t('name')}
+                  render={(field) => (
+                    <Input {...field} placeholder={t('ph_name')} />
+                  )}
+                />
+                <FormField
+                  control={control}
+                  name="short"
+                  label={t('short')}
+                  render={(field) => <Textarea rows={2} {...field} />}
+                />
+              </>
+            )}
 
-        {currentStep === steps ? (
-          <ButtonSend
-            form={formId}
-            state={form.formState.isSubmitting}
-            disabled={currentStep !== 4}
-          >
-            {t('btn_send')} <SendHorizonalIcon />
-          </ButtonSend>
-        ) : (
+            {currentStep === 2 && (
+              <>
+                <SelectDate />
+                <div className="flex items-start gap-4">
+                  <FormField
+                    control={control}
+                    name="startTime"
+                    label={t('startTime')}
+                    render={(field) => (
+                      <Input type="time" step={1800} {...field} />
+                    )}
+                  />
+                  <FormField
+                    control={control}
+                    name="endTime"
+                    label={t('endTime')}
+                    render={(field) => (
+                      <Input type="time" step={1800} {...field} />
+                    )}
+                  />
+                </div>
+              </>
+            )}
+
+            {currentStep === 3 && (
+              <>
+                <p className="mb-1 text-sm">{t('describe')}</p>
+                <Editor />
+              </>
+            )}
+
+            {currentStep === 4 && <Tickets />}
+          </form>
+        </FormProvider>
+
+        <DialogFooter>
           <Button
             type="button"
             variant="outline"
             size="sm"
-            disabled={currentStep === steps}
-            onClick={next}
+            disabled={currentStep === 1}
+            onClick={() => currentStep > 1 && setCurrentStep(currentStep - 1)}
           >
-            <ArrowRight /> {t('continue')}
+            <ArrowLeft /> {t('back')}
           </Button>
-        )}
-      </div>
-    </div>
+
+          {currentStep === steps ? (
+            <ButtonSend
+              form={formId}
+              state={form.formState.isSubmitting}
+              disabled={currentStep !== 4}
+            >
+              {t('btn_send')} <SendHorizonalIcon />
+            </ButtonSend>
+          ) : (
+            <Button
+              type="button"
+              size="sm"
+              disabled={currentStep === steps}
+              onClick={next}
+            >
+              {t('continue')} <ArrowRight />
+            </Button>
+          )}
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
   );
 }
