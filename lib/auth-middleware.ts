@@ -1,32 +1,32 @@
 import 'server-only';
 
 import { auth } from '@/lib/auth';
-import { redirect } from '@/lib/i18n/navigation';
 import { ActionError } from '@/lib/safe-action';
 import type { PermissionConfig } from '@/types/admin';
 import { headers } from 'next/headers';
-import { getLocale } from 'next-intl/server';
 import { createMiddleware } from 'next-safe-action';
 import { cache } from 'react';
 
-export const requireAdmin = cache(async () => {
-  const locale = await getLocale();
-
-  const session = await auth.api.getSession({ headers: await headers() });
+export const getSessionOrThrow = cache(async () => {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
 
   if (!session) {
-    redirect({ href: '/admin/signin', locale });
+    throw new ActionError('UNAUTHORIZED');
   }
 
-  return !!session && session.user.role === 'admin';
+  return session;
 });
 
 export const isAdminMiddleware = createMiddleware().define(async ({ next }) => {
-  const isAdmin = await requireAdmin();
-  if (!isAdmin) {
-    throw new ActionError('Unauthorized user');
+  const session = await getSessionOrThrow();
+
+  if (session.user.role !== 'admin') {
+    throw new ActionError('FORBIDDEN');
   }
-  return next();
+
+  return next({ ctx: { user: session.user.id } });
 });
 
 export const requirePermission = (config: PermissionConfig) =>
