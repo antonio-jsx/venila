@@ -84,20 +84,7 @@
         "payment": "Payment methods",
         "integration": "Integrations"
       },
-      "payments": {
-        "mercadopago": {
-          "button": "Configure",
-          "description": "Process local payments in Latin America with credit and debit cards.",
-          "form": {
-            "button": "Add payment method",
-            "description": "Configure your Mercado Pago account",
-            "publicKey": "Public Key",
-            "accessToken": "Access Token",
-            "success": "The event has been created successfully.",
-            "fail": "An error occurred while creating the event. Please try again."
-          }
-        }
-      }
+      "payments": {}
     }
   }
 }

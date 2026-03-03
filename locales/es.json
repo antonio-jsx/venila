@@ -84,20 +84,7 @@
         "payment": "Métodos de Pago",
         "integration": "Integraciones"
       },
-      "payments": {
-        "mercadopago": {
-          "button": "Configurar",
-          "description": "Procesa pagos locales en Latinoamérica con tarjetas de crédito y débito.",
-          "form": {
-            "button": "Agregar método de pago",
-            "description": "Configura tu cuenta de Mercado Pago",
-            "publicKey": "Clave Pública",
-            "accessToken": "Token de Acceso",
-            "success": "La configuración se ha actualizado correctamente.",
-            "fail": "Ocurrió un error al actualizar la configuración. Por favor, intenta nuevamente."
-          }
-        }
-      }
+      "payments": {}
     }
   }
 }
