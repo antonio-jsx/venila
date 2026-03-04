@@ -1,5 +1,5 @@
 {
-  "id": "16f7f03f-63d8-4596-b045-aea41bc834a2",
+  "id": "72b44f7a-7dd4-433b-ac6d-cf1442268149",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -43,17 +43,41 @@
           "primaryKey": false,
           "notNull": true
         },
+        "startTime": {
+          "name": "startTime",
+          "type": "time",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "endTime": {
+          "name": "endTime",
+          "type": "time",
+          "primaryKey": false,
+          "notNull": true
+        },
         "description": {
           "name": "description",
           "type": "text",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "address": {
           "name": "address",
           "type": "text",
           "primaryKey": false,
+          "notNull": false
+        },
+        "slug": {
+          "name": "slug",
+          "type": "text",
+          "primaryKey": false,
           "notNull": true
+        },
+        "tickets": {
+          "name": "tickets",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
         },
         "isActive": {
           "name": "isActive",

@@ -3,8 +3,12 @@ CREATE TABLE "events" (
 	"title" varchar(60) NOT NULL,
 	"startDate" date NOT NULL,
 	"endDate" date NOT NULL,
-	"description" text,
-	"address" text NOT NULL,
+	"startTime" time NOT NULL,
+	"endTime" time NOT NULL,
+	"description" text NOT NULL,
+	"address" text,
+	"slug" text NOT NULL,
+	"tickets" jsonb,
 	"isActive" boolean DEFAULT true NOT NULL
 );
 --> statement-breakpoint

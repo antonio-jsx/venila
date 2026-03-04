@@ -1,4 +1,4 @@
-import type { TicketSchema } from '@/admin/(events)/schema';
+import type { TicketSchema } from '@/admin/create/schema';
 import {
   boolean,
   date,
@@ -13,12 +13,11 @@ import {
 export const events = pgTable('events', {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   title: varchar({ length: 60 }).notNull(),
-  short: text().notNull(),
   startDate: date().notNull(),
   endDate: date().notNull(),
   startTime: time().notNull(),
   endTime: time().notNull(),
-  description: text(),
+  description: text().notNull(),
   address: text(),
   slug: text().notNull(),
   tickets: jsonb().$type<TicketSchema[]>(),
