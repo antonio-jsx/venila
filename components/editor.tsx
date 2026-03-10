@@ -1,6 +1,6 @@
 'use client';
 
-import type { EventSchema } from '@/admin/(events)/schema';
+import type { EventSchema } from '@/admin/create/schema';
 import { InputGroup } from '@/components/ui/input-group';
 import { EditorToolbar } from './editor-toolbar';
 import TextAlign from '@tiptap/extension-text-align';
@@ -26,7 +26,7 @@ const Editor = () => {
     editorProps: {
       attributes: {
         class:
-          'min-h-22 prose prose-sm prose-headings:my-1 prose-p:my-1 prose-ul:my-1 prose-ol:my-1 prose-blockquote:my-2 focus:outline-none w-full p-4 py-1 dark:prose-invert',
+          'w-full min-w-full min-h-22 prose prose-sm prose-headings:my-1 prose-p:my-1 prose-ul:my-1 prose-ol:my-1 prose-blockquote:my-2 focus:outline-none p-4 py-1 dark:prose-invert',
       },
     },
     onUpdate({ editor }) {

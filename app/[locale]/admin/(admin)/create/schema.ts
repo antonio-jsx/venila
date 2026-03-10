@@ -1,20 +1,16 @@
 import { requiredString } from '@/lib/utils';
 import * as z from 'zod/v4';
 
-const ticketSchama = z.object({
+export const ticketSchama = z.object({
   title: requiredString('title is required'),
-  price: z.number().min(1, 'Price is required'),
+  price: z.number().min(0, 'Price is required'),
   quantity: z.number().min(1, 'Quantity is required'),
 });
 
 export const eventSchema = z
   .object({
     title: requiredString('Title is required'),
-    short: requiredString('Short description is required').max(
-      120,
-      'Short description must be less than 100 characters'
-    ),
-    description: z.string().optional(),
+    description: z.string().trim().min(1, 'Description is required'),
     address: z.string().optional(),
     startDate: z.iso
       .date('Invalid date format')
@@ -52,18 +48,11 @@ export type TicketSchema = z.infer<typeof ticketSchama>;
 
 export const eventDefaults = {
   title: '',
-  short: '',
   description: '',
   startDate: '',
   endDate: '',
   startTime: '',
   endTime: '',
   address: '',
-  tickets: [
-    {
-      title: '',
-      price: 0,
-      quantity: 0,
-    },
-  ],
+  tickets: [],
 } satisfies EventSchema;
