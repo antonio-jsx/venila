@@ -2,10 +2,8 @@ import { getEvents } from '@/admin/(events)/query';
 import { ButtonTrash } from '@/components/button-trash';
 import { EmptyCard } from '@/components/empty-card';
 import { Pagination } from '@/components/pagination';
-import { Badge } from '@/components/ui/badge';
 import {
   Card,
-  CardAction,
   CardContent,
   CardDescription,
   CardHeader,
@@ -32,14 +30,16 @@ export async function ListEvents({ page }: { page: number }) {
       <div className="grid grid-cols-2 gap-4">
         {data.map((event) => (
           <Card
-            className="flex flex-row gap-0 overflow-hidden p-0 transition-all duration-200 hover:border-primary/30"
+            className="group flex flex-row gap-0 p-0 shadow-none transition-all duration-200 hover:border-primary/30 dark:hover:border-ring/30"
             key={event.id}
           >
-            <div className="flex w-20 shrink-0 flex-col items-center justify-center bg-accent">
+            <div className="relative flex w-20 shrink-0 flex-col items-center justify-center border-r-2 border-dashed group-hover:border-primary/30 dark:group-hover:border-ring/30">
               {format.dateTime(parseLocalDate(event.startDate), {
                 day: '2-digit',
                 month: 'short',
               })}
+              <div className="absolute -right-2.5 -bottom-px h-2.5 w-5 rounded-t-xl border border-b-0 bg-zinc-50 transition-colors group-hover:border-primary/30 dark:bg-background dark:group-hover:border-ring/30"></div>
+              <div className="absolute -top-px -right-2.5 h-2.5 w-5 rounded-b-full border border-t-0 bg-zinc-50 transition-colors group-hover:border-primary/30 dark:bg-background dark:group-hover:border-ring/30"></div>
             </div>
             <div className="flex flex-1 flex-col gap-2 py-3">
               <CardHeader>
@@ -47,11 +47,6 @@ export async function ListEvents({ page }: { page: number }) {
                 <CardDescription>
                   {priceRange(event.minPrice, event.maxPrice)}
                 </CardDescription>
-                <CardAction>
-                  <Badge variant="secondary">
-                    {event.isActive ? 'Active' : 'Hidden'}
-                  </Badge>
-                </CardAction>
               </CardHeader>
               <CardContent>
                 <Item>

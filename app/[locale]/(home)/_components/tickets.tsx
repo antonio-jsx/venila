@@ -1,7 +1,5 @@
-import { Badge } from '@/components/ui/badge';
 import {
   Card,
-  CardAction,
   CardContent,
   CardDescription,
   CardHeader,
@@ -13,17 +11,21 @@ import { CalendarDaysIcon, ClockIcon } from 'lucide-react';
 
 export function Tickets({ className }: { className?: string }) {
   return (
-    <Card className={cn('flex flex-row gap-0 overflow-hidden p-0', className)}>
-      <div className="flex w-20 shrink-0 flex-col items-center justify-center bg-accent">
+    <Card
+      className={cn(
+        'group flex flex-row gap-0 p-0 shadow-none transition-all duration-200 hover:border-primary/30 dark:hover:border-ring/30',
+        className
+      )}
+    >
+      <div className="relative flex w-20 shrink-0 flex-col items-center justify-center border-r-2 border-dashed group-hover:border-primary/30 dark:group-hover:border-ring/30">
         <p>14 Mar</p>
+        <div className="absolute -right-2.5 -bottom-px h-2.5 w-5 rounded-t-xl border border-b-0 bg-zinc-50 transition-colors group-hover:border-primary/30 dark:bg-background dark:group-hover:border-ring/30"></div>
+        <div className="absolute -top-px -right-2.5 h-2.5 w-5 rounded-b-full border border-t-0 bg-zinc-50 transition-colors group-hover:border-primary/30 dark:bg-background dark:group-hover:border-ring/30"></div>
       </div>
       <div className="flex flex-1 flex-col gap-2 py-3">
         <CardHeader>
           <CardTitle>Evento de prueba para la ui</CardTitle>
           <CardDescription>$10 - $35</CardDescription>
-          <CardAction>
-            <Badge variant="secondary">Active</Badge>
-          </CardAction>
         </CardHeader>
         <CardContent>
           <Item>
