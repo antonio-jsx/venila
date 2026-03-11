@@ -1,7 +1,7 @@
 'use client';
 
 import { MenuItem } from '@/admin/_components/menu-item';
-import { CalendarIcon, SettingsIcon, TicketCheckIcon } from 'lucide-react';
+import { CalendarIcon, TicketCheckIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 export function Menu() {
@@ -10,7 +10,6 @@ export function Menu() {
   const menu = [
     { title: t('Events'), url: '/', icon: CalendarIcon },
     { title: t('Orders'), url: '/orders', icon: TicketCheckIcon },
-    { title: t('Settings'), url: '/settings', icon: SettingsIcon },
   ];
 
   return (

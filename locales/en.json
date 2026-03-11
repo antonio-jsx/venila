@@ -18,8 +18,7 @@
   "admin": {
     "menu": {
       "Events": "Events",
-      "Orders": "Tickets",
-      "Settings": "Settings"
+      "Orders": "Tickets"
     },
     "delete": {
       "title": "Delete “{name}”?",
@@ -73,16 +72,6 @@
         "payment": "Payment method",
         "date": "Date"
       }
-    },
-    "settings": {
-      "title": "Settings",
-      "subtitle": "Manage your account settings",
-      "tabs": {
-        "account": "Account",
-        "payment": "Payment methods",
-        "integration": "Integrations"
-      },
-      "payments": {}
     }
   }
 }

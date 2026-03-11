@@ -18,8 +18,7 @@
   "admin": {
     "menu": {
       "Events": "Eventos",
-      "Orders": "Entradas",
-      "Settings": "Ajustes"
+      "Orders": "Entradas"
     },
     "delete": {
       "title": "¿Borrar “{name}”?",
@@ -73,16 +72,6 @@
         "payment": "Método de pago",
         "date": "Fecha"
       }
-    },
-    "settings": {
-      "title": "Ajustes",
-      "subtitle": "Administra los ajustes de tu cuenta",
-      "tabs": {
-        "account": "Cuenta",
-        "payment": "Métodos de Pago",
-        "integration": "Integraciones"
-      },
-      "payments": {}
     }
   }
 }
