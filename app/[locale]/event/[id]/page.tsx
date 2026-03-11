@@ -14,7 +14,6 @@ export async function generateMetadata({
 
   return {
     title: event.title,
-    description: event.short,
   };
 }
 

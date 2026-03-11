@@ -13,8 +13,8 @@ export const statement = {
 export const ac = createAccessControl(statement);
 
 export const admin = ac.newRole({
-  events: ['create', 'update', 'delete'],
   ...adminAc.statements,
+  events: ['create', 'update', 'delete'],
 });
 
 export const moderador = ac.newRole({ ...userAc.statements });

@@ -26,9 +26,8 @@ export const requiredString = (message: string = 'Required') =>
   z.string().trim().min(1, message);
 
 export function priceRange(min: number | null, max: number | null) {
-  const minAmount = min === 0 ? 'Free' : min;
   if (min === max) return `$${min}`;
-  return `$${minAmount} - $${max}`;
+  return `$${min} - $${max}`;
 }
 
 export function combineDateAndTime(date: string, time: string) {

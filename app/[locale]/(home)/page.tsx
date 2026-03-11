@@ -11,7 +11,7 @@ import { ShieldIcon } from 'lucide-react';
 export default function Home() {
   return (
     <>
-      <section className="border-y border-dashed bg-muted dark:bg-muted/20">
+      <section className="border-y">
         <div className="container grid grid-cols-2 border-x">
           <div className="group relative scale-75 select-none space-y-3 p-6">
             <Tickets className="-ml-8 transition-all duration-500 ease-out group-hover:-translate-y-3 group-hover:-rotate-2 group-hover:scale-105" />

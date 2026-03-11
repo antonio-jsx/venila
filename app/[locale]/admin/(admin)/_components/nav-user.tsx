@@ -48,12 +48,13 @@ export function NavUser() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
+          className="gap-0 p-0 px-[4px!important] data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
           variant="ghost"
-          className="h-fit gap-0 p-0 px-[6px!important] data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
+          size="sm"
         >
-          <Avatar className="size-8 rounded-lg">
+          <Avatar>
             <AvatarImage src={data.user.image ?? ''} alt={data.user.name} />
-            <AvatarFallback className="rounded-lg bg-transparent">
+            <AvatarFallback className="bg-transparent">
               {getInitials(data.user.name)}
             </AvatarFallback>
           </Avatar>

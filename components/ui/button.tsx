@@ -40,10 +40,12 @@ function Button({
   variant = 'default',
   size = 'default',
   asChild = false,
+  active = false,
   ...props
 }: React.ComponentProps<'button'> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean;
+    active?: boolean;
   }) {
   const Comp = asChild ? SlotPrimitive.Slot : 'button';
 
@@ -52,7 +54,7 @@ function Button({
       data-slot="button"
       data-variant={variant}
       data-size={size}
-      className={cn(buttonVariants({ variant, size, className }))}
+      className={cn(buttonVariants({ variant, size, className }), active && 'bg-accent text-accent-foreground')}
       {...props}
     />
   );
