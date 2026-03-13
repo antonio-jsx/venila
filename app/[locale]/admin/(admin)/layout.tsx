@@ -6,7 +6,7 @@ import { NavUser } from '@/admin/_components/nav-user';
 export default function Layout({ children }: LayoutProps<'/[locale]/admin'>) {
   return (
     <>
-      <header className="fixed top-0 z-50 flex w-full items-center border-b bg-background shadow-xs dark:bg-card">
+      <header className="fixed top-0 z-50 flex w-full items-center border-b bg-card shadow-xs dark:bg-card">
         <div className="container grid h-12 grid-cols-3 items-center gap-1 border-x px-6">
           <Brand />
           <Menu />
