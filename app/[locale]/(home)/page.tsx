@@ -1,4 +1,5 @@
 import { Tickets } from '@/app/(home)/_components/tickets';
+import { Decorator } from '@/components/decorator';
 import {
   Item,
   ItemContent,
@@ -12,7 +13,7 @@ export default function Home() {
   return (
     <>
       <section className="border-y">
-        <div className="container grid grid-cols-2 border-x">
+        <div className="container relative grid grid-cols-2 border-x">
           <div className="group relative scale-75 select-none space-y-3 p-6">
             <Tickets className="-ml-8 transition-all duration-500 ease-out group-hover:-translate-y-3 group-hover:-rotate-2 group-hover:scale-105" />
             <Tickets className="-mr-14 transition-all duration-500 ease-out group-hover:translate-x-3 group-hover:rotate-1 group-hover:scale-105" />
@@ -32,6 +33,7 @@ export default function Home() {
               <li>Página pública lista para compartir</li>
             </ul>
           </div>
+          <Decorator />
         </div>
       </section>
 

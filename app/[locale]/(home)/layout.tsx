@@ -1,3 +1,4 @@
+import { Decorator } from '@/components/decorator';
 import { SectionTitle } from '@/components/section-title';
 import { Menu } from './_components/menu';
 
@@ -6,7 +7,7 @@ export default function Layout({ children }: LayoutProps<'/[locale]'>) {
     <>
       <header>
         <Menu />
-        <div className="container relative flex flex-col items-center justify-center gap-3 border-x pt-20 pb-10">
+        <div className="container relative relative flex flex-col items-center justify-center gap-3 border-x pt-20 pb-10">
           <SectionTitle>Plataforma de gestion de eventos</SectionTitle>
           <h1 className="font-semibold text-7xl">
             Organiza tus <span className="text-primary">eventos</span>
@@ -15,6 +16,8 @@ export default function Layout({ children }: LayoutProps<'/[locale]'>) {
             Somos una herramienta creada para organizar ventas, asistentes y
             eventos que sea fácil de usar.
           </p>
+
+          <Decorator />
         </div>
       </header>
 
