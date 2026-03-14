@@ -1,18 +1,27 @@
+/** biome-ignore-all lint/suspicious/noArrayIndexKey: <no index> */
 import { PageNavigation } from '@/components/page-navigation';
+import {
+  Pagination as PaginationContainer,
+  PaginationContent,
+  PaginationItem,
+} from '@/components/ui/pagination';
 
 export async function Pagination({
-  show,
   pages,
   path,
 }: {
-  show: string;
   pages: number;
   path: string;
 }) {
   return (
-    <div className="flex items-center justify-between">
-      <p className="w-full text-muted-foreground text-xs">{show}</p>
-      <PageNavigation total={pages} path={path} />
-    </div>
+    <PaginationContainer>
+      <PaginationContent>
+        {Array.from({ length: pages }).map((_, index) => (
+          <PaginationItem key={index}>
+            <PageNavigation page={index} path={path} />
+          </PaginationItem>
+        ))}
+      </PaginationContent>
+    </PaginationContainer>
   );
 }

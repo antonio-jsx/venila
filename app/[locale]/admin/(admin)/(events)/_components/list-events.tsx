@@ -75,15 +75,7 @@ export async function ListEvents({ page }: { page: number }) {
         ))}
       </div>
 
-      <Pagination
-        path="/admin/events"
-        show={t('page', {
-          from: pagination.from,
-          to: pagination.to,
-          total: pagination.total,
-        })}
-        pages={pagination.totalPages}
-      />
+      <Pagination path="/admin" pages={pagination.totalPages} />
     </>
   );
 }

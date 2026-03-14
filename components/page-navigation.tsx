@@ -1,34 +1,14 @@
-/** biome-ignore-all lint/suspicious/noArrayIndexKey: <no index> */
 'use client';
 
-import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-} from '@/components/ui/pagination';
 import { Link } from '@/lib/i18n/navigation';
+import { Button } from './ui/button';
 
-export function PageNavigation({
-  total,
-  path,
-}: {
-  total: number;
-  path: string;
-}) {
+export function PageNavigation({ page, path }: { page: number; path: string }) {
   return (
-    <Pagination>
-      <PaginationContent className="ml-auto">
-        {Array.from({ length: total }).map((_, index) => (
-          <PaginationItem key={index}>
-            <Link
-              className="flex size-7 items-center justify-center rounded-md border border-input hover:bg-accent"
-              href={{ pathname: path, query: { page: index + 1 } }}
-            >
-              {index + 1}
-            </Link>
-          </PaginationItem>
-        ))}
-      </PaginationContent>
-    </Pagination>
+    <Button size="sm" variant="outline" asChild>
+      <Link href={{ pathname: path, query: { page: page + 1 } }}>
+        {page + 1}
+      </Link>
+    </Button>
   );
 }

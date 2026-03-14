@@ -11,7 +11,7 @@ export async function getEvents({
 }: {
   page?: number;
 }): Promise<Paginated<EventWithPriceRange>> {
-  const pageSize = 2;
+  const pageSize = 6;
   const safePage = Math.max(1, Number(page) || 1);
   const offset = (safePage - 1) * pageSize;
 

@@ -31,7 +31,6 @@
       "subtitle": "Crea, edita y controla tus eventos.",
       "empty_title": "No se encontraron eventos",
       "empty": "Aún no has creado ningún evento.",
-      "page": "Mostrando {from} hasta {to} de {total} eventos",
       "search": "Buscar eventos...",
       "columns": {
         "event": "Evento",
