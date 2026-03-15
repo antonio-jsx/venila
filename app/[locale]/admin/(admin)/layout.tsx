@@ -1,18 +1,19 @@
-import { Brand } from '@/admin/_components/brand';
 import { CreateLink } from '@/admin/_components/create-link';
 import { Menu } from '@/admin/_components/menu';
 import { NavUser } from '@/admin/_components/nav-user';
+import { Brand } from '@/components/brand';
 import { Decorator } from '@/components/decorator';
 
 export default function Layout({ children }: LayoutProps<'/[locale]/admin'>) {
   return (
     <>
-      <header className="fixed top-0 z-50 flex w-full items-center border-b bg-card shadow-xs dark:bg-card">
-        <div className="container relative grid h-12 grid-cols-3 items-center gap-1 border-x px-6">
-          <Brand />
+      <header className="fixed top-0 z-50 flex w-full items-center border-b bg-card shadow-xs">
+        <div className="container relative flex h-12 items-center justify-between gap-1 border-x px-6">
+          <Brand path="/admin" />
+
           <Menu />
 
-          <div className="szz flex items-center gap-1 justify-self-end">
+          <div className="flex flex-1 items-center justify-end gap-1">
             <CreateLink />
             <NavUser />
           </div>
@@ -20,7 +21,7 @@ export default function Layout({ children }: LayoutProps<'/[locale]/admin'>) {
           <Decorator />
         </div>
       </header>
-      <main className="container relative mt-12 space-y-5 border-x p-8">
+      <main className="container relative mt-12 space-y-5 px-5 py-8">
         {children}
       </main>
     </>

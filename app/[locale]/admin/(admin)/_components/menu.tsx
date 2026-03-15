@@ -1,20 +1,21 @@
 'use client';
 
 import { MenuItem } from '@/admin/_components/menu-item';
-import { CalendarIcon, TicketCheckIcon } from 'lucide-react';
+import Calendar from '@/components/icons/Calendar';
+import TicketCheck from '@/components/icons/TicketCheck';
 import { useTranslations } from 'next-intl';
 
 export function Menu() {
   const t = useTranslations('admin.menu');
 
   const menu = [
-    { title: t('Events'), url: '/', icon: CalendarIcon },
-    { title: t('Orders'), url: '/orders', icon: TicketCheckIcon },
+    { title: t('Events'), url: '/', icon: Calendar },
+    { title: t('Orders'), url: '/orders', icon: TicketCheck },
   ];
 
   return (
-    <nav className="justify-self-center">
-      <ul className="flex items-center gap-2">
+    <nav>
+      <ul className="mx-auto flex items-center gap-2">
         {menu.map((item) => (
           <MenuItem
             key={item.title}
