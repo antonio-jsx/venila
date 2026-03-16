@@ -1,6 +1,6 @@
 'use server';
 
-import { requirePermission } from '@/lib/auth-middleware';
+import { requirePermission } from '@/lib/auth/middleware';
 import { db } from '@/lib/db';
 import { events } from '@/lib/db/schemas/events';
 import { actionClient } from '@/lib/safe-action';

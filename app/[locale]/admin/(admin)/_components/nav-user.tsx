@@ -13,7 +13,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Skeleton } from '@/components/ui/skeleton';
-import { authClient } from '@/lib/auth-client';
+import { authClient } from '@/lib/auth/client';
 import { Link, useRouter } from '@/lib/i18n/navigation';
 import { getInitials } from '@/lib/utils';
 import { ChevronDown, LogOutIcon } from 'lucide-react';

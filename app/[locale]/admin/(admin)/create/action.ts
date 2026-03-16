@@ -1,7 +1,7 @@
 'use server';
 
 import { eventSchema } from '@/admin/create/schema';
-import { requirePermission } from '@/lib/auth-middleware';
+import { requirePermission } from '@/lib/auth/middleware';
 import { db } from '@/lib/db';
 import { events } from '@/lib/db/schemas/events';
 import { actionClient } from '@/lib/safe-action';

@@ -4,7 +4,7 @@ import { formLogin, type LoginSchema } from '@/app/admin/(auth)/schema';
 import { ButtonSend } from '@/components/button-send';
 import { FormField } from '@/components/form-field';
 import { Input } from '@/components/ui/input';
-import { authClient } from '@/lib/auth-client';
+import { authClient } from '@/lib/auth/client';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
