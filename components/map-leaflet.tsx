@@ -72,7 +72,6 @@ export default function MapLeaflet({
 
       {allMarkers.map((pos, idx) => (
         <Marker
-          // biome-ignore lint/suspicious/noArrayIndexKey: <no key>
           key={idx}
           position={pos}
           draggable={draggable}

@@ -9,7 +9,6 @@ export default function Loading() {
         {Array.from({ length: 4 }).map((_, rowIndex) => (
           <Skeleton
             className="flex flex-row gap-0 rounded-lg border border-input/60 bg-card p-0"
-            // biome-ignore lint/suspicious/noArrayIndexKey: <no index>
             key={rowIndex}
           >
             <div className="relative flex w-20 shrink-0 flex-col items-center justify-center border-r-2 border-dashed">

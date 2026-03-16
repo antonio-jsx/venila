@@ -1,4 +1,3 @@
-/** biome-ignore-all lint/suspicious/noArrayIndexKey: <no index> */
 import { PageNavigation } from '@/components/page-navigation';
 import {
   Pagination as PaginationContainer,
