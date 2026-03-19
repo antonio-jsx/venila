@@ -4,14 +4,16 @@ import { Link, usePathname } from '@/lib/i18n/navigation';
 import { cn } from '@/lib/utils';
 import type { ComponentType, SVGProps } from 'react';
 
-export function MenuItem(item: {
+type Props = {
   title: string;
   url: string;
   icon: ComponentType<SVGProps<SVGSVGElement>>;
-}) {
+};
+
+export function MenuItem({ icon: Icom, title, url }: Props) {
   const pathname = usePathname();
 
-  const isActive = pathname === `/admin${item.url === '/' ? '' : item.url}`;
+  const isActive = pathname === `/admin${url === '/' ? '' : url}`;
 
   return (
     <li
@@ -25,10 +27,10 @@ export function MenuItem(item: {
           'flex h-12 items-center gap-1.5 px-2 text-muted-foreground text-sm hover:text-foreground',
           isActive ? 'text-foreground' : ''
         )}
-        href={`/admin${item.url}`}
+        href={`/admin${url}`}
       >
-        <item.icon className="size-4.5 stroke-foreground text-zinc-100 dark:text-indigo-200/20" />
-        {item.title}
+        <Icom className="size-4.5 stroke-foreground text-zinc-100 dark:text-indigo-200/20" />
+        {title}
       </Link>
     </li>
   );

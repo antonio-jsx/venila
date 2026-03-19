@@ -8,15 +8,13 @@ import {
 import { TableCell, TableRow } from '@/components/ui/table';
 import { CalendarIcon } from 'lucide-react';
 
-export function EmptyTable({
-  title,
-  empty,
-  cols,
-}: {
+type Props = {
   title: string;
   empty: string;
   cols: number;
-}) {
+};
+
+export function EmptyTable({ title, empty, cols }: Props) {
   return (
     <TableRow>
       <TableCell colSpan={cols}>
