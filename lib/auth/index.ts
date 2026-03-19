@@ -7,7 +7,7 @@ import { nextCookies } from 'better-auth/next-js';
 import { admin as adminPlugin } from 'better-auth/plugins';
 
 export const auth = betterAuth({
-  baseURL: envClient.NEXT_PUBLIC_APP_URL,
+  baseURL: { allowedHosts: [envClient.NEXT_PUBLIC_APP_URL, 'localhost:*'] },
   database: drizzleAdapter(db, {
     provider: 'pg',
     usePlural: true,
