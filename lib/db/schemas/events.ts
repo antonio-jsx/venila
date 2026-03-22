@@ -19,6 +19,7 @@ export const events = pgTable('events', {
   endTime: time().notNull(),
   description: text().notNull(),
   address: text(),
+  theme: text(),
   slug: text().notNull(),
   tickets: jsonb().$type<TicketSchema[]>(),
   isActive: boolean().notNull().default(true),

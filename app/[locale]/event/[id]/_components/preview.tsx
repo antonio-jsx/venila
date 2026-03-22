@@ -25,8 +25,21 @@ export async function Preview({ id }: { id: string }) {
 
   const t = await getTranslations('event');
 
+  const [bgColor, textColor] = event.theme?.split(',') ?? [
+    '#6366f1',
+    '#ffffff',
+  ];
+
   return (
-    <main className="mx-auto mt-4 max-w-4xl">
+    <main
+      className="mx-auto mt-4 max-w-4xl"
+      style={
+        {
+          '--primary': bgColor,
+          '--primary-foreground': textColor,
+        } as React.CSSProperties
+      }
+    >
       <Header title={event.title} />
 
       <section className="grid grid-cols-[1fr_260px] items-start py-6">

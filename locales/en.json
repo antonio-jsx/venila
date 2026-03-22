@@ -59,6 +59,14 @@
           "price": "Price",
           "quantity": "Available quantity"
         },
+        "theme": {
+          "title": "Appearance",
+          "description": "Customize interface colors",
+          "btn_theme": "Change theme",
+          "example": "Examples",
+          "text": "Text color",
+          "background": "Background color"
+        },
         "success": "The event has been created successfully.",
         "fail": "An error occurred while creating the event. Please try again."
       }

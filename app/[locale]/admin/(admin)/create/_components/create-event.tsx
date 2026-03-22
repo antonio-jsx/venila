@@ -1,6 +1,7 @@
 'use client';
 
 import { NavTitle } from '@/admin/_components/nav-title';
+import { Banner } from '@/admin/create/_components/banner';
 import { Scheduler } from '@/admin/create/_components/scheduler';
 import { Tickets } from '@/admin/create/_components/tickets';
 import { addEvent } from '@/admin/create/action';
@@ -61,34 +62,39 @@ export function CreateEvent() {
 
   return (
     <FormProvider {...form}>
-      <div className="mx-auto max-w-2xl space-y-4">
-        <NavTitle text={t('title')} subtitle={t('subtitle')} />
+      <div className="grid grid-cols-[1fr_260px] items-start gap-4">
+        <div className="space-y-4">
+          <NavTitle text={t('title')} subtitle={t('subtitle')} />
 
-        <form className="space-y-4" id={formId} onSubmit={onSubmit}>
-          <FormField
-            control={control}
-            name="title"
-            label={t('name')}
-            render={(field) => <Input {...field} placeholder={t('ph_name')} />}
-          />
+          <form className="space-y-3" id={formId} onSubmit={onSubmit}>
+            <FormField
+              control={control}
+              name="title"
+              label={t('name')}
+              render={(field) => (
+                <Input {...field} placeholder={t('ph_name')} />
+              )}
+            />
 
-          <Suspense>
-            <Scheduler />
+            <Suspense>
+              <Scheduler />
 
-            <div className="space-y-0.5">
-              <p className="font-medium text-muted-foreground text-sm">
-                {t('describe')}
-              </p>
-              <Editor />
-            </div>
-          </Suspense>
-        </form>
+              <div className="space-y-1">
+                <p className="font-medium text-sm">{t('describe')}</p>
+                <Editor />
+              </div>
+            </Suspense>
+          </form>
 
-        <Tickets />
+          <ButtonSend form={formId} state={form.formState.isSubmitting}>
+            {t('btn_send')} <SendHorizonalIcon />
+          </ButtonSend>
+        </div>
 
-        <ButtonSend form={formId} state={form.formState.isSubmitting}>
-          {t('btn_send')} <SendHorizonalIcon />
-        </ButtonSend>
+        <div className="space-y-3">
+          <Tickets />
+          <Banner />
+        </div>
       </div>
     </FormProvider>
   );

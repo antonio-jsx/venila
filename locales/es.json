@@ -59,6 +59,14 @@
           "price": "Precio",
           "quantity": "Cantidad disponible"
         },
+        "theme": {
+          "title": "Apariencia",
+          "description": "Personaliza colores de la interfaz",
+          "btn_theme": "Cambiar tema",
+          "example": "Ejemplos",
+          "text": "Color de texto",
+          "background": "Color de fondo"
+        },
         "success": "El evento se ha creado correctamente.",
         "fail": "Ocurrió un error al crear el evento. Por favor, intenta nuevamente."
       }

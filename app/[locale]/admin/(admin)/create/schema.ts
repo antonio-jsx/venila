@@ -11,6 +11,7 @@ export const eventSchema = z
   .object({
     title: requiredString('Title is required'),
     description: z.string().trim().min(1, 'Description is required'),
+    theme: z.string().optional(),
     address: z.string().optional(),
     startDate: z.iso
       .date('Invalid date format')
@@ -49,6 +50,7 @@ export type TicketSchema = z.infer<typeof ticketSchama>;
 export const eventDefaults = {
   title: '',
   description: '',
+  theme: '',
   startDate: '',
   endDate: '',
   startTime: '',
