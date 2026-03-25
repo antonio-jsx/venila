@@ -62,7 +62,7 @@ export function CreateEvent() {
 
   return (
     <FormProvider {...form}>
-      <div className="grid grid-cols-[1fr_260px] items-start gap-4">
+      <div className="grid grid-cols-[1fr_260px] items-start gap-6">
         <div className="space-y-4">
           <NavTitle text={t('title')} subtitle={t('subtitle')} />
 
@@ -80,14 +80,18 @@ export function CreateEvent() {
               <Scheduler />
 
               <div className="space-y-1">
-                <p className="font-medium text-sm">{t('describe')}</p>
+                <p className="text-sm">{t('describe')}</p>
                 <Editor />
               </div>
             </Suspense>
           </form>
 
-          <ButtonSend form={formId} state={form.formState.isSubmitting}>
-            {t('btn_send')} <SendHorizonalIcon />
+          <ButtonSend
+            form={formId}
+            state={form.formState.isSubmitting}
+            variant="elevated"
+          >
+            <SendHorizonalIcon /> {t('btn_send')}
           </ButtonSend>
         </div>
 

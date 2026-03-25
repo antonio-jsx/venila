@@ -31,7 +31,7 @@ export function SelectDate({ value, onChange }: SelectDateProps) {
       <Popover>
         <PopoverTrigger asChild>
           <Button
-            className="justify-start border-input bg-card"
+            className="justify-start border-input bg-card font-normal text-foreground"
             variant="outline"
           >
             <CalendarIcon />

@@ -8,14 +8,12 @@ export function SectionTitle({
 }>) {
   return (
     <div>
-      <p className="inline-flex items-center gap-2 text-xl uppercase">
+      <p className="inline-flex items-center gap-2 text-lg">
         <span className="size-2 rounded-full bg-primary"></span>
         {children}
       </p>
       {subtitle && (
-        <span className="mt-0.5 block text-muted-foreground text-sm">
-          {subtitle}
-        </span>
+        <span className="block text-muted-foreground text-sm">{subtitle}</span>
       )}
     </div>
   );

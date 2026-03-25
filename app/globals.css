@@ -38,9 +38,8 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  --font-sans: Geist, sans-serif;
-  --font-serif: Open Sans, sans-serif;
-  --font-mono: Geist Mono, monospace;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 
   --radius: 0.6rem;
   --radius-sm: calc(var(--radius) - 4px);
@@ -50,25 +49,25 @@
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
   @keyframes marquee {
-  from {
-    transform: translateX(0);
+    from {
+      transform: translateX(0);
     }
-  to {
-    transform: translateX(calc(-100% - var(--gap)));
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
     }
   }
   @keyframes marquee-vertical {
-  from {
-    transform: translateY(0);
+    from {
+      transform: translateY(0);
     }
-  to {
-    transform: translateY(calc(-100% - var(--gap)));
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
     }
   }
 }
 
 :root {
-  --background: oklch(98.5% 0 0);
+  --background: var(--color-neutral-50);
   --foreground: oklch(0.2795 0.0368 260.031);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.2795 0.0368 260.031);
@@ -84,8 +83,8 @@
   --accent-foreground: oklch(0.3729 0.0306 259.7328);
   --destructive: oklch(65% 0.18 15);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(93% 0 0);
-  --input: oklch(0.8717 0.0093 258.3382);
+  --border: var(--color-neutral-200);
+  --input: var(--color-neutral-300);
   --ring: oklch(0.8546 0.0442 284.0021);
   --chart-1: oklch(0.5854 0.2041 277.1173);
   --chart-2: oklch(0.5106 0.2301 276.9656);

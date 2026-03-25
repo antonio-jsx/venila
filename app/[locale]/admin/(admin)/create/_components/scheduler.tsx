@@ -4,19 +4,31 @@ import { SelectDate } from '@/admin/create/_components/select-date';
 import type { EventSchema } from '@/admin/create/schema';
 import { FormField } from '@/components/form-field';
 import { Input } from '@/components/ui/input';
+import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
 import { useFormContext } from 'react-hook-form';
 
+function Label({ error, text }: { error: boolean; text: string }) {
+  return (
+    <p className={cn('mb-1 text-sm', error && 'text-destructive')}>{text}</p>
+  );
+}
+
 export function Scheduler() {
   const t = useTranslations('admin.events.form');
-  const { control } = useFormContext<EventSchema>();
+  const { control, formState } = useFormContext<EventSchema>();
+
+  const {
+    errors: { startDate, startTime, endDate, endTime },
+  } = formState;
+
+  const startError = !!(startDate || startTime);
+  const endError = !!(endDate || endTime);
 
   return (
     <div className="flex items-start gap-4 space-y-1.5 [--spacing:0.25rem]">
       <div>
-        <p className="font-medium text-muted-foreground text-sm">
-          {t('start')}
-        </p>
+        <Label error={startError} text={t('start')} />
         <div className="flex items-start gap-1">
           <FormField
             control={control}
@@ -34,7 +46,7 @@ export function Scheduler() {
       </div>
 
       <div>
-        <p className="font-medium text-muted-foreground text-sm">{t('end')}</p>
+        <Label error={endError} text={t('end')} />
         <div className="flex items-start gap-1">
           <FormField
             control={control}

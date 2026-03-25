@@ -24,7 +24,7 @@ export function MenuItem({ icon: Icom, title, url }: Props) {
     >
       <Link
         className={cn(
-          'flex h-12 items-center gap-1.5 px-2 text-muted-foreground text-sm hover:text-foreground',
+          'flex h-12 items-center gap-1.5 px-0 text-muted-foreground text-sm hover:text-foreground',
           isActive ? 'text-foreground' : ''
         )}
         href={`/admin${url}`}

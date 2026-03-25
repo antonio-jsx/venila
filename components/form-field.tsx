@@ -42,14 +42,7 @@ export function FormField<
       name={name}
       render={({ field, fieldState }) => (
         <Field className={cn(className)} data-invalid={fieldState.invalid}>
-          {label && (
-            <FieldLabel
-              className="font-medium text-muted-foreground"
-              htmlFor={field.name}
-            >
-              {label}
-            </FieldLabel>
-          )}
+          {label && <FieldLabel htmlFor={field.name}>{label}</FieldLabel>}
 
           {render({
             ...field,
