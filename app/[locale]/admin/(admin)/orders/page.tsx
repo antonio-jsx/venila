@@ -1,16 +1,12 @@
 import { NavTitle } from '@/admin/_components/nav-title';
 import { Table, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { type Locale, useTranslations } from 'next-intl';
-import { setRequestLocale } from 'next-intl/server';
-import { use } from 'react';
+import { locale as rootLocale } from 'next/root-params';
+import type { Locale } from 'next-intl';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 
-export default function OdersPage({
-  params,
-}: PageProps<'/[locale]/admin/orders'>) {
-  const { locale } = use(params);
-  setRequestLocale(locale as Locale);
-
-  const t = useTranslations('admin.orders');
+export default async function OdersPage() {
+  setRequestLocale((await rootLocale()) as Locale);
+  const t = await getTranslations('admin.orders');
 
   return (
     <>

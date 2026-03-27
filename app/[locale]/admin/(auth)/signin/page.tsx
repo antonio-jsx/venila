@@ -6,17 +6,13 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { type Locale, useTranslations } from 'next-intl';
-import { setRequestLocale } from 'next-intl/server';
-import { use } from 'react';
+import { locale as rootLocale } from 'next/root-params';
+import type { Locale } from 'next-intl';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 
-export default function SigninPage({
-  params,
-}: PageProps<'/[locale]/admin/signin'>) {
-  const { locale } = use(params);
-  setRequestLocale(locale as Locale);
-
-  const t = useTranslations('signin');
+export default async function SigninPage() {
+  setRequestLocale((await rootLocale()) as Locale);
+  const t = await getTranslations('signin');
 
   return (
     <Card className="mx-auto w-full max-w-sm">
