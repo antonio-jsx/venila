@@ -18,18 +18,20 @@ export function MenuItem({ icon: Icom, title, url }: Props) {
   return (
     <li
       className={cn(
-        '-mb-[2px]',
-        isActive ? 'border-zinc-300 border-b-2 dark:border-secondary' : ''
+        '-mb-[2px] border-transparent border-b-2',
+        isActive
+          ? 'border-primary border-b-2 bg-linear-to-b from-40% from-transparent to-primary/10'
+          : ''
       )}
     >
       <Link
         className={cn(
-          'flex h-12 items-center gap-1.5 px-0 text-muted-foreground text-sm hover:text-foreground',
-          isActive ? 'text-foreground' : ''
+          'flex h-11 items-center gap-1.5 px-2.5 text-muted-foreground text-sm hover:text-foreground',
+          isActive ? 'font-medium text-foreground' : ''
         )}
         href={`/admin${url}`}
       >
-        <Icom className="size-4.5 stroke-foreground text-zinc-100 dark:text-indigo-200/20" />
+        <Icom className="size-4.5 stroke-foreground text-zinc-100 dark:text-zinc-400/20" />
         {title}
       </Link>
     </li>

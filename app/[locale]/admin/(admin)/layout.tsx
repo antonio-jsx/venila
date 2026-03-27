@@ -8,12 +8,12 @@ export default function Layout({ children }: LayoutProps<'/[locale]/admin'>) {
   return (
     <>
       <header className="fixed top-0 z-50 flex w-full items-center border-b bg-card shadow-xs">
-        <div className="container relative flex h-12 items-center justify-between gap-1 border-x px-5">
+        <div className="container relative flex h-11 items-center justify-between gap-1 border-x px-5">
           <Brand path="/admin" />
 
           <Menu />
 
-          <div className="flex items-center justify-end gap-1">
+          <div className="flex items-center gap-1">
             <CreateLink />
             <NavUser />
           </div>
@@ -21,7 +21,7 @@ export default function Layout({ children }: LayoutProps<'/[locale]/admin'>) {
           <Decorator />
         </div>
       </header>
-      <main className="container relative mt-12 space-y-5 border-x px-6 py-8">
+      <main className="container relative mt-11 space-y-5 border-x p-6">
         {children}
       </main>
     </>

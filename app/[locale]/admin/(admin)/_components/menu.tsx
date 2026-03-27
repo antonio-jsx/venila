@@ -14,8 +14,8 @@ export function Menu() {
   ];
 
   return (
-    <nav className="mx-auto flex-1">
-      <ul className="mx-auto flex items-center gap-4">
+    <nav className="flex-1">
+      <ul className="flex items-center gap-1">
         {menu.map((item) => (
           <MenuItem
             key={item.title}
