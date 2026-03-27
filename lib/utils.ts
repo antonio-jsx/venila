@@ -43,7 +43,7 @@ export function parseTime(time: string) {
   const isPM = h >= 12;
   const hour12 = h % 12 || 12;
 
-  return `${hour12}:${m.toString().padStart(2, '0')} ${isPM ? 'PM' : 'AM'}`;
+  return `${hour12}:${m.toString().padStart(2, '0')}${isPM ? 'PM' : 'AM'}`;
 }
 
 export function generateSlug(input: string): string {
