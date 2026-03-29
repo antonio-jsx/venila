@@ -29,10 +29,10 @@ export async function ListEvents({ page }: { page: number }) {
 
   return (
     <>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="mx-auto flex max-w-xl flex-col gap-4">
         {data.map((event) => (
           <Card
-            className="group flex flex-row gap-0 p-0 shadow-none transition-all duration-200 hover:border-primary/30 dark:hover:border-ring/30"
+            className="group flex w-full flex-row gap-0 p-0 shadow-none transition-all duration-200 hover:border-primary/30 dark:hover:border-ring/30"
             key={event.id}
           >
             <div className="relative flex w-20 shrink-0 flex-col items-center justify-center border-r-2 border-dashed group-hover:border-primary/30 dark:group-hover:border-ring/30">
@@ -53,12 +53,12 @@ export async function ListEvents({ page }: { page: number }) {
               <CardContent className="p-0">
                 <Item>
                   <ItemContent className="flex-row gap-2">
-                    <p className="flex items-center gap-1 font-mono text-muted-foreground text-sm">
+                    <p className="flex items-center gap-0.5 font-mono text-muted-foreground text-sm">
                       <ClockIcon size={16} strokeWidth={1.2} />
                       {parseTime(event.startTime)} <span>-</span>
                       {parseTime(event.endTime)}
                     </p>
-                    <p className="flex items-center gap-1 font-mono text-muted-foreground text-sm">
+                    <p className="flex items-center gap-0.5 font-mono text-muted-foreground text-sm">
                       <CalendarDaysIcon size={16} strokeWidth={1.2} />
                       {format.dateTime(parseLocalDate(event.endDate), {
                         day: '2-digit',

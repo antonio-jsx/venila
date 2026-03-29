@@ -5,10 +5,10 @@ export default function Loading() {
     <div className="flex flex-col gap-4">
       <Skeleton className="h-5 w-14" />
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="mx-auto flex w-full max-w-xl flex-1 flex-col gap-4">
         {Array.from({ length: 4 }).map((_, rowIndex) => (
           <Skeleton
-            className="flex flex-row gap-0 rounded-lg border border-input/60 bg-card p-0"
+            className="flex w-full flex-1 flex-row gap-0 rounded-lg border border-input/60 bg-card p-0"
             key={rowIndex}
           >
             <div className="relative flex w-20 shrink-0 flex-col items-center justify-center border-r-2 border-dashed">
