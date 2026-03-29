@@ -31,15 +31,15 @@ export async function ItemDate({
   const dateTime = format.dateTime(combineDateAndTime(date, time), configTime);
 
   return (
-    <Item>
+    <Item className="w-fit items-start">
       <ItemMedia variant="icon">
         {variant === 'clock' ? <ClockCheckIcon /> : <CalendarIcon />}
       </ItemMedia>
       <ItemContent>
-        <ItemDescription>
-          {t(variant === 'clock' ? 'end' : 'start')}
+        <ItemTitle>{t(variant === 'clock' ? 'end' : 'start')}</ItemTitle>
+        <ItemDescription className="font-mono text-md">
+          {dateTime}
         </ItemDescription>
-        <ItemTitle>{dateTime}</ItemTitle>
       </ItemContent>
     </Item>
   );

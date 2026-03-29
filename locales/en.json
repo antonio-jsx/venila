@@ -13,7 +13,11 @@
     "title": "Tickets",
     "button": "Buy tickets",
     "start": "Start date",
-    "end": "End date"
+    "end": "End date",
+    "notfound": {
+      "title": "Event not found",
+      "description": "Sorry, the event you are looking for does not exist or has been moved."
+    }
   },
   "admin": {
     "menu": {

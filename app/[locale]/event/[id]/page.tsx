@@ -13,7 +13,7 @@ export async function generateMetadata({
   const event = await getEventById(rawId);
 
   return {
-    title: { absolute: event.title },
+    title: { absolute: event?.title ?? 'Not Found' },
   };
 }
 

@@ -13,7 +13,11 @@
     "title": "Entradas",
     "button": "Comprar tickets",
     "start": "Fecha de inicio",
-    "end": "Fecha de cierre"
+    "end": "Fecha de cierre",
+    "notfound": {
+      "title": "Evento no encontrado",
+      "description": "Lo sentimos, el evento que estás buscando no existe o ha sido movido."
+    }
   },
   "admin": {
     "menu": {

@@ -1,4 +1,3 @@
-import { Header } from '@/app/event/[id]/_components/header';
 import { ItemDate } from '@/app/event/[id]/_components/item-date';
 import { getEventById } from '@/app/event/[id]/query';
 import { Button } from '@/components/ui/button';
@@ -8,7 +7,6 @@ import {
   ItemContent,
   ItemDescription,
   ItemGroup,
-  ItemSeparator,
   ItemTitle,
 } from '@/components/ui/item';
 import { extractIdFromSlug } from '@/lib/utils';
@@ -32,7 +30,7 @@ export async function Preview({ id }: { id: string }) {
 
   return (
     <main
-      className="mx-auto mt-4 max-w-4xl"
+      className="mx-auto max-w-4xl py-10"
       style={
         {
           '--primary': bgColor,
@@ -40,23 +38,50 @@ export async function Preview({ id }: { id: string }) {
         } as React.CSSProperties
       }
     >
-      <Header title={event.title} />
+      <section className="grid grid-cols-[1fr_260px] items-start gap-4">
+        <div className="space-y-4">
+          <h1 className="font-semibold text-5xl leading-[1.1] tracking-tight">
+            {event.title}
+          </h1>
 
-      <section className="grid grid-cols-[1fr_260px] items-start py-6">
-        <div></div>
-        <Card className="border-none shadow-lg">
+          <ItemGroup className="w-fit flex-row items-center justify-start gap-4">
+            <ItemDate
+              variant="calendar"
+              date={event.startDate}
+              time={event.startTime}
+            />
+            <div className="h-5 w-px bg-input" />
+            <ItemDate
+              variant="clock"
+              date={event.endDate}
+              time={event.endTime}
+            />
+          </ItemGroup>
+
+          <div
+            className="prose prose-sm dark:prose-invert prose-blockquote:my-2 prose-headings:my-1.5 prose-ol:my-1 prose-p:my-1 prose-ul:my-1 prose-headings:font-normal prose-p:text-md"
+            // biome-ignore lint/security/noDangerouslySetInnerHtml: <html>
+            dangerouslySetInnerHTML={{ __html: event.description }}
+          />
+        </div>
+
+        <Card>
           <CardHeader>
             <CardTitle>{t('title')}</CardTitle>
           </CardHeader>
           <CardContent>
             <ItemGroup className="gap-1.5">
               {event.tickets?.map((ticket) => (
-                <Item variant="muted" key={ticket.title}>
+                <Item
+                  variant="outline"
+                  className="rounded-none border-x-0 border-t-0 px-0"
+                  key={ticket.title}
+                >
                   <ItemContent>
                     <ItemTitle>{ticket.title}</ItemTitle>
                   </ItemContent>
                   <ItemContent>
-                    <ItemDescription className="font-bold text-lg text-primary">
+                    <ItemDescription className="font-bold font-mono text-primary">
                       ${ticket.price}
                     </ItemDescription>
                   </ItemContent>
@@ -67,22 +92,6 @@ export async function Preview({ id }: { id: string }) {
             <Button className="mt-3 w-full">
               {t('button')} <ArrowRightIcon />
             </Button>
-
-            <ItemSeparator className="my-3" />
-
-            <ItemGroup className="gap-1.5">
-              <ItemDate
-                variant="calendar"
-                date={event.startDate}
-                time={event.startTime}
-              />
-
-              <ItemDate
-                variant="clock"
-                date={event.endDate}
-                time={event.endTime}
-              />
-            </ItemGroup>
           </CardContent>
         </Card>
       </section>
