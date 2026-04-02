@@ -1,8 +1,8 @@
 'use client';
 
 import type { EventSchema } from '@/admin/create/schema';
+import { EditorToolbar } from '@/components/editor-toolbar';
 import { InputGroup } from '@/components/ui/input-group';
-import { EditorToolbar } from './editor-toolbar';
 import TextAlign from '@tiptap/extension-text-align';
 import { TextStyleKit } from '@tiptap/extension-text-style';
 import Youtube from '@tiptap/extension-youtube';
@@ -26,7 +26,7 @@ const Editor = () => {
     editorProps: {
       attributes: {
         class:
-          'w-full min-w-full min-h-22 prose prose-sm prose-headings:my-1 prose-p:my-1 prose-ul:my-1 prose-ol:my-1 prose-blockquote:my-2 focus:outline-none p-4 py-1 dark:prose-invert',
+          'w-full min-w-full min-h-30 prose prose-sm prose-headings:font-normal prose-p:text-md prose-headings:my-1 prose-p:my-1 prose-ul:my-1 prose-ol:my-1 prose-blockquote:my-2 focus:outline-none p-4 py-1 dark:prose-invert',
       },
     },
     onUpdate({ editor }) {

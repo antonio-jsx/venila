@@ -5,10 +5,9 @@ import { Link } from '@/lib/i18n/navigation';
 
 export function Brand({ path }: { path: string }) {
   return (
-    <div className="flex-1">
+    <div className="shrink-0">
       <Link href={path} className="flex w-fit items-center gap-1">
-        <Logo className="size-5 fill-black dark:fill-white" />
-        <span className="font-medium text-lg">Venila</span>
+        <Logo className="size-7 fill-black dark:fill-white" />
       </Link>
     </div>
   );

@@ -15,7 +15,6 @@ import { FormField } from '@/components/form-field';
 import { Input } from '@/components/ui/input';
 import { usePathname } from '@/lib/i18n/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { SendHorizonalIcon } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 import { useAction } from 'next-safe-action/hooks';
@@ -62,7 +61,7 @@ export function CreateEvent() {
 
   return (
     <FormProvider {...form}>
-      <div className="grid grid-cols-[1fr_260px] items-start gap-6">
+      <div className="grid grid-cols-[1fr_auto_260px] items-start gap-6">
         <div className="space-y-4">
           <NavTitle text={t('title')} subtitle={t('subtitle')} />
 
@@ -85,19 +84,20 @@ export function CreateEvent() {
               </div>
             </Suspense>
           </form>
+        </div>
 
+        <div className="h-full w-px bg-gradient-to-b from-transparent via-input to-transparent" />
+
+        <div className="sticky top-16 space-y-3">
+          <Tickets />
+          <Banner />
           <ButtonSend
             form={formId}
             state={form.formState.isSubmitting}
             variant="elevated"
           >
-            <SendHorizonalIcon /> {t('btn_send')}
+            {t('btn_send')}
           </ButtonSend>
-        </div>
-
-        <div className="space-y-3">
-          <Tickets />
-          <Banner />
         </div>
       </div>
     </FormProvider>

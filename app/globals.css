@@ -143,10 +143,10 @@
     max-width: 768px;
   }
   @media (width >= 1024px) {
-    max-width: 1024px;
+    max-width: 900px;
   }
   @media (width >= 1124px) {
-    max-width: 1024px;
+    max-width: 980px;
   }
 }
 

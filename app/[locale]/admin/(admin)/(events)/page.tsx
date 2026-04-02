@@ -24,9 +24,11 @@ export default async function EventsPage({
 
   return (
     <>
-      <NavTitle text={t('title')} subtitle={t('subtitle')} />
+      <div className="mx-auto max-w-xl space-y-5">
+        <NavTitle text={t('title')} subtitle={t('subtitle')} />
 
-      <ListEvents page={page} />
+        <ListEvents page={page} />
+      </div>
 
       <Remove action={removeEvent} />
     </>

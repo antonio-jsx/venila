@@ -20,7 +20,6 @@ import { useFormContext } from 'react-hook-form';
 
 const PRESETS = [
   { bg: '#6366f1', text: '#ffffff' },
-  { bg: '#0f172a', text: '#ffffff' },
   { bg: '#f59e0b', text: '#000000' },
   { bg: '#10b981', text: '#ffffff' },
   { bg: '#ef4444', text: '#ffffff' },
@@ -51,38 +50,45 @@ export function Banner() {
   };
 
   return (
-    <Item className="bg-card p-0" variant="outline">
-      <ItemHeader
-        className="relative flex h-16 w-full flex-col items-center justify-center rounded-t-md transition-colors"
-        style={{ backgroundColor: bg, color: text }}
-      >
+    <Item className="bg-card" variant="outline">
+      <ItemHeader className="border-b pb-2">
+        <div className="flex items-center gap-1">
+          {PRESETS.map((preset, i) => {
+            const isActive = preset.bg === bg && preset.text === text;
+
+            return (
+              <button
+                key={i}
+                type="button"
+                onClick={() => updateTheme(preset.bg, preset.text)}
+                className="rounded-full p-[2px] transition"
+                style={{
+                  border: isActive
+                    ? `2px solid ${preset.bg}`
+                    : '2px solid transparent',
+                }}
+              >
+                <span
+                  className="block size-4.5 rounded-full"
+                  style={{ backgroundColor: preset.bg }}
+                />
+              </button>
+            );
+          })}
+        </div>
+
         <Popover>
           <PopoverTrigger asChild>
             <Button
-              className="bg-white/20 hover:bg-white/30 dark:hover:bg-white/30"
-              style={{ color: text }}
-              size="sm"
-              variant="ghost"
+              style={{ backgroundColor: bg, color: text }}
+              size="icon-sm"
+              variant="outline"
             >
-              <PaletteIcon className="mr-1 h-4 w-4" />
-              {t('btn_theme')}
+              <PaletteIcon className="size-4" />
             </Button>
           </PopoverTrigger>
 
-          <PopoverContent align="end" className="w-54 space-y-1.5">
-            <p className="font-medium text-xs">{t('example')}</p>
-            <div className="grid grid-cols-6 gap-1">
-              {PRESETS.map((preset, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => updateTheme(preset.bg, preset.text)}
-                  className="size-6 rounded-md"
-                  style={{ backgroundColor: preset.bg }}
-                />
-              ))}
-            </div>
-
+          <PopoverContent align="end" className="w-54 space-y-1">
             <div className="flex items-center">
               <label className="font-medium text-xs" htmlFor="bg">
                 {t('background')}
@@ -91,7 +97,7 @@ export function Banner() {
                 className="m-0 ml-auto size-6"
                 type="color"
                 value={bg}
-                onChange={(e) => updateTheme(e.target.value, bg)}
+                onChange={(e) => updateTheme(e.target.value, text)}
               />
             </div>
 
@@ -103,18 +109,13 @@ export function Banner() {
                 className="m-0 ml-auto size-6"
                 type="color"
                 value={text}
-                onChange={(e) => updateTheme(e.target.value, text)}
+                onChange={(e) => updateTheme(bg, e.target.value)}
               />
             </div>
           </PopoverContent>
         </Popover>
-        <div
-          className="absolute right-2 bottom-2 size-4 rounded-sm"
-          style={{ backgroundColor: text }}
-        />
       </ItemHeader>
-
-      <ItemContent className="px-3 pb-2">
+      <ItemContent>
         <ItemTitle>{t('title')}</ItemTitle>
         <ItemDescription>{t('description')}</ItemDescription>
       </ItemContent>

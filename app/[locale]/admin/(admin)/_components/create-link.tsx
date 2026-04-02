@@ -13,14 +13,13 @@ export function CreateLink() {
 
   return (
     <Button
-      active={isActive}
-      className="gap-0.5"
+      className="size-10 rounded-full bg-accent"
       size="sm"
-      variant="ghost"
+      variant="secondary"
       asChild
     >
       <Link href="/admin/create">
-        <PlusIcon /> {t('title')}
+        <PlusIcon />
       </Link>
     </Button>
   );
