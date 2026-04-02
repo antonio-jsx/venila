@@ -1,15 +1,12 @@
+import { Brand } from '@/components/brand';
 import { Decorator } from '@/components/decorator';
-import { Logo } from '@/components/logo';
 
 export function Menu() {
   return (
-    <div className="fixed z-10 w-full border-b bg-card/50 backdrop-blur-md">
-      <div className="container relative relative z-10 border-x px-4">
-        <div className="flex h-12 items-center justify-between">
-          <div className="flex items-center gap-1 font-medium text-lg">
-            <Logo className="size-6 fill-black dark:fill-white" /> Venila
-          </div>
-        </div>
+    <div className="w-full border-b bg-card">
+      <div className="container relative relative flex h-11 items-center justify-between border-x px-4">
+        <Brand path="/" />
+
         <Decorator />
       </div>
     </div>
