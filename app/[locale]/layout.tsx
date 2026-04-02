@@ -1,7 +1,7 @@
 import { Toaster } from '@/components/ui/sonner';
 import { routing } from '@/lib/i18n/routing';
 import type { Metadata } from 'next';
-import { Geist_Mono, Public_Sans } from 'next/font/google';
+import { Geist_Mono, Manrope, Public_Sans } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { locale as rootLocale } from 'next/root-params';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
@@ -10,14 +10,20 @@ import { NuqsAdapter } from 'nuqs/adapters/next/app';
 
 import '../globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
+import { TooltipProvider } from '@/components/ui/tooltip';
 
 const publicSans = Public_Sans({
-  variable: '--font-public-sans',
+  variable: '--font-sans',
   subsets: ['latin'],
 });
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
+  subsets: ['latin'],
+});
+
+const manrope = Manrope({
+  variable: '--font-heading',
   subsets: ['latin'],
 });
 
@@ -47,7 +53,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <body
-        className={`${geistMono.variable} ${publicSans.variable} font-sans antialiased`}
+        className={`${geistMono.variable} ${publicSans.variable} ${manrope.variable} font-sans antialiased`}
       >
         <NextIntlClientProvider>
           <ThemeProvider
@@ -56,7 +62,9 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <NuqsAdapter>{children}</NuqsAdapter>
+            <NuqsAdapter>
+              <TooltipProvider>{children}</TooltipProvider>
+            </NuqsAdapter>
             <Toaster />
           </ThemeProvider>
         </NextIntlClientProvider>
