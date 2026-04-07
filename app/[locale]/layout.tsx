@@ -1,16 +1,14 @@
+import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/sonner';
+import { TooltipProvider } from '@/components/ui/tooltip';
 import { routing } from '@/lib/i18n/routing';
 import type { Metadata } from 'next';
 import { Geist_Mono, Manrope, Public_Sans } from 'next/font/google';
-import { notFound } from 'next/navigation';
-import { locale as rootLocale } from 'next/root-params';
-import { hasLocale, NextIntlClientProvider } from 'next-intl';
-import { setRequestLocale } from 'next-intl/server';
+import { NextIntlClientProvider } from 'next-intl';
+import { getLocale } from 'next-intl/server';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
 
 import '../globals.css';
-import { ThemeProvider } from '@/components/theme-provider';
-import { TooltipProvider } from '@/components/ui/tooltip';
 
 const publicSans = Public_Sans({
   variable: '--font-sans',
@@ -43,12 +41,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const locale = await rootLocale();
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
-
-  setRequestLocale(locale);
+  const locale = await getLocale();
 
   return (
     <html lang={locale} suppressHydrationWarning>

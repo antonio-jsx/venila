@@ -6,13 +6,10 @@ import {
   EmptyTitle,
 } from '@/components/ui/empty';
 import { CalendarX2 } from 'lucide-react';
-import { locale as rootLocale } from 'next/root-params';
-import type { Locale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 
 export default async function NotFound() {
-  const locale = (await rootLocale()) as Locale;
-  const t = await getTranslations({ locale, namespace: 'event.notfound' });
+  const t = await getTranslations('event.notfound');
 
   return (
     <Empty className="mx-auto mt-4 max-w-md bg-card shadow-lg">
