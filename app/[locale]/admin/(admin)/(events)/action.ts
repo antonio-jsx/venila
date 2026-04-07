@@ -1,24 +1,15 @@
 'use server';
 
-import { requirePermission } from '@/lib/auth/middleware';
 import { db } from '@/lib/db';
 import { events } from '@/lib/db/schemas/events';
-import { actionClient } from '@/lib/safe-action';
+import { adminClient } from '@/lib/safe-action';
 import { eq } from 'drizzle-orm';
 import { refresh } from 'next/cache';
 import * as z from 'zod/v4';
 
 const remove = z.object({ id: z.number().min(1, '') });
 
-export const removeEvent = actionClient
-  .use(
-    requirePermission({
-      role: 'admin',
-      permissions: {
-        events: ['delete'],
-      },
-    })
-  )
+export const removeEvent = adminClient
   .metadata({ name: 'remove-event' })
   .inputSchema(remove)
   .action(async ({ parsedInput: { id } }) => {

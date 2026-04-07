@@ -1,3 +1,5 @@
+import { auth } from './auth';
+import { betterAuth } from '@next-safe-action/adapter-better-auth';
 import {
   createSafeActionClient,
   DEFAULT_SERVER_ERROR_MESSAGE,
@@ -22,3 +24,22 @@ export const actionClient = createSafeActionClient({
     });
   },
 });
+
+export const adminClient = actionClient.use(
+  betterAuth(auth, {
+    authorize: ({ authData, next }) => {
+      if (!authData || authData.user.role !== 'admin') {
+        throw new ActionError('FORBIDDEN');
+      }
+      return next({
+        ctx: {
+          auth: {
+            name: authData.user.name,
+            id: authData.user.id,
+            email: authData.user.email,
+          },
+        },
+      });
+    },
+  })
+);
