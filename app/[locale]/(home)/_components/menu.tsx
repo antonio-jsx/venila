@@ -1,13 +1,12 @@
 import { Brand } from '@/components/brand';
-import { Decorator } from '@/components/decorator';
+import ToggleTheme from '@/components/toggle-theme';
 
 export function Menu() {
   return (
-    <div className="w-full border-b bg-card">
-      <div className="container relative relative flex h-11 items-center justify-between border-x px-4">
+    <div className="fixed top-0 right-0 left-0 z-50 w-full border-b bg-card">
+      <div className="container relative relative flex h-11 items-center justify-between">
         <Brand path="/" />
-
-        <Decorator />
+        <ToggleTheme />
       </div>
     </div>
   );

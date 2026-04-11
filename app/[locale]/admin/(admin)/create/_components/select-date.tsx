@@ -30,10 +30,7 @@ export function SelectDate({ value, onChange }: SelectDateProps) {
     <Field className="w-fit">
       <Popover>
         <PopoverTrigger asChild>
-          <Button
-            className="justify-start border-input bg-card font-normal text-foreground"
-            variant="outline"
-          >
+          <Button className="justify-start border-0 border-input bg-input/50 font-normal text-foreground hover:bg-input/50">
             <CalendarIcon />
             {date ? format(date, 'LLL dd, y') : <span>{t('pickDate')}</span>}
           </Button>

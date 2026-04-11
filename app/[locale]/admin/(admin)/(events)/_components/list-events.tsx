@@ -31,7 +31,7 @@ export async function ListEvents({ page }: { page: number }) {
       <div className="mx-auto flex max-w-xl flex-col gap-4">
         {data.map((event) => (
           <Card
-            className="group flex w-full flex-row gap-0 p-0 shadow-none transition-all duration-200 hover:border-primary/30 dark:hover:border-ring/30"
+            className="group flex w-full flex-row gap-0 overflow-visible border p-0 shadow-none ring-0 transition-all duration-200 hover:border-primary/30 dark:hover:border-ring/30"
             key={event.id}
           >
             <div className="relative flex w-20 shrink-0 flex-col items-center justify-center border-r-2 border-dashed group-hover:border-primary/30 dark:group-hover:border-ring/30">

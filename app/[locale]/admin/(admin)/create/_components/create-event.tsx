@@ -61,8 +61,8 @@ export function CreateEvent() {
 
   return (
     <FormProvider {...form}>
-      <div className="grid grid-cols-[1fr_auto_260px] items-start gap-6">
-        <div className="space-y-4">
+      <div className="grid grid-cols-[1fr_auto_260px] items-start gap-4">
+        <div className="space-y-6 rounded-3xl border bg-card p-4 shadow-xs">
           <NavTitle text={t('title')} subtitle={t('subtitle')} />
 
           <form className="space-y-3" id={formId} onSubmit={onSubmit}>
@@ -77,25 +77,20 @@ export function CreateEvent() {
 
             <Suspense>
               <Scheduler />
-
-              <div className="space-y-1">
-                <p className="text-sm">{t('describe')}</p>
-                <Editor />
-              </div>
             </Suspense>
+            <div className="space-y-1">
+              <p className="font-semibold text-sm">{t('describe')}</p>
+              <Editor />
+            </div>
           </form>
         </div>
 
         <div className="h-full w-px bg-gradient-to-b from-transparent via-input to-transparent" />
 
-        <div className="sticky top-16 space-y-3">
+        <div className="sticky top-10 space-y-3">
           <Tickets />
           <Banner />
-          <ButtonSend
-            form={formId}
-            state={form.formState.isSubmitting}
-            variant="elevated"
-          >
+          <ButtonSend form={formId} state={form.formState.isSubmitting}>
             {t('btn_send')}
           </ButtonSend>
         </div>

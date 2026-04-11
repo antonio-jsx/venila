@@ -126,11 +126,10 @@ export const EditorToolbar = ({ editor }: EditorToolbarProps) => {
       {toolbarButtons.map((button) => (
         <InputGroupButton
           key={button.label}
-          size="icon-xs"
           aria-label={button.label}
           data-active={activeStates[button.stateKey]}
           onClick={() => button.onClick(editor)}
-          className="data-[active=true]:bg-muted data-[active=true]:text-primary"
+          className="data-[active=true]:bg-input"
         >
           {button.icon}
         </InputGroupButton>

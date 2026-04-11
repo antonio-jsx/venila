@@ -10,7 +10,11 @@ import { useFormContext } from 'react-hook-form';
 
 function Label({ error, text }: { error: boolean; text: string }) {
   return (
-    <p className={cn('mb-1 text-sm', error && 'text-destructive')}>{text}</p>
+    <p
+      className={cn('mb-1 font-semibold text-sm', error && 'text-destructive')}
+    >
+      {text}
+    </p>
   );
 }
 

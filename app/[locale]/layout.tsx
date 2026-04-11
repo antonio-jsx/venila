@@ -46,21 +46,21 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <body
-        className={`${geistMono.variable} ${publicSans.variable} ${manrope.variable} font-sans antialiased`}
+        className={`${geistMono.variable} ${publicSans.variable} ${manrope.variable} antialiased`}
       >
-        <NextIntlClientProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            enableSystem
-            disableTransitionOnChange
-          >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <NextIntlClientProvider>
             <NuqsAdapter>
               <TooltipProvider>{children}</TooltipProvider>
             </NuqsAdapter>
             <Toaster />
-          </ThemeProvider>
-        </NextIntlClientProvider>
+          </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

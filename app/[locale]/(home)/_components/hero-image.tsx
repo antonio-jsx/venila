@@ -48,12 +48,12 @@ export default function HeroImage() {
   return (
     <div
       ref={ref}
-      className="mt-20 w-full max-w-[960px] transform-gpu will-change-transform"
+      className="mt-20 w-full max-w-[820px] transform-gpu will-change-transform"
     >
       <img
         src="/hero.jpg"
         alt="venila"
-        className="w-full rounded-md shadow-sm ring-4 ring-input"
+        className="w-full rounded-md shadow-sm ring-8 ring-input"
       />
     </div>
   );

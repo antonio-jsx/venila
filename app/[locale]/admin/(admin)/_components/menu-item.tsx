@@ -1,13 +1,14 @@
 'use client';
 
+import { Tooltip } from '@/components/tooltip';
 import { Link, usePathname } from '@/lib/i18n/navigation';
 import { cn } from '@/lib/utils';
-import type { ComponentType, SVGProps } from 'react';
+import type { LucideIcon } from 'lucide-react';
 
 type Props = {
   title: string;
   url: string;
-  icon: ComponentType<SVGProps<SVGSVGElement>>;
+  icon: LucideIcon;
 };
 
 export function MenuItem({ icon: Icom, title, url }: Props) {
@@ -16,16 +17,20 @@ export function MenuItem({ icon: Icom, title, url }: Props) {
   const isActive = pathname === `/admin${url === '/' ? '' : url}`;
 
   return (
-    <li className={cn(isActive ? 'rounded-full bg-secondary' : '')}>
-      <Link
-        className={cn(
-          'flex size-8 items-center justify-center gap-1.5 text-muted-foreground text-sm hover:text-foreground',
-          isActive ? 'font-medium text-foreground' : ''
-        )}
-        href={`/admin${url}`}
+    <Tooltip text={title}>
+      <li
+        className={cn(isActive ? 'rounded-3xl bg-input/50 dark:bg-input' : '')}
       >
-        <Icom className="size-4.5 stroke-foreground text-zinc-100 dark:text-zinc-400/20" />
-      </Link>
-    </li>
+        <Link
+          className={cn(
+            'flex size-8 items-center justify-center text-muted-foreground hover:text-foreground',
+            isActive ? 'text-foreground' : ''
+          )}
+          href={`/admin${url}`}
+        >
+          <Icom className="size-5" strokeWidth={1.5} />
+        </Link>
+      </li>
+    </Tooltip>
   );
 }

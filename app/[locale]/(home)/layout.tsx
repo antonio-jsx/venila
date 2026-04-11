@@ -1,4 +1,3 @@
-import { Decorator } from '@/components/decorator';
 import { Button } from '@/components/ui/button';
 import HeroImage from './_components/hero-image';
 import { Menu } from './_components/menu';
@@ -8,7 +7,7 @@ export default function Layout({ children }: LayoutProps<'/[locale]'>) {
     <>
       <header>
         <Menu />
-        <div className="container relative flex flex-col items-center gap-3 border-x pt-30 pb-5">
+        <div className="container relative flex flex-col items-center gap-3 pt-30 pb-5">
           <div className="flex flex-col items-center justify-center">
             <div className="flex max-w-3xl flex-col items-center text-center">
               <h1 className="mb-2 font-bold text-6xl">
@@ -20,7 +19,7 @@ export default function Layout({ children }: LayoutProps<'/[locale]'>) {
               </p>
             </div>
             <div className="mt-4 flex items-center gap-4">
-              <Button className="h-8" size="lg" variant="elevated">
+              <Button className="h-8" size="lg">
                 Crea tu evento
               </Button>
               <Button className="h-8" size="lg" variant="secondary">
@@ -30,7 +29,6 @@ export default function Layout({ children }: LayoutProps<'/[locale]'>) {
 
             <HeroImage />
           </div>
-          <Decorator />
         </div>
       </header>
 

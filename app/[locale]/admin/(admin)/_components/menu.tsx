@@ -1,20 +1,19 @@
 'use client';
 
 import { MenuItem } from '@/admin/_components/menu-item';
-import Calendar from '@/components/icons/Calendar';
-import TicketCheck from '@/components/icons/TicketCheck';
 import { CreateLink } from './create-link';
+import { Calendar, Ticket } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 export function Menu() {
   const t = useTranslations('admin.menu');
 
   return (
-    <nav className="fixed right-0 bottom-4 left-0 z-50">
-      <ul className="mx-auto flex w-fit items-center gap-1 rounded-full border bg-card px-3 py-1.5 shadow-2xl">
+    <nav className="fixed top-14 left-4 z-50">
+      <ul className="flex h-full w-fit flex-col items-center gap-1.5 rounded-4xl border bg-card px-1.5 py-2 shadow-xs">
         <MenuItem title={t('Events')} url="/" icon={Calendar} />
         <CreateLink />
-        <MenuItem title={t('Orders')} url="/orders" icon={TicketCheck} />
+        <MenuItem title={t('Orders')} url="/orders" icon={Ticket} />
       </ul>
     </nav>
   );

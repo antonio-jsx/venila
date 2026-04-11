@@ -16,7 +16,7 @@ export function Tooltip({
   return (
     <TooltipPrimitive>
       <TooltipTrigger asChild>{children}</TooltipTrigger>
-      <TooltipContent sideOffset={sideOffset}>
+      <TooltipContent align="center" side="right" sideOffset={sideOffset}>
         <p>{text}</p>
       </TooltipContent>
     </TooltipPrimitive>

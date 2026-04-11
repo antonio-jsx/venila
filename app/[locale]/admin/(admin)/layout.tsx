@@ -6,7 +6,7 @@ export default function Layout({ children }: LayoutProps<'/[locale]/admin'>) {
   return (
     <>
       <header className="fixed top-0 z-50 flex w-full items-center">
-        <div className="relative flex w-full items-center justify-between gap-1 px-4 py-2">
+        <div className="relative flex h-12 w-full items-center justify-between gap-1 px-6">
           <Brand path="/admin" />
 
           <div className="flex shrink-0 items-center">
@@ -15,7 +15,7 @@ export default function Layout({ children }: LayoutProps<'/[locale]/admin'>) {
         </div>
       </header>
 
-      <main className="container relative mt-11 space-y-5 px-8 py-4">
+      <main className="container relative mt-12 space-y-5 px-2 pb-4">
         {children}
       </main>
 
