@@ -4,4 +4,4 @@ export const filterParsers = {
   page: parseAsInteger.withDefault(1),
 };
 
-export const loadfilterParams = createLoader(filterParsers);
+export const loadSearchParams = createLoader(filterParsers);
