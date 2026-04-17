@@ -23,6 +23,7 @@
     "@better-auth/drizzle-adapter": "1.6.2",
     "@hookform/resolvers": "5.2.2",
     "@next-safe-action/adapter-better-auth": "0.1.5",
+    "@next-safe-action/adapter-react-hook-form": "2.0.6",
     "@t3-oss/env-nextjs": "0.13.11",
     "@tiptap/extension-text-align": "3.16.0",
     "@tiptap/extension-text-style": "3.16.0",

@@ -21,6 +21,9 @@ importers:
       '@next-safe-action/adapter-better-auth':
         specifier: 0.1.5
         version: 0.1.5(better-auth@1.6.2(@opentelemetry/api@1.9.1)(drizzle-kit@0.31.10)(drizzle-orm@0.45.2(@opentelemetry/api@1.9.1)(kysely@0.28.15)(postgres@3.4.9))(mongodb@7.1.0)(next@16.2.3(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(next-safe-action@8.4.0(next@16.2.3(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(next@16.2.3(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))
+      '@next-safe-action/adapter-react-hook-form':
+        specifier: 2.0.6
+        version: 2.0.6(@hookform/resolvers@5.2.2(react-hook-form@7.72.1(react@19.2.5)))(next-safe-action@8.4.0(next@16.2.3(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(next@16.2.3(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react-dom@19.2.5(react@19.2.5))(react-hook-form@7.72.1(react@19.2.5))(react@19.2.5)
       '@t3-oss/env-nextjs':
         specifier: 0.13.11
         version: 0.13.11(typescript@5.9.3)(zod@4.3.6)
@@ -1282,6 +1285,17 @@ packages:
       better-auth: '>= 1.5.0'
       next: '>= 15.1.0'
       next-safe-action: '>= 8.4.0'
+
+  '@next-safe-action/adapter-react-hook-form@2.0.6':
+    resolution: {integrity: sha512-QBELAYlIQh9fnTWPJhy6Dl6RMH2r4Sicj3FI9r1LORwC6IFhnNLhyGY4aHxeGGIPgPi1Sfx/T43UYDlBgLB8QQ==}
+    engines: {node: '>=18.17'}
+    peerDependencies:
+      '@hookform/resolvers': '>= 5.0.0'
+      next: '>= 14.0.0'
+      next-safe-action: '>=8.1.10'
+      react: '>= 18.2.0'
+      react-dom: '>= 18.2.0'
+      react-hook-form: '>= 7.0.0'
 
   '@next/env@16.2.3':
     resolution: {integrity: sha512-ZWXyj4uNu4GCWQw9cjRxWlbD+33mcDszIo9iQxFnBX3Wmgq9ulaSJcl6VhuWx5pCWqqD+9W6Wfz7N0lM5lYPMA==}
@@ -5765,6 +5779,15 @@ snapshots:
       better-auth: 1.6.2(@opentelemetry/api@1.9.1)(drizzle-kit@0.31.10)(drizzle-orm@0.45.2(@opentelemetry/api@1.9.1)(kysely@0.28.15)(postgres@3.4.9))(mongodb@7.1.0)(next@16.2.3(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       next: 16.2.3(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       next-safe-action: 8.4.0(next@16.2.3(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+
+  '@next-safe-action/adapter-react-hook-form@2.0.6(@hookform/resolvers@5.2.2(react-hook-form@7.72.1(react@19.2.5)))(next-safe-action@8.4.0(next@16.2.3(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(next@16.2.3(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react-dom@19.2.5(react@19.2.5))(react-hook-form@7.72.1(react@19.2.5))(react@19.2.5)':
+    dependencies:
+      '@hookform/resolvers': 5.2.2(react-hook-form@7.72.1(react@19.2.5))
+      next: 16.2.3(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+      next-safe-action: 8.4.0(next@16.2.3(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+      react: 19.2.5
+      react-dom: 19.2.5(react@19.2.5)
+      react-hook-form: 7.72.1(react@19.2.5)
 
   '@next/env@16.2.3': {}
 

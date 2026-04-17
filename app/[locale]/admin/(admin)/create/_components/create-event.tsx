@@ -5,21 +5,17 @@ import { Banner } from '@/admin/create/_components/banner';
 import { Scheduler } from '@/admin/create/_components/scheduler';
 import { Tickets } from '@/admin/create/_components/tickets';
 import { addEvent } from '@/admin/create/action';
-import {
-  type EventSchema,
-  eventDefaults,
-  eventSchema,
-} from '@/admin/create/schema';
+import { eventDefaults, eventSchema } from '@/admin/create/schema';
 import { ButtonSend } from '@/components/button-send';
 import { FormField } from '@/components/form-field';
 import { Input } from '@/components/ui/input';
 import { usePathname } from '@/lib/i18n/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useHookFormAction } from '@next-safe-action/adapter-react-hook-form/hooks';
 import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
-import { useAction } from 'next-safe-action/hooks';
 import { Suspense, useEffect, useId } from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
+import { FormProvider } from 'react-hook-form';
 import { toast } from 'sonner';
 
 const Editor = dynamic(() => import('@/components/editor'), {
@@ -33,39 +29,40 @@ export function CreateEvent() {
 
   const t = useTranslations('admin.events.form');
 
-  const form = useForm({
-    resolver: zodResolver(eventSchema),
-    defaultValues: eventDefaults,
-    mode: 'onChange',
-    shouldUnregister: false,
-  });
-  const { reset, control, handleSubmit } = form;
+  const { form, action, handleSubmitWithAction, resetFormAndAction } =
+    useHookFormAction(addEvent, zodResolver(eventSchema), {
+      formProps: {
+        defaultValues: eventDefaults,
+        mode: 'onChange',
+        shouldUnregister: false,
+      },
+      actionProps: {
+        onSuccess: () => {
+          toast(t('success'));
+        },
+        onError: () => {
+          toast(t('fail'));
+        },
+      },
+    });
+  const { control } = form;
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: <pathname is used as a navigation change trigger>
   useEffect(() => {
-    reset();
-  }, [pathname, reset]);
-
-  const { executeAsync } = useAction(addEvent, {
-    onSuccess: () => {
-      toast(t('success'));
-    },
-    onError: () => {
-      toast(t('fail'));
-    },
-  });
-
-  const onSubmit = handleSubmit(async (data: EventSchema) => {
-    await executeAsync(data);
-  });
+    resetFormAndAction();
+  }, [pathname, resetFormAndAction]);
 
   return (
     <FormProvider {...form}>
-      <div className="grid grid-cols-[1fr_auto_260px] items-start gap-4">
-        <div className="space-y-6 rounded-3xl border bg-card p-4 shadow-xs">
+      <div className="grid grid-cols-[1fr_auto_260px] items-start gap-6">
+        <div className="space-y-6">
           <NavTitle text={t('title')} subtitle={t('subtitle')} />
 
-          <form className="space-y-3" id={formId} onSubmit={onSubmit}>
+          <form
+            className="space-y-3"
+            id={formId}
+            onSubmit={handleSubmitWithAction}
+          >
             <FormField
               control={control}
               name="title"
@@ -87,10 +84,10 @@ export function CreateEvent() {
 
         <div className="h-full w-px bg-gradient-to-b from-transparent via-input to-transparent" />
 
-        <div className="sticky top-10 space-y-3">
+        <div className="sticky top-16 space-y-3">
           <Tickets />
           <Banner />
-          <ButtonSend form={formId} state={form.formState.isSubmitting}>
+          <ButtonSend form={formId} state={action.isPending}>
             {t('btn_send')}
           </ButtonSend>
         </div>
