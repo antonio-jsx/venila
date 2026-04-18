@@ -10,11 +10,11 @@ import { CalendarIcon } from 'lucide-react';
 export function EmptyCard({ title, empty }: { title: string; empty: string }) {
   return (
     <Empty>
-      <EmptyHeader>
+      <EmptyHeader className="gap-0">
         <EmptyMedia variant="icon">
-          <CalendarIcon />
+          <CalendarIcon strokeWidth={1} />
         </EmptyMedia>
-        <EmptyTitle>{title}</EmptyTitle>
+        <EmptyTitle className="text-2xl">{title}</EmptyTitle>
         <EmptyDescription>{empty}</EmptyDescription>
       </EmptyHeader>
     </Empty>

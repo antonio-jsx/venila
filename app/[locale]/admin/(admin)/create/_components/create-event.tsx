@@ -18,7 +18,7 @@ import { Suspense, useEffect, useId } from 'react';
 import { FormProvider } from 'react-hook-form';
 import { toast } from 'sonner';
 
-const Editor = dynamic(() => import('@/components/editor'), {
+const Editor = dynamic(() => import('@/components/editor/tiptap'), {
   ssr: false,
 });
 
