@@ -1,4 +1,29 @@
 {
+  "home": {
+    "title": "Convierte tu evento en un lugar lleno de gente.",
+    "subtitle": "Sin fricción. Sin vueltas. Publica en minutos y empieza a vender hoy.",
+    "section_event": {
+      "title": "Control total",
+      "option_a": "Precios, cupos y reglas — tú decides.",
+      "option_b": "Fechas, horarios y ubicación en segundos."
+    },
+    "section_feature": {
+      "title": "Hecho para moverse rápido",
+      "subtitle": "Menos setup. Más ventas.",
+      "ticketing": {
+        "title": "Cobras al instante",
+        "subtitle": "Pagos rápidos. Entradas con QR. Sin redirecciones."
+      },
+      "setup": {
+        "title": "Online en minutos",
+        "subtitle": "Configura una vez. Publica y listo."
+      },
+      "confirmation": {
+        "title": "Todo automático",
+        "subtitle": "Confirmaciones y tickets enviados al momento."
+      }
+    }
+  },
   "signin": {
     "title": "Inicia sesión en tu cuenta",
     "describe": "¡Bienvenido nuevamente, te hemos extrañado!",
