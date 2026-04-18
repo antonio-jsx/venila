@@ -1,8 +1,7 @@
 'use client';
 
-import { Tooltip } from '@/components/tooltip';
-import { Button } from '@/components/ui/button';
 import { Link, usePathname } from '@/lib/i18n/navigation';
+import { cn } from '@/lib/utils';
 import { PlusIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
@@ -13,17 +12,15 @@ export function CreateLink() {
   const isActive = pathname === '/admin/create';
 
   return (
-    <Tooltip text={t('title')}>
-      <Button
-        className="dark size-8 rounded-full"
-        size="sm"
-        variant="secondary"
-        asChild
-      >
-        <Link href="/admin/create">
-          <PlusIcon className="size-5" />
-        </Link>
-      </Button>
-    </Tooltip>
+    <Link
+      className={cn(
+        'flex h-6.5 items-center justify-center gap-1 rounded-full px-3 text-muted-foreground text-sm hover:text-foreground',
+        isActive && 'bg-input text-foreground'
+      )}
+      href="/admin/create"
+    >
+      <PlusIcon className="size-4" strokeWidth={1} />
+      {t('title')}
+    </Link>
   );
 }

@@ -23,7 +23,7 @@ export function NavUser() {
   const router = useRouter();
 
   if (isPending) {
-    return <Skeleton className="h-8 w-14" />;
+    return <Skeleton className="size-8 rounded-full" />;
   }
 
   if (error || !data) {
@@ -47,9 +47,9 @@ export function NavUser() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <Avatar>
+        <Avatar className="size-7">
           <AvatarImage src={data.user.image ?? ''} alt={data.user.name} />
-          <AvatarFallback className="border p-2">
+          <AvatarFallback className="border p-2 text-xs">
             {getInitials(data.user.name)}
           </AvatarFallback>
         </Avatar>
@@ -66,8 +66,10 @@ export function NavUser() {
               <AvatarImage src={data.user.image ?? ''} alt={data.user.name} />
               <AvatarFallback>{getInitials(data.user.name)}</AvatarFallback>
             </Avatar>
-            <div className="grid flex-1 text-left text-sm leading-tight">
-              <span className="truncate font-medium">{data.user.name}</span>
+            <div className="grid flex-1 text-left leading-tight">
+              <span className="truncate font-medium text-foreground">
+                {data.user.name}
+              </span>
               <span className="truncate text-muted-foreground text-xs">
                 {data.user.email}
               </span>
