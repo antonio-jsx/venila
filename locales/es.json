@@ -1,4 +1,8 @@
 {
+  "buttons": {
+    "edit": "Editar",
+    "remove": "Eliminar"
+  },
   "home": {
     "title": "Convierte tu evento en un lugar lleno de gente.",
     "subtitle": "Sin fricción. Sin vueltas. Publica en minutos y empieza a vender hoy.",

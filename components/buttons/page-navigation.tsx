@@ -1,7 +1,7 @@
 'use client';
 
+import { Button } from '@/components/ui/button';
 import { Link } from '@/lib/i18n/navigation';
-import { Button } from './ui/button';
 
 export function PageNavigation({ page, path }: { page: number; path: string }) {
   return (

@@ -1,4 +1,8 @@
 {
+  "buttons": {
+    "edit": "Edit",
+    "remove": "Remove"
+  },
   "home": {
     "title": "Turn your event into a packed room.",
     "subtitle": "No friction. No hassle. Go live in minutes and start selling today.",

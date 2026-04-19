@@ -5,19 +5,22 @@ import { Spinner } from '@/components/ui/spinner';
 import type { ComponentProps } from 'react';
 
 type ButtonSendProps = ComponentProps<typeof Button> & {
+  text?: string;
   state: boolean;
 };
 
-export function ButtonSend({
+export function SaveAction({
   children,
   state,
   disabled,
+  size = 'sm',
+  text,
   ...props
 }: ButtonSendProps) {
   return (
-    <Button type="submit" size="sm" disabled={state || disabled} {...props}>
+    <Button type="submit" size={size} disabled={state || disabled} {...props}>
       {state && <Spinner />}
-      {children}
+      {text || children}
     </Button>
   );
 }

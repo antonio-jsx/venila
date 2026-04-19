@@ -163,4 +163,7 @@
   body {
     @apply bg-background text-foreground font-sans;
   }
+  button {
+    @apply hover:cursor-pointer;
+  }
 }

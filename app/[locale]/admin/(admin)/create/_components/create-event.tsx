@@ -6,7 +6,7 @@ import { Scheduler } from '@/admin/create/_components/scheduler';
 import { Tickets } from '@/admin/create/_components/tickets';
 import { addEvent } from '@/admin/create/action';
 import { eventDefaults, eventSchema } from '@/admin/create/schema';
-import { ButtonSend } from '@/components/button-send';
+import { SaveAction } from '@/components/buttons/save-action';
 import { FormField } from '@/components/form-field';
 import { Input } from '@/components/ui/input';
 import { usePathname } from '@/lib/i18n/navigation';
@@ -87,9 +87,11 @@ export function CreateEvent() {
         <div className="sticky top-16 space-y-3">
           <Tickets />
           <Banner />
-          <ButtonSend form={formId} state={action.isPending}>
-            {t('btn_send')}
-          </ButtonSend>
+          <SaveAction
+            form={formId}
+            state={action.isPending}
+            text={t('btn_send')}
+          />
         </div>
       </div>
     </FormProvider>
