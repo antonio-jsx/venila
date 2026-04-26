@@ -24,6 +24,7 @@ import {
 } from '@/components/ui/input-group';
 import { Separator } from '@/components/ui/separator';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { generateRandomString } from 'better-auth/crypto';
 import { DollarSignIcon, Trash2Icon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useId } from 'react';
@@ -41,6 +42,7 @@ export function AddTicket({ children }: { children?: React.ReactNode }) {
   const form = useForm({
     resolver: zodResolver(ticketSchama),
     defaultValues: {
+      hash: '',
       title: '',
       price: 0,
       quantity: 0,
@@ -50,7 +52,9 @@ export function AddTicket({ children }: { children?: React.ReactNode }) {
   const { handleSubmit, control, reset } = form;
 
   const onSubmit = handleSubmit((data: TicketSchema) => {
-    append(data);
+    const hash = generateRandomString(8);
+    const add = { ...data, hash };
+    append(add);
     reset();
   });
 
@@ -72,22 +76,22 @@ export function AddTicket({ children }: { children?: React.ReactNode }) {
         <form className="space-y-3" id={formId} onSubmit={onSubmit}>
           <FormField
             control={control}
-            name={`title`}
             label={t('name')}
+            name={`title`}
             render={(field) => <Input {...field} />}
           />
           <div className="flex items-start gap-3">
             <FormField
               control={control}
-              name={`price`}
               label={t('price')}
+              name={`price`}
               render={(field) => (
                 <InputGroup>
                   <InputGroupInput
                     {...field}
-                    type="number"
                     min={0}
                     onChange={(e) => field.onChange(Number(e.target.value))}
+                    type="number"
                   />
                   <InputGroupAddon>
                     <DollarSignIcon />
@@ -98,14 +102,14 @@ export function AddTicket({ children }: { children?: React.ReactNode }) {
 
             <FormField
               control={control}
-              name={`quantity`}
               label={t('quantity')}
+              name={`quantity`}
               render={(field) => (
                 <Input
                   {...field}
-                  type="number"
                   min={0}
                   onChange={(e) => field.onChange(Number(e.target.value))}
+                  type="number"
                 />
               )}
             />
@@ -113,24 +117,23 @@ export function AddTicket({ children }: { children?: React.ReactNode }) {
         </form>
 
         <Separator />
+
         <div className="max-h-[30vh] space-y-3 overflow-y-auto">
           {fields.map((field, index) => (
             <div
-              className="flex items-center gap-3 border-b py-2"
+              className="flex items-center gap-3 border-b py-1"
               key={field.id}
             >
               <strong>{field.title}</strong>
               <p className="ml-auto">
-                <span className="text-green-800">{field.price}</span>{' '}
-                <span className="text-muted-foreground">
-                  / {field.quantity}
-                </span>
+                <span className="text-green-800">{field.price}</span>/
+                <span className="text-muted-foreground">{field.quantity}</span>
               </p>
               <Button
+                onClick={() => remove(index)}
                 size="icon-sm"
                 type="button"
                 variant="destructive"
-                onClick={() => remove(index)}
               >
                 <Trash2Icon />
               </Button>

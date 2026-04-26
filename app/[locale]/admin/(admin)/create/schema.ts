@@ -5,6 +5,7 @@ export const ticketSchama = z.object({
   title: requiredString('title is required'),
   price: z.number().min(0, 'Price is required'),
   quantity: z.number().min(1, 'Quantity is required'),
+  hash: z.string(),
 });
 
 export const eventSchema = z
