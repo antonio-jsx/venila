@@ -21,7 +21,7 @@ export default async function EventsPage({
   return (
     <>
       <div className="space-y-6">
-        <NavTitle text={t('title')} subtitle={t('subtitle')} />
+        <NavTitle subtitle={t('subtitle')} text={t('title')} />
 
         <ListEvents page={page} />
       </div>

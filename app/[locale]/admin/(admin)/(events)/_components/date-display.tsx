@@ -11,7 +11,7 @@ export function DateDisplay({ date }: { date: string }) {
 
   return (
     <p className="text-center font-mono text-muted-foreground text-xs uppercase">
-      <span className="block font-bold text-2xl text-foreground">{day}</span>
+      <span className="block text-2xl">{day}</span>
       {month}
     </p>
   );
