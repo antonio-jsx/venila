@@ -7,8 +7,8 @@ import { Separator } from '@/components/ui/separator';
 export default function Layout({ children }: LayoutProps<'/[locale]/admin'>) {
   return (
     <>
-      <header className="fixed top-0 z-50 flex w-full flex-col items-center justify-center backdrop-blur">
-        <div className="relative flex h-12 w-full max-w-6xl items-center justify-between gap-3">
+      <header className="fixed top-0 z-50 w-full backdrop-blur">
+        <div className="relative mx-auto flex h-12 max-w-6xl items-center justify-between gap-3">
           <Brand path="/admin" />
 
           <Separator className="my-auto h-4" orientation="vertical" />
@@ -18,6 +18,7 @@ export default function Layout({ children }: LayoutProps<'/[locale]/admin'>) {
           <div className="flex shrink-0 items-center">
             <CreateLink />
           </div>
+
           <NavUser />
         </div>
       </header>

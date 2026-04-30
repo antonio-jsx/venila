@@ -1,8 +1,10 @@
 import { NavTitle } from '@/admin/_components/nav-title';
 import { ListEvents } from '@/admin/(events)/_components/list-events';
 import { removeEvent } from '@/admin/(events)/action';
+import { getEvents } from '@/admin/(events)/query';
 import { loadSearchParams } from '@/admin/(events)/search-params';
 import { Remove } from '@/components/remove';
+import { ChartColumnIcon } from 'lucide-react';
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
@@ -16,14 +18,25 @@ export default async function EventsPage({
 }: PageProps<'/[locale]/admin'>) {
   const tPromise = getTranslations('admin.events');
   const filterPromise = loadSearchParams(searchParams);
-  const [t, { page }] = await Promise.all([tPromise, filterPromise]);
+  const eventsPromise = filterPromise.then(({ page }) => getEvents({ page }));
+
+  const [t, { page }, events] = await Promise.all([
+    tPromise,
+    filterPromise,
+    eventsPromise,
+  ]);
 
   return (
     <>
       <div className="space-y-6">
-        <NavTitle subtitle={t('subtitle')} text={t('title')} />
+        <NavTitle subtitle={t('subtitle')} text={t('title')}>
+          <p className="flex items-center gap-1 rounded-2xl border px-3 py-1.5 text-muted-foreground text-sm">
+            <ChartColumnIcon className="size-4" />
+            {t('totalEvents', { total: events.pagination.total })}
+          </p>
+        </NavTitle>
 
-        <ListEvents page={page} />
+        <ListEvents actualPage={page} value={events} />
       </div>
 
       <Remove action={removeEvent} />

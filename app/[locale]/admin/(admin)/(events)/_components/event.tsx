@@ -27,16 +27,16 @@ export async function Event({ value }: { value: EventWithPriceRange }) {
       </div>
 
       <div className="flex flex-1 flex-col gap-4 px-6 py-4">
-        <div className="flex flex-col">
+        <div>
           <div className="flex items-center gap-2">
-            <p className="font-medium">{value.title}</p>
+            <p className="font-semibold text-lg leading-tight">{value.title}</p>
             <Options id={value.id} title={value.title} />
           </div>
 
-          <p className="font-mono text-muted-foreground text-sm">{price}</p>
+          <p className="font-mono text-muted-foreground">{price}</p>
         </div>
 
-        <div className="flex items-center gap-2 text-xs">
+        <div className="flex items-center gap-2 text-sm">
           <p className="flex items-center gap-0.5 font-mono text-muted-foreground">
             <ClockIcon size={16} strokeWidth={1.2} />
             {startTime} <span>-</span> {endTime}

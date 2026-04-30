@@ -1,14 +1,19 @@
 import { Event } from '@/admin/(events)/_components/event';
-import { getEvents } from '@/admin/(events)/query';
 import { EmptyCard } from '@/components/empty-card';
 import { Pagination } from '@/components/pagination';
+import type { EventWithPriceRange } from '@/types/admin';
+import type { Paginated } from '@/types/index';
 import { getTranslations } from 'next-intl/server';
 
-export async function ListEvents({ page }: { page: number }) {
-  const [t, { data, pagination }] = await Promise.all([
-    getTranslations('admin.events'),
-    getEvents({ page }),
-  ]);
+type Props = {
+  value: Paginated<EventWithPriceRange>;
+  actualPage: number;
+};
+
+export async function ListEvents({ actualPage, value }: Props) {
+  const t = await getTranslations('admin.events');
+  const data = value.data;
+  const page = value.pagination;
 
   if (data.length <= 0) {
     return <EmptyCard empty={t('empty')} title={t('empty_title')} />;
@@ -23,8 +28,8 @@ export async function ListEvents({ page }: { page: number }) {
       </div>
 
       <Pagination
-        actualPage={page}
-        pages={pagination.totalPages}
+        actualPage={actualPage}
+        pages={page.totalPages}
         path="/admin"
       />
     </>

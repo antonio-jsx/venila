@@ -57,6 +57,7 @@
     "events": {
       "title": "Events",
       "subtitle": "Create, edit, and control your events.",
+      "totalEvents": "Total events: {total}",
       "empty_title": "No events found",
       "empty": "You haven't created any events yet.",
       "search": "Search events...",
