@@ -4,27 +4,22 @@
     "remove": "Remove"
   },
   "home": {
-    "title": "Turn your event into a packed room.",
-    "subtitle": "No friction. No hassle. Go live in minutes and start selling today.",
-    "section_event": {
-      "title": "Full control",
-      "option_a": "Pricing, capacity, and rules — you decide.",
-      "option_b": "Dates, times, and location in seconds."
-    },
+    "title": "Create and sell your event from a single place",
+    "subtitle": "Set up tickets, receive payments, and manage access from one system",
     "section_feature": {
-      "title": "Built to move fast",
+      "title": "With us, organizing events is easy",
       "subtitle": "Less setup. More sales.",
       "ticketing": {
-        "title": "Get paid instantly",
-        "subtitle": "Fast payments. QR tickets. No redirects."
+        "title": "Instant payments",
+        "subtitle": "Receive payments via QR, link, or bank transfer."
       },
       "setup": {
-        "title": "Live in minutes",
-        "subtitle": "Set it up once. Publish and you're done."
+        "title": "Online in minutes",
+        "subtitle": "Create your event, set up tickets, and share it."
       },
       "confirmation": {
         "title": "Fully automated",
-        "subtitle": "Confirmations and tickets sent instantly."
+        "subtitle": "Send tickets by email and manage access in real time."
       }
     }
   },

@@ -4,27 +4,22 @@
     "remove": "Eliminar"
   },
   "home": {
-    "title": "Convierte tu evento en un lugar lleno de gente.",
-    "subtitle": "Sin fricción. Sin vueltas. Publica en minutos y empieza a vender hoy.",
-    "section_event": {
-      "title": "Control total",
-      "option_a": "Precios, cupos y reglas — tú decides.",
-      "option_b": "Fechas, horarios y ubicación en segundos."
-    },
+    "title": "Crea y vende tu evento desde un solo lugar",
+    "subtitle": "Configura entradas, recibe pagos y controla accesos desde un solo sistema",
     "section_feature": {
-      "title": "Hecho para moverse rápido",
+      "title": "Con nosotros, programar eventos es fácil",
       "subtitle": "Menos setup. Más ventas.",
       "ticketing": {
-        "title": "Cobras al instante",
-        "subtitle": "Pagos rápidos. Entradas con QR. Sin redirecciones."
+        "title": "Cobros al instante",
+        "subtitle": "Recibe pagos con QR, link o transferencia."
       },
       "setup": {
         "title": "Online en minutos",
-        "subtitle": "Configura una vez. Publica y listo."
+        "subtitle": "Crea tu evento, configura entradas y compártelo."
       },
       "confirmation": {
         "title": "Todo automático",
-        "subtitle": "Confirmaciones y tickets enviados al momento."
+        "subtitle": "Envía tickets por email y controla accesos en tiempo real."
       }
     }
   },
