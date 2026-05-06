@@ -1,9 +1,9 @@
-import type { TicketSchema } from '@/admin/create/schema';
+import { tickets } from '@/lib/db/schemas/tickets';
+import { relations } from 'drizzle-orm';
 import {
   boolean,
   date,
   integer,
-  jsonb,
   pgTable,
   text,
   time,
@@ -21,8 +21,11 @@ export const events = pgTable('events', {
   address: text(),
   theme: text(),
   slug: text().notNull(),
-  tickets: jsonb().$type<TicketSchema[]>(),
   isActive: boolean().notNull().default(true),
 });
+
+export const eventsRelations = relations(events, ({ many }) => ({
+  tickets: many(tickets),
+}));
 
 export type SelectEvents = typeof events.$inferSelect;

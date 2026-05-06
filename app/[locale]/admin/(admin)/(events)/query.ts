@@ -2,6 +2,7 @@ import 'server-only';
 
 import { db } from '@/lib/db';
 import { events } from '@/lib/db/schemas/events';
+import { tickets } from '@/lib/db/schemas/tickets';
 import type { Paginated } from '@/types';
 import type { EventWithPriceRange } from '@/types/admin';
 import { asc, eq, getTableColumns, sql } from 'drizzle-orm';
@@ -17,18 +18,18 @@ export async function getEvents({
 
   const where = eq(events.isActive, true);
 
-  return db.transaction(async (tx) => {
-    const { tickets, ...eventColumns } = getTableColumns(events);
+  const { ...eventColumns } = getTableColumns(events);
 
+  return db.transaction(async (tx) => {
     const data = await tx
       .select({
         ...eventColumns,
-        minPrice: sql<number | null>`min((ticket->>'price')::int)`,
-        maxPrice: sql<number | null>`max((ticket->>'price')::int)`,
-        capacity: sql<number | null>`sum((ticket->>'quantity')::int)`,
+        minPrice: sql<number>`coalesce(min(${tickets.price}), 0)`,
+        maxPrice: sql<number>`coalesce(max(${tickets.price}), 0)`,
+        capacity: sql<number>`coalesce(sum(${tickets.quantity}), 0)`,
       })
       .from(events)
-      .leftJoin(sql`jsonb_array_elements(${tickets}) as ticket`, sql`true`)
+      .leftJoin(tickets, eq(tickets.eventId, events.id))
       .where(where)
       .groupBy(events.id)
       .orderBy(asc(events.id))

@@ -24,7 +24,6 @@ import {
 } from '@/components/ui/input-group';
 import { Separator } from '@/components/ui/separator';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { generateRandomString } from 'better-auth/crypto';
 import { DollarSignIcon, Trash2Icon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useId } from 'react';
@@ -42,7 +41,6 @@ export function AddTicket({ children }: { children?: React.ReactNode }) {
   const form = useForm({
     resolver: zodResolver(ticketSchama),
     defaultValues: {
-      hash: '',
       title: '',
       price: 0,
       quantity: 0,
@@ -52,9 +50,7 @@ export function AddTicket({ children }: { children?: React.ReactNode }) {
   const { handleSubmit, control, reset } = form;
 
   const onSubmit = handleSubmit((data: TicketSchema) => {
-    const hash = generateRandomString(8);
-    const add = { ...data, hash };
-    append(add);
+    append(data);
     reset();
   });
 

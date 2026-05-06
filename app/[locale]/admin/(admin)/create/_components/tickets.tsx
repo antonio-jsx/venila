@@ -32,10 +32,10 @@ export function Tickets() {
   return (
     <AddTicket>
       <Item
-        className="border-input border-dashed hover:cursor-pointer"
+        className="gap-2 rounded-lg p-2 hover:cursor-pointer"
         variant="outline"
       >
-        <ItemMedia variant="icon">
+        <ItemMedia className="rounded-full bg-accent p-2" variant="icon">
           <TicketsIcon />
         </ItemMedia>
         <ItemContent>
