@@ -4,8 +4,14 @@
     "remove": "Remove"
   },
   "home": {
-    "title": "Create and sell your event from a single place",
-    "subtitle": "Set up tickets, receive payments, and manage access from one system",
+    "title": "Create, organize, and sell tickets for your events",
+    "subtitle": "Plan, publish, and manage your events from a single platform. Sell tickets, control availability, and deliver a seamless experience to your attendees.",
+    "badge": "Event management platform",
+    "check": {
+      "create": "Event creation",
+      "sell": "Sales and management",
+      "available": "Attendance control"
+    },
     "section_feature": {
       "title": "With us, organizing events is easy",
       "subtitle": "Less setup. More sales.",
@@ -42,6 +48,17 @@
       "title": "Event not found",
       "description": "Sorry, the event you are looking for does not exist or has been moved."
     }
+  },
+  "checkout": {
+    "back": "Back to event",
+    "title": "Select tickets",
+    "total": "Total: ({total} tickets)",
+    "purchase": "Purchase summary",
+    "pay": "Pay now",
+    "contact": "Contact details",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone"
   },
   "admin": {
     "menu": {

@@ -4,8 +4,14 @@
     "remove": "Eliminar"
   },
   "home": {
-    "title": "Crea y vende tu evento desde un solo lugar",
-    "subtitle": "Configura entradas, recibe pagos y controla accesos desde un solo sistema",
+    "title": "Crea, organiza y vende las entradas de tus eventos",
+    "subtitle": "Planifica, publica y administra tus eventos desde un solo lugar. Vende entradas, controla la disponibilidad y ofrece una experiencia fluida a tus asistentes.",
+    "badge": "Plataforma de gestión de eventos",
+    "check": {
+      "create": "Creación de eventos",
+      "sell": "Venta y gestión",
+      "available": "Control de asistencia"
+    },
     "section_feature": {
       "title": "Con nosotros, programar eventos es fácil",
       "subtitle": "Menos setup. Más ventas.",
@@ -42,6 +48,17 @@
       "title": "Evento no encontrado",
       "description": "Lo sentimos, el evento que estás buscando no existe o ha sido movido."
     }
+  },
+  "checkout": {
+    "back": "Volver al evento",
+    "title": "Selecciona tus entradas",
+    "total": "Total: ({total} entradas)",
+    "purchase": "Resumen de la compra",
+    "pay": "Pagar ahora",
+    "contact": "Detalles de contacto",
+    "name": "Nombre",
+    "email": "Email",
+    "phone": "Teléfono"
   },
   "admin": {
     "menu": {

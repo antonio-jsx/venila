@@ -31,8 +31,8 @@ export async function ItemDate({
   const dateTime = format.dateTime(combineDateAndTime(date, time), configTime);
 
   return (
-    <Item className="w-fit items-start">
-      <ItemMedia variant="icon">
+    <Item className="w-fit items-start gap-2.5 p-0">
+      <ItemMedia className="rounded-lg bg-primary/20 p-2" variant="icon">
         {variant === 'clock' ? <ClockCheckIcon /> : <CalendarIcon />}
       </ItemMedia>
       <ItemContent>

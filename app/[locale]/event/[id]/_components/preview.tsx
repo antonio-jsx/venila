@@ -7,8 +7,10 @@ import {
   ItemContent,
   ItemDescription,
   ItemGroup,
+  ItemSeparator,
   ItemTitle,
 } from '@/components/ui/item';
+import { Link } from '@/lib/i18n/navigation';
 import { extractIdFromSlug } from '@/lib/utils';
 import { ArrowRightIcon } from 'lucide-react';
 import { notFound } from 'next/navigation';
@@ -38,23 +40,23 @@ export async function Preview({ id }: { id: string }) {
         } as React.CSSProperties
       }
     >
-      <section className="grid grid-cols-[1fr_260px] items-start gap-4">
+      <section className="grid grid-cols-[1fr_260px] items-start gap-6">
         <div className="space-y-4">
-          <h1 className="font-semibold text-5xl leading-[1.1] tracking-tight">
+          <h1 className="font-semibold text-4xl italic leading-[1.1] tracking-tight">
             {event.title}
           </h1>
 
-          <ItemGroup className="w-fit flex-row items-center justify-start gap-4">
+          <ItemGroup className="w-fit flex-row items-center justify-center gap-4">
             <ItemDate
-              variant="calendar"
               date={event.startDate}
               time={event.startTime}
+              variant="calendar"
             />
-            <div className="h-5 w-px bg-input" />
+            <ItemSeparator className="my-auto h-6" orientation="vertical" />
             <ItemDate
-              variant="clock"
               date={event.endDate}
               time={event.endTime}
+              variant="clock"
             />
           </ItemGroup>
 
@@ -65,17 +67,17 @@ export async function Preview({ id }: { id: string }) {
           />
         </div>
 
-        <Card>
+        <Card size="sm">
           <CardHeader>
             <CardTitle>{t('title')}</CardTitle>
           </CardHeader>
           <CardContent>
-            <ItemGroup className="gap-1.5">
+            <ItemGroup>
               {event.tickets?.map((ticket) => (
                 <Item
-                  variant="outline"
-                  className="rounded-none border-x-0 border-t-0 px-0"
+                  className="rounded-none border-x-0 border-t-0 px-0 pb-2"
                   key={ticket.title}
+                  variant="outline"
                 >
                   <ItemContent>
                     <ItemTitle>{ticket.title}</ItemTitle>
@@ -89,8 +91,10 @@ export async function Preview({ id }: { id: string }) {
               ))}
             </ItemGroup>
 
-            <Button className="mt-3 w-full">
-              {t('button')} <ArrowRightIcon />
+            <Button asChild className="mt-3 w-full">
+              <Link href={`/event/${rawId}/checkout`}>
+                {t('button')} <ArrowRightIcon />
+              </Link>
             </Button>
           </CardContent>
         </Card>
