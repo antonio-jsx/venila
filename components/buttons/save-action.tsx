@@ -18,7 +18,7 @@ export function SaveAction({
   ...props
 }: ButtonSendProps) {
   return (
-    <Button type="submit" size={size} disabled={state || disabled} {...props}>
+    <Button disabled={state || disabled} size={size} type="submit" {...props}>
       {state && <Spinner />}
       {text || children}
     </Button>

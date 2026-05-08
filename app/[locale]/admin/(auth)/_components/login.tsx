@@ -1,7 +1,7 @@
 'use client';
 
 import { formLogin, type LoginSchema } from '@/app/admin/(auth)/schema';
-import { ButtonSend } from '@/components/button-send';
+import { SaveAction } from '@/components/buttons/save-action';
 import { FormField } from '@/components/form-field';
 import { Input } from '@/components/ui/input';
 import { authClient } from '@/lib/auth/client';
@@ -33,19 +33,19 @@ export function Login() {
     <form className="space-y-2.5" onSubmit={form.handleSubmit(onSubmit)}>
       <FormField
         control={form.control}
-        name="email"
         label={t('form.email')}
+        name="email"
         render={(field) => <Input {...field} />}
       />
 
       <FormField
         control={form.control}
-        name="password"
         label={t('form.password')}
+        name="password"
         render={(field) => <Input {...field} type="password" />}
       />
 
-      <ButtonSend state={form.formState.isSubmitting}>{t('button')}</ButtonSend>
+      <SaveAction state={form.formState.isSubmitting} text={t('button')} />
     </form>
   );
 }

@@ -12,7 +12,7 @@ export default function ToggleTheme() {
   };
 
   return (
-    <Button size="icon-sm" variant="ghost" onClick={toggleTheme}>
+    <Button onClick={toggleTheme} size="icon-sm" variant="ghost">
       {theme === 'light' ? <MoonIcon /> : <SunIcon />}
     </Button>
   );

@@ -30,7 +30,7 @@ export function SelectDate({ value, onChange }: SelectDateProps) {
     <Field className="w-fit">
       <Popover>
         <PopoverTrigger asChild>
-          <Button className="justify-start border-0 border-input bg-input/50 font-normal text-foreground hover:bg-input/50">
+          <Button className="justify-start border border-transparent bg-input/50 font-normal text-foreground hover:bg-input/50 data-open:border-ring data-open:ring-3 data-open:ring-ring/30">
             <CalendarIcon />
             {date ? format(date, 'LLL dd, y') : <span>{t('pickDate')}</span>}
           </Button>
@@ -41,13 +41,13 @@ export function SelectDate({ value, onChange }: SelectDateProps) {
           className="w-auto p-0 [--spacing:0.20rem]"
         >
           <Calendar
+            disabled={{ before: tomorrow }}
             mode="single"
-            selected={date}
             onSelect={(selectedDate) => {
               if (!selectedDate) return;
               onChange?.(format(selectedDate, 'yyyy-MM-dd'));
             }}
-            disabled={{ before: tomorrow }}
+            selected={date}
           />
         </PopoverContent>
       </Popover>

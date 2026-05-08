@@ -48,22 +48,22 @@ export function NavUser() {
     <DropdownMenu>
       <DropdownMenuTrigger>
         <Avatar className="size-7">
-          <AvatarImage src={data.user.image ?? ''} alt={data.user.name} />
+          <AvatarImage alt={data.user.name} src={data.user.image ?? ''} />
           <AvatarFallback className="border p-2 text-xs">
             {getInitials(data.user.name)}
           </AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
       <DropdownMenuContent
+        align="end"
         className="min-w-56 rounded-lg"
         side="bottom"
-        align="end"
         sideOffset={4}
       >
         <DropdownMenuLabel className="p-0 font-normal">
           <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
             <Avatar>
-              <AvatarImage src={data.user.image ?? ''} alt={data.user.name} />
+              <AvatarImage alt={data.user.name} src={data.user.image ?? ''} />
               <AvatarFallback>{getInitials(data.user.name)}</AvatarFallback>
             </Avatar>
             <div className="grid flex-1 text-left leading-tight">

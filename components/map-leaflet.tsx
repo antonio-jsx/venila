@@ -51,11 +51,11 @@ export default function MapLeaflet({
 
   return (
     <MapContainer
-      className="rounded-md"
       center={center}
-      zoom={zoom}
-      style={{ height }}
+      className="rounded-md"
       scrollWheelZoom={true}
+      style={{ height }}
+      zoom={zoom}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -72,8 +72,6 @@ export default function MapLeaflet({
 
       {allMarkers.map((pos, idx) => (
         <Marker
-          key={idx}
-          position={pos}
           draggable={draggable}
           eventHandlers={
             draggable
@@ -86,6 +84,8 @@ export default function MapLeaflet({
                 }
               : undefined
           }
+          key={idx}
+          position={pos}
         />
       ))}
     </MapContainer>

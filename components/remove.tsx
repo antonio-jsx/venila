@@ -28,7 +28,7 @@ export function Remove({ action }: { action: InferRemoveEvent }) {
   };
 
   return (
-    <AlertDialog open={modal} onOpenChange={closeModal}>
+    <AlertDialog onOpenChange={closeModal} open={modal}>
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>{t('title', { name: title })}</AlertDialogTitle>
