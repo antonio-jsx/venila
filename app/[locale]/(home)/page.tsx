@@ -30,10 +30,10 @@ export default async function Home() {
 
   return (
     <section>
-      <h3 className="text-center font-bold text-3xl">
-        {t('section_feature.title')}
-      </h3>
-      <div className="container p-8">
+      <div className="container">
+        <h3 className="mb-3 text-muted-foreground text-sm uppercase">
+          {t('section_feature.title')}
+        </h3>
         <div className="grid grid-cols-3 gap-4">
           {features.map((feature) => (
             <Card key={feature.title} size="sm">
