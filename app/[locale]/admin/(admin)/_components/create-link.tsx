@@ -14,8 +14,8 @@ export function CreateLink() {
   return (
     <Link
       className={cn(
-        'flex h-6.5 items-center justify-center gap-1 rounded-full px-3 text-muted-foreground text-sm hover:text-foreground',
-        isActive && 'bg-input text-foreground'
+        'flex h-6.5 items-center justify-center gap-1 text-sm hover:text-primary',
+        isActive && 'hidden'
       )}
       href="/admin/create"
     >
