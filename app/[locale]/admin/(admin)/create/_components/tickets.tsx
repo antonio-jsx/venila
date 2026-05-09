@@ -32,7 +32,7 @@ export function Tickets() {
   return (
     <AddTicket>
       <Item
-        className="gap-2 rounded-lg p-2 hover:cursor-pointer"
+        className="gap-2 rounded-3xl bg-card hover:cursor-pointer"
         variant="outline"
       >
         <ItemMedia className="rounded-full bg-accent p-2" variant="icon">

@@ -1,11 +1,23 @@
 import { requiredString } from '@/lib/utils';
 import * as z from 'zod/v4';
 
-export const ticketSchama = z.object({
-  title: requiredString('title is required'),
-  price: z.number().min(0, 'Price is required'),
-  quantity: z.number().min(1, 'Quantity is required'),
-});
+export const ticketSchama = z
+  .object({
+    title: requiredString('title is required'),
+    price: z.number().min(0, 'Price is required'),
+    quantity: z.number().min(1, 'Quantity is required'),
+    setmax: z.boolean().optional().default(false),
+    max: z.number().optional().default(0),
+  })
+  .superRefine((data, ctx) => {
+    if (data.setmax && data.max <= 0) {
+      ctx.addIssue({
+        path: ['max'],
+        message: 'Max value is required when "Set Max" is checked',
+        code: 'custom',
+      });
+    }
+  });
 
 export const eventSchema = z
   .object({

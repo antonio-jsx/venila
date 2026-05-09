@@ -9,7 +9,6 @@ import { FormField } from '@/components/form-field';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogFooter,
   DialogHeader,
@@ -23,6 +22,7 @@ import {
   InputGroupInput,
 } from '@/components/ui/input-group';
 import { Separator } from '@/components/ui/separator';
+import { Switch } from '@/components/ui/switch';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { DollarSignIcon, Trash2Icon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
@@ -44,10 +44,14 @@ export function AddTicket({ children }: { children?: React.ReactNode }) {
       title: '',
       price: 0,
       quantity: 0,
+      setmax: false,
+      max: 0,
     },
   });
 
-  const { handleSubmit, control, reset } = form;
+  const { handleSubmit, control, reset, watch } = form;
+
+  const isMaxEnabled = watch('setmax');
 
   const onSubmit = handleSubmit((data: TicketSchema) => {
     append(data);
@@ -61,10 +65,7 @@ export function AddTicket({ children }: { children?: React.ReactNode }) {
       }}
     >
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent
-        className="w-sm [--spacing:0.25rem]"
-        showCloseButton={false}
-      >
+      <DialogContent>
         <DialogHeader>
           <DialogTitle> {t('title')}</DialogTitle>
         </DialogHeader>
@@ -110,6 +111,38 @@ export function AddTicket({ children }: { children?: React.ReactNode }) {
               )}
             />
           </div>
+
+          <FormField
+            control={control}
+            name="setmax"
+            render={(field) => (
+              <div className="flex items-center gap-2">
+                <Switch
+                  checked={field.value}
+                  id="setmax"
+                  onCheckedChange={field.onChange}
+                />
+                <label className="hover:text-primary" htmlFor="setmax">
+                  {t('setmax')}
+                </label>
+              </div>
+            )}
+          />
+
+          {isMaxEnabled && (
+            <FormField
+              control={control}
+              name="max"
+              render={(field) => (
+                <Input
+                  {...field}
+                  min={0}
+                  onChange={(e) => field.onChange(Number(e.target.value))}
+                  type="number"
+                />
+              )}
+            />
+          )}
         </form>
 
         <Separator />
@@ -138,9 +171,6 @@ export function AddTicket({ children }: { children?: React.ReactNode }) {
         </div>
 
         <DialogFooter>
-          <DialogClose asChild>
-            <Button variant="outline">{t('apply')}</Button>
-          </DialogClose>
           <Button form={formId} type="submit">
             {t('add')}
           </Button>

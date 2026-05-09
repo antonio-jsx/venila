@@ -99,11 +99,11 @@
         "ticket": {
           "title": "Ticket price",
           "add": "Add ticket",
-          "apply": "Apply",
           "empty": "There are no tickets",
           "name": "Ticket name",
           "price": "Price",
-          "quantity": "Available quantity"
+          "quantity": "Available quantity",
+          "setmax": "Set a maximum number of tickets per order"
         },
         "theme": {
           "title": "Appearance",

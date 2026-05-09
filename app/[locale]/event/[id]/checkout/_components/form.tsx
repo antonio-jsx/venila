@@ -13,6 +13,7 @@ import {
   ItemDescription,
   ItemTitle,
 } from '@/components/ui/item';
+import type { SelectTickets } from '@/lib/db/schemas/tickets';
 import { Link } from '@/lib/i18n/navigation';
 import { QuantityField } from './quantity';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -26,13 +27,7 @@ interface Props {
   eventId: number;
   eventName: string;
   eventSlug: string;
-  tickets: {
-    id: number;
-    title: string;
-    price: string;
-    quantity: number;
-    sold: number;
-  }[];
+  tickets: SelectTickets[];
 }
 
 export function CheckoutForm({ eventId, eventSlug, tickets }: Props) {
@@ -97,7 +92,7 @@ export function CheckoutForm({ eventId, eventSlug, tickets }: Props) {
                     render={(field) => (
                       <QuantityField
                         field={field}
-                        max={ticket.quantity}
+                        max={ticket.setmax ? ticket.max : ticket.quantity}
                         min={0}
                       />
                     )}

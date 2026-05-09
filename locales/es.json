@@ -99,11 +99,11 @@
         "ticket": {
           "title": "Precio de la entrada",
           "add": "Agregar entrada",
-          "apply": "Aplicar",
           "empty": "No hay entradas",
           "name": "Nombre del ticket",
           "price": "Precio",
-          "quantity": "Cantidad disponible"
+          "quantity": "Cantidad disponible",
+          "setmax": "Establecer un máximo de entradas por orden"
         },
         "theme": {
           "title": "Apariencia",
