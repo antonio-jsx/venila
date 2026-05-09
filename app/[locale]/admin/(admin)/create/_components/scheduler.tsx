@@ -38,13 +38,13 @@ export function Scheduler() {
             control={control}
             name="startDate"
             render={(field) => (
-              <SelectDate value={field.value} onChange={field.onChange} />
+              <SelectDate onChange={field.onChange} value={field.value} />
             )}
           />
           <FormField
             control={control}
             name="startTime"
-            render={(field) => <Input type="time" step={1800} {...field} />}
+            render={(field) => <Input step={1800} type="time" {...field} />}
           />
         </div>
       </div>
@@ -56,13 +56,13 @@ export function Scheduler() {
             control={control}
             name="endDate"
             render={(field) => (
-              <SelectDate value={field.value} onChange={field.onChange} />
+              <SelectDate onChange={field.onChange} value={field.value} />
             )}
           />
           <FormField
             control={control}
             name="endTime"
-            render={(field) => <Input type="time" step={1800} {...field} />}
+            render={(field) => <Input step={1800} type="time" {...field} />}
           />
         </div>
       </div>

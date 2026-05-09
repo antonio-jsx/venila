@@ -58,15 +58,15 @@ export function Banner() {
 
             return (
               <button
-                key={i}
-                type="button"
-                onClick={() => updateTheme(preset.bg, preset.text)}
                 className="rounded-full p-[2px] transition"
+                key={i}
+                onClick={() => updateTheme(preset.bg, preset.text)}
                 style={{
                   border: isActive
                     ? `2px solid ${preset.bg}`
                     : '2px solid transparent',
                 }}
+                type="button"
               >
                 <span
                   className="block size-4.5 rounded-full"
@@ -80,8 +80,8 @@ export function Banner() {
         <Popover>
           <PopoverTrigger asChild>
             <Button
-              style={{ backgroundColor: bg, color: text }}
               size="icon-sm"
+              style={{ backgroundColor: bg, color: text }}
               variant="outline"
             >
               <PaletteIcon className="size-4" />
@@ -95,9 +95,9 @@ export function Banner() {
               </label>
               <input
                 className="m-0 ml-auto size-6"
+                onChange={(e) => updateTheme(e.target.value, text)}
                 type="color"
                 value={bg}
-                onChange={(e) => updateTheme(e.target.value, text)}
               />
             </div>
 
@@ -107,9 +107,9 @@ export function Banner() {
               </label>
               <input
                 className="m-0 ml-auto size-6"
+                onChange={(e) => updateTheme(bg, e.target.value)}
                 type="color"
                 value={text}
-                onChange={(e) => updateTheme(bg, e.target.value)}
               />
             </div>
           </PopoverContent>

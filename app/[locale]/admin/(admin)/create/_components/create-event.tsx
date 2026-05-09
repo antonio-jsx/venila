@@ -56,7 +56,7 @@ export function CreateEvent() {
     <FormProvider {...form}>
       <div className="grid grid-cols-[1fr_auto_260px] items-start gap-6">
         <div className="space-y-6">
-          <NavTitle text={t('title')} subtitle={t('subtitle')} />
+          <NavTitle subtitle={t('subtitle')} text={t('title')} />
 
           <form
             className="space-y-3"
@@ -65,8 +65,8 @@ export function CreateEvent() {
           >
             <FormField
               control={control}
-              name="title"
               label={t('name')}
+              name="title"
               render={(field) => (
                 <Input {...field} placeholder={t('ph_name')} />
               )}
