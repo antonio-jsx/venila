@@ -21,7 +21,7 @@ export async function ListEvents({ actualPage, value }: Props) {
 
   return (
     <>
-      <div className="flex flex-col gap-3">
+      <div className="mx-auto flex max-w-xl flex-col gap-3">
         {data.map((event) => (
           <Event key={event.id} value={event} />
         ))}

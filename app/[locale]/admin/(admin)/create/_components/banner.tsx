@@ -50,7 +50,7 @@ export function Banner() {
   };
 
   return (
-    <Item className="bg-card" variant="outline">
+    <Item className="rounded-3xl bg-card" variant="outline">
       <ItemHeader className="border-b pb-2">
         <div className="flex items-center gap-1">
           {PRESETS.map((preset, i) => {

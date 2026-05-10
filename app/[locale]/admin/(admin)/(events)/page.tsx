@@ -28,7 +28,7 @@ export default async function EventsPage({
 
   return (
     <>
-      <div className="mx-auto max-w-2xl space-y-6">
+      <div className="container space-y-6">
         <NavTitle subtitle={t('subtitle')} text={t('title')}>
           <p className="flex items-center gap-1 rounded-2xl border px-3 py-1.5 text-muted-foreground text-sm">
             <ChartColumnIcon className="size-4" />
