@@ -23,8 +23,8 @@ export const eventSchema = z
   .object({
     title: requiredString('Title is required'),
     description: z.string().trim().min(1, 'Description is required'),
-    theme: z.string().optional(),
-    address: z.string().optional(),
+    theme: z.string().nullable().optional(),
+    address: z.string().nullable().optional(),
     startDate: z.iso
       .date('Invalid date format')
       .trim()

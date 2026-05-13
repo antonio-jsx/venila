@@ -5,7 +5,7 @@ import { Banner } from '@/admin/create/_components/banner';
 import { Scheduler } from '@/admin/create/_components/scheduler';
 import { Tickets } from '@/admin/create/_components/tickets';
 import { addEvent } from '@/admin/create/action';
-import { eventDefaults, eventSchema } from '@/admin/create/schema';
+import { type EventSchema, eventSchema } from '@/admin/create/schema';
 import { SaveAction } from '@/components/buttons/save-action';
 import { FormField } from '@/components/form-field';
 import { Input } from '@/components/ui/input';
@@ -18,21 +18,28 @@ import { Suspense, useEffect, useId } from 'react';
 import { FormProvider } from 'react-hook-form';
 import { toast } from 'sonner';
 
+interface Props {
+  isEdit?: boolean;
+  values: EventSchema;
+}
+
 const Editor = dynamic(() => import('@/components/editor/tiptap'), {
   ssr: false,
 });
 
-export function CreateEvent() {
+export function CreateEvent({ isEdit, values }: Props) {
   const formId = useId();
 
   const pathname = usePathname();
 
   const t = useTranslations('admin.events.form');
 
-  const { form, action, handleSubmitWithAction, resetFormAndAction } =
-    useHookFormAction(addEvent, zodResolver(eventSchema), {
+  const { form, action, handleSubmitWithAction } = useHookFormAction(
+    addEvent,
+    zodResolver(eventSchema),
+    {
       formProps: {
-        defaultValues: eventDefaults,
+        defaultValues: values,
         mode: 'onChange',
         shouldUnregister: false,
       },
@@ -44,17 +51,18 @@ export function CreateEvent() {
           toast(t('fail'));
         },
       },
-    });
-  const { control } = form;
+    }
+  );
+  const { control, reset } = form;
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: <pathname is used as a navigation change trigger>
   useEffect(() => {
-    resetFormAndAction();
-  }, [pathname, resetFormAndAction]);
+    reset(values);
+  }, [pathname, reset]);
 
   return (
     <FormProvider {...form}>
-      <div className="grid grid-cols-[1fr_auto_260px] items-start gap-6">
+      <div className="grid grid-cols-[1fr_auto_260px] items-start gap-4">
         <div className="space-y-6">
           <NavTitle subtitle={t('subtitle')} text={t('title')} />
 
@@ -77,7 +85,7 @@ export function CreateEvent() {
             </Suspense>
             <div className="space-y-1">
               <p className="font-semibold text-sm">{t('describe')}</p>
-              <Editor />
+              <Editor value={values.description} />
             </div>
           </form>
         </div>
@@ -90,7 +98,7 @@ export function CreateEvent() {
           <SaveAction
             form={formId}
             state={action.isPending}
-            text={t('btn_send')}
+            text={isEdit ? t('btn_update') : t('btn_create')}
           />
         </div>
       </div>

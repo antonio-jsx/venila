@@ -7,6 +7,7 @@ import { tickets as ticketsDb } from '@/lib/db/schemas/tickets';
 import { adminClient } from '@/lib/safe-action';
 import { generateSlug } from '@/lib/utils';
 import { refresh } from 'next/cache';
+import * as z from 'zod/v4';
 
 export const addEvent = adminClient
   .metadata({ name: 'add-event' })
@@ -29,3 +30,9 @@ export const addEvent = adminClient
     });
     refresh();
   });
+
+export const updateEvent = adminClient
+  .metadata({ name: 'update-event' })
+  .bindArgsSchemas<[id: z.ZodNumber]>([z.number()])
+  .inputSchema(eventSchema)
+  .action(async ({ parsedInput }) => {});

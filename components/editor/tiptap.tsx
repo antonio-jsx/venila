@@ -10,7 +10,7 @@ import { EditorContent, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import { useFormContext } from 'react-hook-form';
 
-const Tiptap = () => {
+const Tiptap = ({ value = '' }: { value?: string }) => {
   const { setValue } = useFormContext<EventSchema>();
 
   const editor = useEditor({
@@ -22,7 +22,7 @@ const Tiptap = () => {
       }),
       Youtube.configure({ nocookie: true }),
     ],
-    content: '',
+    content: value,
     editorProps: {
       attributes: {
         class:

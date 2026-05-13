@@ -85,7 +85,8 @@
         "price": "Precio"
       },
       "form": {
-        "btn_send": "Publicar evento",
+        "btn_create": "Publicar evento",
+        "btn_update": "Actualizar evento",
         "title": "Crear evento",
         "subtitle": "Configura los detalles para tu próximo gran evento.",
         "name": "Nombre del evento",
