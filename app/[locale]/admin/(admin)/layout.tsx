@@ -23,7 +23,7 @@ export default function Layout({ children }: LayoutProps<'/[locale]/admin'>) {
         </div>
       </header>
 
-      <main className="container relative mt-12 space-y-5 py-6">
+      <main className="container relative mt-12 space-y-5 py-8">
         {children}
       </main>
     </>

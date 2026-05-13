@@ -30,7 +30,7 @@ export default async function EventsPage({
     <>
       <div className="container space-y-6">
         <NavTitle subtitle={t('subtitle')} text={t('title')}>
-          <p className="flex items-center gap-1 rounded-2xl border px-3 py-1.5 text-muted-foreground text-sm">
+          <p className="flex items-center gap-1 rounded-3xl border px-3 py-1.5 text-muted-foreground text-sm shadow-xs">
             <ChartColumnIcon className="size-4" />
             {t('totalEvents', { total: events.pagination.total })}
           </p>

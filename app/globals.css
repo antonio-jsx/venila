@@ -117,7 +117,7 @@
   --foreground: oklch(0.9090 0.0108 286.1829);
   --card: oklch(0.2401 0.0209 284.7154);
   --card-foreground: oklch(0.9090 0.0108 286.1829);
-  --popover: oklch(0.2616 0.0223 284.7510);
+  --popover: oklch(0.2401 0.0209 284.7154);
   --popover-foreground: oklch(0.9090 0.0108 286.1829);
   --primary: oklch(0.6211 0.1393 283.0036);
   --primary-foreground: oklch(0.9090 0.0108 286.1829);
@@ -156,7 +156,7 @@
     max-width: 900px;
   }
   @media (width >= 1124px) {
-    max-width: 980px;
+    max-width: 960px;
   }
 }
 
