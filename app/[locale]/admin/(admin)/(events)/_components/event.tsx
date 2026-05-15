@@ -41,11 +41,15 @@ export async function Event({ value }: { value: EventWithPriceRange }) {
             <ClockIcon size={16} strokeWidth={1.2} />
             {startTime} <span>-</span> {endTime}
           </p>
-          <Separator className="my-auto h-4" orientation="vertical" />
-          <p className="flex items-center gap-0.5 rounded-3xl border px-2 py-1 font-mono text-muted-foreground">
-            <CalendarDaysIcon size={16} strokeWidth={1.2} />
-            {date}
-          </p>
+          {startDate !== value.endDate && (
+            <>
+              <Separator className="my-auto h-4" orientation="vertical" />
+              <p className="flex items-center gap-0.5 rounded-3xl border px-2 py-1 font-mono text-muted-foreground">
+                <CalendarDaysIcon size={16} strokeWidth={1.2} />
+                {date}
+              </p>
+            </>
+          )}
           <Separator className="my-auto h-4" orientation="vertical" />
           <p className="flex items-center gap-0.5 rounded-3xl border px-2 py-1 font-mono text-muted-foreground">
             <UsersIcon size={16} strokeWidth={1.2} /> 0/{value.capacity}
