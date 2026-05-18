@@ -31,7 +31,7 @@ export function Options({ id, title }: { id: number; title: string }) {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild className="ml-auto">
+      <DropdownMenuTrigger asChild>
         <Button size="icon-xs" variant="outline">
           <EllipsisVerticalIcon />
         </Button>
