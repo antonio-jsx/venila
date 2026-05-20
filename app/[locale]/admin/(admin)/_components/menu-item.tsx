@@ -17,8 +17,8 @@ export function MenuItem({ title, url }: Props) {
     <li>
       <Link
         className={cn(
-          'flex h-6.5 items-center justify-center rounded-xl px-2 text-muted-foreground text-sm hover:text-primary',
-          isActive && 'bg-input text-foreground'
+          'flex h-6.5 items-center justify-center font-medium text-muted-foreground text-sm hover:text-primary',
+          isActive && 'text-primary'
         )}
         href={`/admin${url}`}
       >

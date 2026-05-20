@@ -13,7 +13,7 @@ export function Menu() {
 
   return (
     <nav className="pointer-events-none mr-auto">
-      <ul className="pointer-events-auto flex h-full w-fit items-center gap-1">
+      <ul className="pointer-events-auto flex h-full w-fit items-center gap-3">
         {menu.map((item) => (
           <MenuItem key={item.url} title={item.title} url={item.url} />
         ))}
