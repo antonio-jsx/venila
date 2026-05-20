@@ -1,10 +1,7 @@
 import { InputGroupAddon, InputGroupButton } from '@/components/ui/input-group';
 import type { Editor } from '@tiptap/react';
-import { useEditorState } from '@tiptap/react';
+import { useTiptap, useTiptapState } from '@tiptap/react';
 import {
-  AlignCenterIcon,
-  AlignLeftIcon,
-  AlignRightIcon,
   BoldIcon,
   ItalicIcon,
   ListIcon,
@@ -20,10 +17,6 @@ type ToolbarButton = {
   stateKey: string;
   isActive: (editor: Editor) => boolean;
   onClick: (editor: Editor) => void;
-};
-
-type EditorToolbarProps = {
-  editor: Editor;
 };
 
 const toolbarButtons: ToolbarButton[] = [
@@ -70,27 +63,6 @@ const toolbarButtons: ToolbarButton[] = [
     onClick: (e) => e.chain().focus().toggleBlockquote().run(),
   },
   {
-    icon: <AlignLeftIcon />,
-    label: 'Align left',
-    stateKey: 'alignLeft',
-    isActive: (e) => e.isActive({ textAlign: 'left' }),
-    onClick: (e) => e.chain().focus().setTextAlign('left').run(),
-  },
-  {
-    icon: <AlignCenterIcon />,
-    label: 'Align center',
-    stateKey: 'alignCenter',
-    isActive: (e) => e.isActive({ textAlign: 'center' }),
-    onClick: (e) => e.chain().focus().setTextAlign('center').run(),
-  },
-  {
-    icon: <AlignRightIcon />,
-    label: 'Align right',
-    stateKey: 'alignRight',
-    isActive: (e) => e.isActive({ textAlign: 'right' }),
-    onClick: (e) => e.chain().focus().setTextAlign('right').run(),
-  },
-  {
     icon: <YoutubeIcon />,
     label: 'Youtube',
     stateKey: 'youtube',
@@ -104,17 +76,13 @@ const toolbarButtons: ToolbarButton[] = [
   },
 ];
 
-export const Toolbar = ({ editor }: EditorToolbarProps) => {
-  const activeStates = useEditorState({
-    editor,
-    selector: ({ editor }) =>
-      Object.fromEntries(
-        toolbarButtons.map((button) => [
-          button.stateKey,
-          button.isActive(editor),
-        ])
-      ),
-  }) as Record<string, boolean>;
+export const Toolbar = () => {
+  const { editor } = useTiptap();
+  const activeStates = useTiptapState(({ editor }) =>
+    Object.fromEntries(
+      toolbarButtons.map((button) => [button.stateKey, button.isActive(editor)])
+    )
+  );
 
   return (
     <InputGroupAddon

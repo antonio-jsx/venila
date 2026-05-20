@@ -7,12 +7,12 @@ import { Tickets } from '@/admin/create/_components/tickets';
 import { addEvent } from '@/admin/create/action';
 import { type EventSchema, eventSchema } from '@/admin/create/schema';
 import { SaveAction } from '@/components/buttons/save-action';
+import Tiptap from '@/components/editor/tiptap';
 import { FormField } from '@/components/form-field';
 import { Input } from '@/components/ui/input';
 import { usePathname } from '@/lib/i18n/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useHookFormAction } from '@next-safe-action/adapter-react-hook-form/hooks';
-import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 import { Suspense, useEffect, useId } from 'react';
 import { FormProvider } from 'react-hook-form';
@@ -22,10 +22,6 @@ interface Props {
   isEdit?: boolean;
   values: EventSchema;
 }
-
-const Editor = dynamic(() => import('@/components/editor/tiptap'), {
-  ssr: false,
-});
 
 export function CreateEvent({ isEdit, values }: Props) {
   const formId = useId();
@@ -85,7 +81,7 @@ export function CreateEvent({ isEdit, values }: Props) {
             </Suspense>
             <div className="space-y-1">
               <p className="font-semibold text-sm">{t('describe')}</p>
-              <Editor value={values.description} />
+              <Tiptap value={values.description} />
             </div>
           </form>
         </div>

@@ -3,23 +3,19 @@
 import type { EventSchema } from '@/admin/create/schema';
 import { Toolbar } from '@/components/editor/toolbar';
 import { InputGroup } from '@/components/ui/input-group';
-import TextAlign from '@tiptap/extension-text-align';
 import { TextStyleKit } from '@tiptap/extension-text-style';
 import Youtube from '@tiptap/extension-youtube';
-import { EditorContent, useEditor } from '@tiptap/react';
+import { Tiptap, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import { useFormContext } from 'react-hook-form';
 
-const Tiptap = ({ value = '' }: { value?: string }) => {
+const Editor = ({ value = '' }: { value?: string }) => {
   const { setValue } = useFormContext<EventSchema>();
 
   const editor = useEditor({
     extensions: [
       StarterKit,
       TextStyleKit,
-      TextAlign.configure({
-        types: ['heading', 'paragraph'],
-      }),
       Youtube.configure({ nocookie: true }),
     ],
     content: value,
@@ -32,19 +28,20 @@ const Tiptap = ({ value = '' }: { value?: string }) => {
     onUpdate({ editor }) {
       setValue('description', editor.getHTML());
     },
-    shouldRerenderOnTransaction: true,
     immediatelyRender: false,
   });
 
   if (!editor) return null;
 
   return (
-    <InputGroup>
-      <Toolbar editor={editor} />
+    <Tiptap editor={editor}>
+      <InputGroup>
+        <Toolbar />
 
-      <EditorContent className="w-full" editor={editor} />
-    </InputGroup>
+        <Tiptap.Content className="w-full" />
+      </InputGroup>
+    </Tiptap>
   );
 };
 
-export default Tiptap;
+export default Editor;
